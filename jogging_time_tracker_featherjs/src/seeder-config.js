@@ -6,7 +6,7 @@ module.exports = {
       path: 'timelogs',
       template: {
         date: () => new Date(),
-        distance: () => Math.random() * 1000,
+        distance: () => Math.random() * 10000,
         duration: () => Math.random() * 100,
       },
     },

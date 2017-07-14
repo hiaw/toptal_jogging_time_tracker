@@ -5,15 +5,27 @@ import _ from 'lodash'
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
+    paddingHorizontal: 20,
+    paddingVertical: 5,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: 'black',
+  },
+  row: {
+    flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+  },
+  firstRow: {
+    justifyContent: 'space-between',
+  },
+  secondRow: {
+    justifyContent: 'flex-start',
   },
   welcome: {
     fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  },
+  duration: {
+    fontSize: 20,
+    marginLeft: 50,
   },
 })
 
@@ -59,18 +71,22 @@ const TimeLogList = props => {
   const speedText = getSpeedText(distance, duration)
   return (
     <View style={styles.container}>
-      <Text style={styles.welcome}>
-        {dateText}
-      </Text>
-      <Text style={styles.welcome}>
-        {distanceText}
-      </Text>
-      <Text style={styles.welcome}>
-        {durationText}
-      </Text>
-      <Text style={styles.welcome}>
-        {speedText}
-      </Text>
+      <View style={[styles.row, styles.firstRow]}>
+        <Text style={styles.welcome}>
+          {dateText}
+        </Text>
+        <Text style={styles.welcome}>
+          {speedText}
+        </Text>
+      </View>
+      <View style={[styles.row, styles.secondRow]}>
+        <Text style={styles.welcome}>
+          {distanceText}
+        </Text>
+        <Text style={styles.duration}>
+          {durationText}
+        </Text>
+      </View>
     </View>
   )
 }
