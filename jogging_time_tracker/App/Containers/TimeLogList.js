@@ -1,6 +1,7 @@
 import React from 'react'
 import { StyleSheet, FlatList, SectionList, Text, View } from 'react-native'
 import moment from 'moment'
+import _ from 'lodash'
 
 import TimeLogRow from '../Components/TimeLogRow.js'
 import WeeklyAverageRow from '../Components/WeeklyAverageRow.js'
@@ -13,16 +14,19 @@ const styles = StyleSheet.create({
   },
 })
 
-const genData = () => {
+const genData = startWeek => {
   const arr = []
   for (let i = 0; i < 10; i++) {
-    const day = Math.round(Math.random * 7)
-    const date = moment().subtract(day, 'days')
+    const day = Math.round(Math.random() * 7)
+    const seconds = Math.round(Math.random() * 60)
+    const date = moment(startWeek)
+      .subtract(day, 'days')
+      .subtract(seconds, 'seconds')
     const duration = Math.random() * 1000
     const distance = Math.random() * 10000
     arr.push({ date, duration, distance })
   }
-  return arr
+  return _.sortBy(arr, ['date'])
 }
 
 const renderHeader = ({ section }) =>
@@ -43,24 +47,19 @@ class TimeLogList extends React.Component {
   render() {
     const sections = [
       {
-        data: genData(),
+        data: genData(moment().startOf('ISOWeek')),
         title: 'test',
       },
     ]
     console.log(sections)
     return (
       <View style={styles.container}>
-        <FlatList data={genData()} renderItem={renderItem} />
         <WeeklyAverageRow
           date={new Date()}
           duration={3722.23}
           distance={5531.32423}
         />
-        <TimeLogRow
-          date={new Date()}
-          duration={3722.23}
-          distance={5531.32423}
-        />
+        <FlatList data={genData()} renderItem={renderItem} />
       </View>
     )
   }
