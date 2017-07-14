@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, FlatList, SectionList, Text, View } from 'react-native'
+import { StyleSheet, SectionList, View } from 'react-native'
 import moment from 'moment'
 import _ from 'lodash'
 
@@ -14,12 +14,13 @@ const styles = StyleSheet.create({
   },
 })
 
-const genData = startWeek => {
+const genData = startOfWeek => {
   const arr = []
-  for (let i = 0; i < 10; i++) {
+  const num = Math.round(Math.random() * 5) + 1
+  for (let i = 0; i < num; i++) {
     const day = Math.round(Math.random() * 7)
     const seconds = Math.round(Math.random() * 60)
-    const date = moment(startWeek)
+    const date = moment(startOfWeek)
       .subtract(day, 'days')
       .subtract(seconds, 'seconds')
     const duration = Math.random() * 1000
@@ -29,46 +30,52 @@ const genData = startWeek => {
   return _.sortBy(arr, ['date'])
 }
 
-const renderHeader = ({ section }) =>
-  <WeeklyAverageRow
-    date={new Date()}
-    duration={3722.23}
-    distance={5531.32423}
-  />
+const renderHeader = ({ section }) => {
+  const date = section.data[0].date
+  const duration = _.sumBy(section.data, 'duration')
+  const distance = _.sumBy(section.data, 'distance')
+  return (
+    <WeeklyAverageRow date={date} duration={duration} distance={distance} />
+  )
+}
 
 const renderItem = ({ item }) =>
   <TimeLogRow
+    key={item.distance}
     date={item.date}
     duration={item.duration}
     distance={item.distance}
   />
 
+const keyExtractor = item => item.distance
+
 class TimeLogList extends React.Component {
   render() {
+    const thisDate = moment().startOf('ISOWeek')
     const sections = [
       {
-        data: genData(moment().startOf('ISOWeek')),
+        data: genData(thisDate.subtract(1, 'weeks')),
+        title: 'test2',
+        key: 'test2',
+      },
+      {
+        data: genData(thisDate),
         title: 'test',
+        key: 'test',
       },
     ]
     console.log(sections)
     return (
       <View style={styles.container}>
-        <WeeklyAverageRow
-          date={new Date()}
-          duration={3722.23}
-          distance={5531.32423}
+        <SectionList
+          keyExtractor={keyExtractor}
+          renderSectionHeader={renderHeader}
+          renderItem={renderItem}
+          sections={sections}
         />
-        <FlatList data={genData()} renderItem={renderItem} />
       </View>
     )
   }
 }
 
 export default TimeLogList
-
-/* <SectionList
- *   renderHeader={renderHeader}
- *   renderItem={renderItem}
- *   section={sections}
- * />*/
