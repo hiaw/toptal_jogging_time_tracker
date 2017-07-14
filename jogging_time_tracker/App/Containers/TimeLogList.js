@@ -54,7 +54,7 @@ class TimeLogList extends React.Component {
     const thisDate = moment().startOf('ISOWeek')
     const sections = [
       {
-        data: genData(thisDate.subtract(1, 'weeks')),
+        data: genData(thisDate.subtract(7, 'days')),
         title: 'test2',
         key: 'test2',
       },
