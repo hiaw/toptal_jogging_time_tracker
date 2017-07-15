@@ -26,8 +26,8 @@ export default class Root extends Component {
     const socket = io('http://localhost:3030', options)
 
     this.app = feathers()
-      .configure(socketio(socket))
       .configure(hooks())
+      .configure(socketio(socket))
       // Use AsyncStorage to store our login token
       .configure(
         authentication({
