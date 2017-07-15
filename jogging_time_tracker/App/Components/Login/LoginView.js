@@ -7,18 +7,8 @@ import styles from './LoginView.style.js'
 /* import SelectUsersButton from './SelectUsersButton.js'*/
 import redirectAfterLogin from './RedirectAfterLogin.js'
 
-const LoginView = () => {
-  /* @computed get loadingText() {
-   *   return this.registering? 'Registering ...' : 'Logging in ...'
-   * }
-   * @computed get buttonText() {
-   *   return this.registering? 'Register' : 'Login'
-   * }
-   * @computed get alternateButtonText() {
-   *   return this.registering? 'Already Registered?' : 'Not yet registered?'
-   * }
-
-   * registerUser (email, password) {
+const LoginView = props => {
+  /* registerUser (email, password) {
    *   var userData = {email, password}
 
    *   this.props.app.service('users').create(userData).then((result) => {
@@ -62,21 +52,19 @@ const LoginView = () => {
    *   this.registering = false
    * }
 
-   * render () {*/
-  /* if (this.loading) {
-   *   return <Spinner visible textContent={this.loadingText}
-   *     textStyle={spinnerStyle} />
-   * } else {
-   *   return this.renderMain()
-   * }
-     }
+   * render () {
+   *   if (this.loading) {
+   *     return <Spinner visible textContent={this.loadingText}
+   *              textStyle={spinnerStyle} />
+   *   } else {
+   *     return this.renderMain()
+   *   }
+   * }*/
 
-     renderMain () {*/
+  const { alterRegistered, buttonText, alternateButtonText } = props
 
   const loginEmail = 'est'
   const loginPassword = 'test'
-  const buttonText = 'Register'
-  const alternateButtonText = 'Already Registered'
   const submit = () => {}
 
   return (
@@ -99,12 +87,7 @@ const LoginView = () => {
         secureTextEntry
       />
       <Button onPress={() => submit()} title={buttonText} />
-      <Button
-        onPress={() => {
-          this.registering = !this.registering
-        }}
-        title={alternateButtonText}
-      />
+      <Button onPress={alterRegistered} title={alternateButtonText} />
     </View>
   )
 }

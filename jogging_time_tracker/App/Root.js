@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 import { AsyncStorage } from 'react-native'
 import { Actions } from 'react-native-router-flux'
-/* import { StyleSheet, Text, View } from 'react-native'*/
+
+import { Provider } from 'react-redux'
+import { createStore, combineReducers } from 'redux'
+import { reducer as form } from 'redux-form'
 
 import feathers from 'feathers/client'
 import hooks from 'feathers-hooks'
@@ -11,6 +14,9 @@ import io from 'socket.io-client'
 
 import redirectAfterLogin from './Components/Login/RedirectAfterLogin.js'
 import Router from './Navigation/Router.js'
+
+const rootReducer = combineReducers({ form })
+const store = createStore(rootReducer)
 
 export default class Root extends Component {
   constructor() {
@@ -44,7 +50,11 @@ export default class Root extends Component {
   }
 
   render() {
-    return <Router app={this.app} />
+    return (
+      <Provider store={store}>
+        <Router app={this.app} />
+      </Provider>
+    )
   }
 }
 

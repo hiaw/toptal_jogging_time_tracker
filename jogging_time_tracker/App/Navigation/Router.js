@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Scene, Router } from 'react-native-router-flux'
 
 // Containers
-import LoginContainer from '../Components/Login/LoginView.js'
+import LoginContainer from '../Containers/LoginContainer.js'
 import TimeLogList from '../Containers/TimeLogList.js'
 
 /* import ExpensesList from '../Components/Expenses/ExpensesList.js'
