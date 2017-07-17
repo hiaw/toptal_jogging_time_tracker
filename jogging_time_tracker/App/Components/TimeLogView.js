@@ -4,7 +4,7 @@ import { Field } from 'redux-form'
 
 import { getSpeedText } from '../Helper/SpeedCalculator.js'
 
-import { required, number, minValue, maxValue } from '../Helper/Validators.js'
+import { required, number, minValue } from '../Helper/Validators.js'
 import FormFieldText from './Common/FormFieldText.js'
 import FormFieldDate from './Common/FormFieldDate.js'
 
@@ -22,6 +22,7 @@ const TimeLogView = props => {
     newEntry,
   } = props
 
+  console.log(valid)
   /* const speedText = getSpeedText(distance, duration)*/
   let submitButton = null
   if (editting || newEntry) {
@@ -34,9 +35,7 @@ const TimeLogView = props => {
     )
   }
 
-  let editButton = (
-    <Button disabled={!valid} onPress={alterEditting} title={buttonText} />
-  )
+  let editButton = <Button onPress={alterEditting} title={buttonText} />
   let deleteButton = null
   if (editting) {
     deleteButton = <Button onPress={() => deleteTimeLog(_id)} title="Delete" />
@@ -52,6 +51,7 @@ const TimeLogView = props => {
         component={FormFieldDate}
         name="date"
         title="Date"
+        maximumDate={new Date()}
         validate={[required]}
       />
       <Field
@@ -59,14 +59,14 @@ const TimeLogView = props => {
         name="distance"
         title="Distance"
         keyboardType="numeric"
-        validate={[required, number, minValue(0)]}
+        validate={[required, number, minValue(0.001)]}
       />
       <Field
         component={FormFieldText}
         name="duration"
         title="Duration"
         keyboardType="numeric"
-        validate={[required, number, minValue(0)]}
+        validate={[required, number, minValue(0.001)]}
       />
       {editButton}
       {submitButton}
