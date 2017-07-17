@@ -7,26 +7,17 @@ import TimeLogView from '../Components/TimeLogView.js'
 
 const TimeLogContainer = compose(
   withState('loading', 'setLoading', false),
-  withState('editting', 'setEditting', true),
+  withState('editting', 'setEditting', false),
+  withState('buttonText', 'setButtonText', 'Edit'),
   withHandlers({
     alterEditting: props => () => {
-      const {
-        editting,
-        setEditting,
-        setButtonText,
-        setLoadingText,
-        setAlternateButtonText,
-      } = props
+      const { editting, setEditting, setButtonText } = props
       if (editting) {
         setEditting(false)
-        setButtonText('Register')
-        setLoadingText('Registering ...')
-        setAlternateButtonText('Already editting?')
+        setButtonText('Edit')
       } else {
         setEditting(true)
-        setButtonText('TimeLog')
-        setLoadingText('Logging in ...')
-        setAlternateButtonText('Note yet editting?')
+        setButtonText('Cancel Edit')
       }
     },
     onDelete: props => id => {
@@ -59,6 +50,9 @@ const TimeLogContainer = compose(
     onSubmitFail: (errors, dispatch, submitError) => {
       console.log(submitError)
       console.log(errors)
+    },
+    initialValues: {
+      date: new Date(),
     },
   }),
 )(TimeLogView)
