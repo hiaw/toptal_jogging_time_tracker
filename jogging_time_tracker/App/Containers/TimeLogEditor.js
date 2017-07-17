@@ -7,6 +7,7 @@ import TimeLogView from '../Components/TimeLogView.js'
 
 const TimeLogContainer = compose(
   withState('loading', 'setLoading', false),
+  withState('newEntry', 'setNewEntry', true),
   withState('editting', 'setEditting', false),
   withState('buttonText', 'setButtonText', 'Edit'),
   withHandlers({
@@ -20,20 +21,39 @@ const TimeLogContainer = compose(
         setButtonText('Cancel Edit')
       }
     },
-    onDelete: props => id => {
+    deleteTimeLog: props => id => {
+      console.log(props)
+      console.log(id)
       console.log('should be deleting this ' + id)
     },
     onSubmit: props => values => {
+      console.log(values)
+      console.log(props)
       const { email, password } = values
-      const { editting, setLoading, timeLogUser, app } = props
+      const { newEntry, _id, setLoading, app } = props
+
       setLoading(true)
-      if (editting) {
-        timeLogUser(email, password)
+      if (newEntry) {
+        app
+          .service('timelogs')
+          .create({
+            date: new Date(),
+            duration: 50,
+            distance: 500,
+          })
+          .then(result => {
+            console.log(result)
+          })
+          .catch(err => {
+            console.log(err)
+            setLoading(false)
+            Alert.alert('Error', err.message)
+          })
       } else {
         var userData = { email, password }
         app
           .service('users')
-          .create(userData)
+          .update(_id, userData)
           .then(result => {
             timeLogUser(email, password)
           })

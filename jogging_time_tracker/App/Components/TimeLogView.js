@@ -10,19 +10,21 @@ import FormFieldDate from './Common/FormFieldDate.js'
 
 const TimeLogView = props => {
   const {
+    _id,
     buttonText,
     editting,
     alterEditting,
     handleSubmit,
     onSubmit,
     deleteTimeLog,
+    cancelEditing,
     valid,
+    newEntry,
   } = props
 
   /* const speedText = getSpeedText(distance, duration)*/
-  let deleteButton = null
   let submitButton = null
-  if (editting) {
+  if (editting || newEntry) {
     submitButton = (
       <Button
         disabled={!valid}
@@ -30,7 +32,18 @@ const TimeLogView = props => {
         title="Submit"
       />
     )
-    deleteButton = <Button onPress={deleteTimeLog} title="Delete" />
+  }
+
+  let editButton = (
+    <Button disabled={!valid} onPress={alterEditting} title={buttonText} />
+  )
+  let deleteButton = null
+  if (editting) {
+    deleteButton = <Button onPress={() => deleteTimeLog(_id)} title="Delete" />
+  }
+  if (newEntry) {
+    deleteButton = <Button onPress={cancelEditing} title="Cancel" />
+    editButton = null
   }
 
   return (
@@ -53,7 +66,7 @@ const TimeLogView = props => {
         title="Duration"
         validate={[required, minLength(2), maxLength(30)]}
       />
-      <Button disabled={!valid} onPress={alterEditting} title={buttonText} />
+      {editButton}
       {submitButton}
       {deleteButton}
     </View>
