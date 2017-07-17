@@ -1,3 +1,4 @@
+/* @flow*/
 import _ from 'lodash'
 
 const MINUTE_PER_HOUR = 3600
@@ -10,7 +11,7 @@ const padNumber = number => {
   return padded
 }
 
-export const getDistanceText = distance => {
+export const getDistanceText = (distance: number) => {
   const kms = _.round(distance / 1000, 2)
   const meters = _.round(distance, 1)
   let distanceText = `${meters} m`
@@ -18,7 +19,7 @@ export const getDistanceText = distance => {
   return distanceText
 }
 
-export const getDurationText = duration => {
+export const getDurationText = (duration: number) => {
   const hours = Math.floor(duration / MINUTE_PER_HOUR)
   const minutes = Math.floor(duration % MINUTE_PER_HOUR / 60)
   const seconds = _.round(duration % 60, 1)
@@ -26,7 +27,7 @@ export const getDurationText = duration => {
   return durationText
 }
 
-export const getSpeedText = (distance, duration) => {
+export const getSpeedText = (distance: number, duration: number) => {
   const kms = distance / 1000
   const hours = duration / MINUTE_PER_HOUR
   const speed = _.round(kms / hours, 1)

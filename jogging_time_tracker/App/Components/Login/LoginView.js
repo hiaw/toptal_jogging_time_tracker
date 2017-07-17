@@ -1,3 +1,4 @@
+/* @flow*/
 import React from 'react'
 import { View, Button } from 'react-native'
 import { Field } from 'redux-form'
@@ -14,7 +15,16 @@ import FormFieldText from '../Common/FormFieldText.js'
 
 import styles from './LoginView.style.js'
 
-const LoginView = props => {
+export type Props = {
+  handleSubmit: (any) => () => mixed,
+  onSubmit: () => mixed,
+  alterRegistered: () => mixed,
+  buttonText: string,
+  alternateButtonText: string,
+  valid: boolean,
+}
+
+const LoginView = (props: Props) => {
   /* render () {
    *   if (this.loading) {
    *     return <Spinner visible textContent={this.loadingText}

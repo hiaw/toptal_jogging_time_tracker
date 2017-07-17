@@ -1,3 +1,4 @@
+/* @flow*/
 import React from 'react'
 import { TouchableOpacity, Text, View } from 'react-native'
 import moment from 'moment'
@@ -9,7 +10,14 @@ import {
   getSpeedText,
 } from '../Helper/SpeedCalculator.js'
 
-const TimeLogList = props => {
+export type Props = {
+  date: string,
+  distance: number,
+  duration: number,
+  onPress: () => mixed,
+}
+
+const TimeLogList = (props: Props) => {
   const { date, distance, duration, onPress } = props
   const dateText = moment(date).format('DD/MM/YYYY')
   const distanceText = getDistanceText(distance)

@@ -1,3 +1,4 @@
+/* @flow*/
 import { compose, withHandlers, withState } from 'recompose'
 import { Alert } from 'react-native'
 import { reduxForm } from 'redux-form'

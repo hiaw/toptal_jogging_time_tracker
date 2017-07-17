@@ -16,13 +16,14 @@ const styles = {
 import type { Props } from './FormFieldText.js'
 
 export type NewProps = {
+  ...Props,
   datePickerVisible: boolean,
-  setDatePickerVisible: () => mixed,
+  setDatePickerVisible: (boolean) => mixed,
   editable: boolean,
   minimumDate: Date,
   maximumDate: Date,
   mode: 'time' | 'date',
-} & Props
+}
 
 const TimeRow = (props: NewProps) => {
   const {

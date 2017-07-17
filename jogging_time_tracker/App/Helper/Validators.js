@@ -1,26 +1,26 @@
 /* @flow*/
 
-export const required = value => (value ? undefined : 'Required')
+export const required = (value: string) => (value ? undefined : 'Required')
 
-export const maxLength = max => (value: string) =>
+export const maxLength = (max: number) => (value: string) =>
   value && value.length > max ? `Must be ${max} characters or less` : undefined
 
-export const minLength = min => (value: string) =>
+export const minLength = (min: number) => (value: string) =>
   value && value.length < min ? `Must be ${min} characters or more` : undefined
 
-export const number = value =>
+export const number = (value: number) =>
   value && isNaN(Number(value)) ? 'Must be a number' : undefined
 
-export const minValue = min => (value: number) =>
+export const minValue = (min: number) => (value: number) =>
   value && value < min ? `Must be at least ${min}` : undefined
 
-export const maxValue = max => value =>
+export const maxValue = (max: number) => (value: number) =>
   value && value > max ? `Must be less than ${max}` : undefined
 
-export const isInteger = value =>
+export const isInteger = (value: number) =>
   value && +value % 1 ? `Must be an integer` : undefined
 
-export const tooOld = value =>
+export const tooOld = (value: number) =>
   value && value > 65 ? 'You might be too old for this' : undefined
 
 export const email = (value: string) =>

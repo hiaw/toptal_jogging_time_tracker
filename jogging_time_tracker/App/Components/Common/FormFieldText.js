@@ -20,12 +20,14 @@ const styles = {
 }
 export type Props = {
   label: string,
+    labelStyle: any,
+    iconName: string,
   title?: string,
   input: {
-    onBlur: () => mixed,
-    onChange: () => mixed,
-    onFocus: () => mixed,
-    value: mixed,
+    onBlur: (any) => mixed,
+    onChange: (any) => mixed,
+    onFocus: (any) => mixed,
+    value: any,
   },
   meta: {
     active: boolean,
@@ -33,6 +35,7 @@ export type Props = {
     touched: boolean,
     error?: string,
   },
+    blurblur: (any) => mixed,
   disabled?: boolean,
 }
 
