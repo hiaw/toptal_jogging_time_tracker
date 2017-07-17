@@ -1,4 +1,5 @@
 const moment = require('moment')
+const _ = require('lodash')
 
 const genDate = () => {
   const day = Math.round(Math.random() * 30)
@@ -6,6 +7,9 @@ const genDate = () => {
   const date = moment().subtract(day, 'days').subtract(seconds, 'seconds')
   return date.toISOString()
 }
+
+const genDistance = () => _.round(Math.random() * 10000, 2)
+const genDuration = () => _.round(Math.random() * 1000, 2)
 
 module.exports = {
   delete: true,
@@ -15,8 +19,8 @@ module.exports = {
       path: 'timelogs',
       template: {
         date: genDate,
-        distance: () => Math.random() * 10000,
-        duration: () => Math.random() * 1000,
+        distance: genDistance,
+        duration: genDuration,
       },
     },
   ],
