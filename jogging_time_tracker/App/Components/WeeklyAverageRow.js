@@ -1,26 +1,25 @@
 import React from 'react'
 import { Text, View } from 'react-native'
-import moment from 'moment'
 
-import { getSpeedText } from '../Helper/SpeedCalculator.js'
+import { getDistanceText, getSpeedText } from '../Helper/SpeedCalculator.js'
 
 import styles from './Styles/WeeklyAverageRow.style.js'
 
-const TimeLogList = props => {
-  const { date, distance, duration } = props
-  const dateText = `Week ${moment(date).isoWeek()}, ${moment(date).year()}`
+const WeeklyAverageRow = props => {
+  const { distance, duration } = props
+  const distanceText = getDistanceText(distance)
   const speedText = getSpeedText(distance, duration)
 
   return (
     <View style={styles.container}>
       <Text style={styles.welcome}>
-        {dateText}
+        Total: {distanceText}
       </Text>
       <Text style={styles.welcome}>
-        {speedText}
+        Avg: {speedText}
       </Text>
     </View>
   )
 }
 
-export default TimeLogList
+export default WeeklyAverageRow

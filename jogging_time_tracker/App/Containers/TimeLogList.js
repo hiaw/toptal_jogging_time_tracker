@@ -6,6 +6,7 @@ import moment from 'moment'
 import _ from 'lodash'
 
 import TimeLogRow from '../Components/TimeLogRow.js'
+import WeeklyHeader from '../Components/WeeklyHeader.js'
 import WeeklyAverageRow from '../Components/WeeklyAverageRow.js'
 
 const styles = StyleSheet.create({
@@ -18,11 +19,13 @@ const styles = StyleSheet.create({
 
 const renderHeader = ({ section }) => {
   const date = section.data[0].date
+  return <WeeklyHeader date={date} />
+}
+
+const renderFooter = ({ section }) => {
   const duration = _.sumBy(section.data, 'duration')
   const distance = _.sumBy(section.data, 'distance')
-  return (
-    <WeeklyAverageRow date={date} duration={duration} distance={distance} />
-  )
+  return <WeeklyAverageRow duration={duration} distance={distance} />
 }
 
 const renderItem = ({ item }) =>
@@ -85,6 +88,7 @@ class TimeLogList extends React.Component {
         <SectionList
           keyExtractor={keyExtractor}
           renderSectionHeader={renderHeader}
+          renderSectionFooter={renderFooter}
           renderItem={renderItem}
           sections={sections}
         />

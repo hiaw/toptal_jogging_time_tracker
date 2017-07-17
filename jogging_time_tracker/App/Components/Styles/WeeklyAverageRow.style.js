@@ -4,13 +4,15 @@ export default StyleSheet.create({
   container: {
     flexDirection: 'row',
     paddingVertical: 10,
-    paddingLeft: 20,
-    paddingRight: 40,
+    paddingHorizontal: 20,
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: 'aliceblue',
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: 'black',
+  },
+  header: {
+    backgroundColor: 'cornsilk',
   },
   welcome: {
     fontSize: 20,
