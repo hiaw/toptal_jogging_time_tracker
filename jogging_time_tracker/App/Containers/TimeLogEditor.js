@@ -14,7 +14,6 @@ const TimeLogContainer = compose(
   mapProps(props => {
     if (!props.newEntry) {
       const { date, duration, distance } = props.item
-      console.log(props)
       return {
         ...props,
         initialValues: {
@@ -42,10 +41,13 @@ const TimeLogContainer = compose(
     cancelEditing: props => () => {
       Actions.pop()
     },
-    deleteTimeLog: props => id => {
-      console.log(props)
-      console.log(id)
-      console.log('should be deleting this ' + id)
+    deleteTimeLog: props => () => {
+      const { item: { _id }, app } = props
+      app.service('timelogs').remove(_id).then(result => {
+        if (result._id) {
+          Actions.pop()
+        }
+      })
     },
     onSubmit: props => values => {
       const { newEntry, item: { _id }, app } = props
@@ -61,12 +63,10 @@ const TimeLogContainer = compose(
           })
           .catch(catchError)
       } else {
-        console.log(_id)
         app
           .service('timelogs')
           .update(_id, values)
           .then(result => {
-            console.log(result)
             if (result._id) {
               Actions.pop()
             }

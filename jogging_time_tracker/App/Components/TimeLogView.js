@@ -10,7 +10,6 @@ import FormFieldDate from './Common/FormFieldDate.js'
 
 const TimeLogView = props => {
   const {
-    _id,
     buttonText,
     editting,
     alterEditting,
@@ -38,7 +37,7 @@ const TimeLogView = props => {
   let editButton = <Button onPress={alterEditting} title={buttonText} />
   let deleteButton = null
   if (editting) {
-    deleteButton = <Button onPress={() => deleteTimeLog(_id)} title="Delete" />
+    deleteButton = <Button onPress={deleteTimeLog} title="Delete" />
   }
   if (newEntry) {
     deleteButton = <Button onPress={cancelEditing} title="Cancel" />
