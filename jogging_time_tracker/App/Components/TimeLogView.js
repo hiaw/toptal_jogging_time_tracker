@@ -49,7 +49,7 @@ const TimeLogView = props => {
         component={FormFieldDate}
         name="date"
         title="Date"
-        editable={editting}
+        editable={editting || newEntry}
         maximumDate={new Date()}
         validate={[required]}
       />
