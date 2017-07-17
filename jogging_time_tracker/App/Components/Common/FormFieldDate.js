@@ -2,7 +2,7 @@
 import React from 'react'
 import { compose, withState } from 'recompose'
 import { View } from 'react-native'
-import { Button } from 'react-native-elements'
+import { FormLabel, Button } from 'react-native-elements'
 import moment from 'moment'
 import DateTimePicker from 'react-native-modal-datetime-picker'
 
@@ -29,6 +29,7 @@ const TimeRow = (props: NewProps) => {
     setDatePickerVisible,
     minimumDate,
     maximumDate,
+    title,
     mode,
     input,
   } = props
@@ -47,6 +48,9 @@ const TimeRow = (props: NewProps) => {
 
   return (
     <View>
+      <FormLabel>
+        {title}:
+      </FormLabel>
       <DateTimePicker
         mode={mode}
         date={input.value}

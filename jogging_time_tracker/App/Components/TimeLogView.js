@@ -44,7 +44,7 @@ const TimeLogView = props => {
   }
 
   return (
-    <View>
+    <View style={{ flex: 1, marginTop: 60, backgroundColor: '#F5FCFF' }}>
       <Field
         component={FormFieldDate}
         name="date"

@@ -18,23 +18,26 @@ export default class NavigationRouter extends Component {
   render() {
     return (
       <Router>
-        <Scene key="root">
-          <Scene
-            app={this.props.app}
-            key="login"
-            component={LoginContainer}
-            hideNavBar
-          />
-          <Scene
-            app={this.props.app}
-            key="timelogs"
-            title="Time Logs"
-            component={TimeLogList}
-            rightTitle="Plus"
-            onRight={() => Actions.timelog({ newEntry: true })}
-          />
-          <Scene app={this.props.app} key="timelog" component={TimeLogEditor} />
-        </Scene>
+        <Scene
+          app={this.props.app}
+          key="login"
+          component={LoginContainer}
+          hideNavBar
+        />
+        <Scene
+          app={this.props.app}
+          key="timelogs"
+          title="Time Logs"
+          component={TimeLogList}
+          rightTitle="Add"
+          onRight={() => Actions.timelog({ newEntry: true })}
+        />
+        <Scene
+          app={this.props.app}
+          key="timelog"
+          title="Time Log"
+          component={TimeLogEditor}
+        />
       </Router>
     )
   }
