@@ -3,6 +3,7 @@ import { Scene, Router } from 'react-native-router-flux'
 
 // Containers
 import LoginContainer from '../Containers/LoginContainer.js'
+import TimeLogEditor from '../Containers/TimeLogEditor.js'
 import TimeLogList from '../Containers/TimeLogList.js'
 
 /* import ExpensesList from '../Components/Expenses/ExpensesList.js'
@@ -26,10 +27,11 @@ export default class NavigationRouter extends Component {
           />
           <Scene
             app={this.props.app}
-            key="timeloglist"
+            key="timelogs"
             component={TimeLogList}
             hideNavBar
           />
+          <Scene app={this.props.app} key="timelog" component={TimeLogEditor} />
         </Scene>
       </Router>
     )

@@ -3,8 +3,8 @@
   "port": 3030,
   "public": "../public/",
   "paginate": {
-    "default": 10,
-    "max": 50
+    "default": 100,
+    "max": 500
   },
   "nedb": "../data",
   "authentication": {
@@ -23,7 +23,7 @@
       "subject": "anonymous",
       "issuer": "feathers",
       "algorithm": "HS256",
-      "expiresIn": "1d"
+      "expiresIn": "365d"
     },
     "local": {
       "entity": "user",

@@ -1,5 +1,7 @@
 import React from 'react'
 import { StyleSheet, SectionList, View } from 'react-native'
+import { Actions } from 'react-native-router-flux'
+import { compose, withState } from 'recompose'
 import moment from 'moment'
 import _ from 'lodash'
 
@@ -13,22 +15,6 @@ const styles = StyleSheet.create({
     borderTopColor: 'black',
   },
 })
-
-const genData = startOfWeek => {
-  const arr = []
-  const num = Math.round(Math.random() * 5) + 1
-  for (let i = 0; i < num; i++) {
-    const day = Math.round(Math.random() * 7)
-    const seconds = Math.round(Math.random() * 60)
-    const date = moment(startOfWeek)
-      .subtract(day, 'days')
-      .subtract(seconds, 'seconds')
-    const duration = Math.random() * 1000
-    const distance = Math.random() * 10000
-    arr.push({ date, duration, distance })
-  }
-  return _.sortBy(arr, ['date'])
-}
 
 const renderHeader = ({ section }) => {
   const date = section.data[0].date
@@ -45,26 +31,56 @@ const renderItem = ({ item }) =>
     date={item.date}
     duration={item.duration}
     distance={item.distance}
+    onPress={() => Actions.timelog({ item, title: `ID: ${item._id}` })}
   />
 
-const keyExtractor = item => item.distance
+const keyExtractor = item => item._id
 
 class TimeLogList extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.timelogService = props.app.service('timelogs')
+
+    this.updateList()
+
+    this.timelogService.on('created', timelog => {
+      this.updateList()
+    })
+    this.timelogService.on('removed', timelog => {
+      this.updateList()
+    })
+    this.timelogService.on('updated', timelog => {
+      this.updateList()
+    })
+    this.timelogService.on('patched', timelog => {
+      this.updateList()
+    })
+  }
+
+  updateList(q) {
+    const { setSection } = this.props
+    let decreasingDate = { $sort: { date: -1 } }
+    let newQ = _.merge(q, { query: decreasingDate })
+
+    this.timelogService.find(newQ).then(timelogs => {
+      console.log(timelogs)
+
+      const newTimelogs = timelogs.data.map(timelog => ({
+        ...timelog,
+        week: moment(timelog.date).isoWeek(),
+      }))
+      const sectionsObj = _.groupBy(newTimelogs, 'week')
+      const sections = Object.keys(sectionsObj).map(key => ({
+        key,
+        data: sectionsObj[key],
+      }))
+      setSection(sections)
+    })
+  }
+
   render() {
-    const thisDate = moment().startOf('ISOWeek')
-    const sections = [
-      {
-        data: genData(thisDate.subtract(7, 'days')),
-        title: 'test2',
-        key: 'test2',
-      },
-      {
-        data: genData(thisDate),
-        title: 'test',
-        key: 'test',
-      },
-    ]
-    console.log(sections)
+    const { sections } = this.props
     return (
       <View style={styles.container}>
         <SectionList
@@ -78,4 +94,4 @@ class TimeLogList extends React.Component {
   }
 }
 
-export default TimeLogList
+export default compose(withState('sections', 'setSection', []))(TimeLogList)
