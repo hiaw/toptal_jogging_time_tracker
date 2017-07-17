@@ -64,8 +64,6 @@ class TimeLogList extends React.Component {
     let newQ = _.merge(q, { query: decreasingDate })
 
     this.timelogService.find(newQ).then(timelogs => {
-      console.log(timelogs)
-
       const newTimelogs = timelogs.data.map(timelog => ({
         ...timelog,
         week: moment(timelog.date).isoWeek(),

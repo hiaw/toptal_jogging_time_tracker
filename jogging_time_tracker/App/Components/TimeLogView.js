@@ -1,36 +1,84 @@
 import React from 'react'
-import { TouchableOpacity, Text, View } from 'react-native'
-import moment from 'moment'
+import { Button, Text, View } from 'react-native'
+import { Field } from 'redux-form'
 
-import styles from './Styles/TimeLogRow.style.js'
-import {
-  getDistanceText,
-  getDurationText,
-  getSpeedText,
-} from '../Helper/SpeedCalculator.js'
+import { getSpeedText } from '../Helper/SpeedCalculator.js'
+
+import { required, number, minValue } from '../Helper/Validators.js'
+import FormFieldText from './Common/FormFieldText.js'
+import FormFieldDate from './Common/FormFieldDate.js'
 
 const TimeLogView = props => {
-  const { item: { date, distance, duration }, onPress } = props
-  const dateText = moment(date).format('DD/MM/YYYY')
-  const distanceText = getDistanceText(distance)
-  const durationText = getDurationText(duration)
-  const speedText = getSpeedText(distance, duration)
+  const {
+    buttonText,
+    editting,
+    alterEditting,
+    handleSubmit,
+    onSubmit,
+    deleteTimeLog,
+    cancelEditing,
+    valid,
+    newEntry,
+  } = props
+
+  console.log(valid)
+  /* const speedText = getSpeedText(distance, duration)*/
+  let submitButton = null
+  if (editting || newEntry) {
+    submitButton = (
+      <Button
+        disabled={!valid}
+        onPress={handleSubmit(onSubmit)}
+        title="Submit"
+      />
+    )
+  }
+
+  let editButton = <Button onPress={alterEditting} title={buttonText} />
+  let deleteButton = null
+  if (editting) {
+    deleteButton = <Button onPress={deleteTimeLog} title="Delete" />
+  }
+  if (newEntry) {
+    deleteButton = <Button onPress={cancelEditing} title="Cancel" />
+    editButton = null
+  }
+
   return (
     <View>
-      <Text style={styles.welcome}>
-        {dateText}
-      </Text>
-      <Text style={styles.welcome}>
-        {speedText}
-      </Text>
-      <Text style={styles.welcome}>
-        {distanceText}
-      </Text>
-      <Text style={styles.duration}>
-        {durationText}
-      </Text>
+      <Field
+        component={FormFieldDate}
+        name="date"
+        title="Date"
+        editable={editting}
+        maximumDate={new Date()}
+        validate={[required]}
+      />
+      <Field
+        component={FormFieldText}
+        name="distance"
+        title="Distance"
+        keyboardType="numeric"
+        editable={editting}
+        validate={[required, number, minValue(0.001)]}
+      />
+      <Field
+        component={FormFieldText}
+        name="duration"
+        title="Duration"
+        keyboardType="numeric"
+        editable={editting}
+        validate={[required, number, minValue(0.001)]}
+      />
+      {editButton}
+      {submitButton}
+      {deleteButton}
     </View>
   )
 }
 
 export default TimeLogView
+
+/* <Text style={styles.welcome}>
+ *   {speedText}
+ * </Text>*/

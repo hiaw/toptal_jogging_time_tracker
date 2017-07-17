@@ -1,56 +1,85 @@
-import { compose, withHandlers, withState } from 'recompose'
+import { compose, mapProps, withHandlers, withState } from 'recompose'
 import { Alert } from 'react-native'
 import { reduxForm } from 'redux-form'
 import { Actions } from 'react-native-router-flux'
 
 import TimeLogView from '../Components/TimeLogView.js'
 
+const catchError = err => {
+  console.log(err.message)
+  Alert.alert('Error', err.message)
+}
+
 const TimeLogContainer = compose(
-  withState('loading', 'setLoading', false),
-  withState('editting', 'setEditting', true),
+  mapProps(props => {
+    if (!props.newEntry) {
+      const { date, duration, distance } = props.item
+      return {
+        ...props,
+        initialValues: {
+          date: new Date(date),
+          duration: duration.toString(),
+          distance: distance.toString(),
+        },
+      }
+    }
+    return props
+  }),
+  withState('editting', 'setEditting', false),
+  withState('buttonText', 'setButtonText', 'Edit'),
   withHandlers({
     alterEditting: props => () => {
-      const {
-        editting,
-        setEditting,
-        setButtonText,
-        setLoadingText,
-        setAlternateButtonText,
-      } = props
+      const { editting, setEditting, setButtonText } = props
       if (editting) {
         setEditting(false)
-        setButtonText('Register')
-        setLoadingText('Registering ...')
-        setAlternateButtonText('Already editting?')
+        setButtonText('Edit')
       } else {
         setEditting(true)
-        setButtonText('TimeLog')
-        setLoadingText('Logging in ...')
-        setAlternateButtonText('Note yet editting?')
+        setButtonText('Cancel Edit')
       }
     },
-    onDelete: props => id => {
-      console.log('should be deleting this ' + id)
+    cancelEditing: props => () => {
+      Actions.pop()
+    },
+    deleteTimeLog: props => () => {
+      const { item: { _id }, app } = props
+      Alert.alert('Delete this time log?', 'Are you sure?', [
+        {
+          text: 'Yes',
+          onPress: () => {
+            app.service('timelogs').remove(_id).then(result => {
+              if (result._id) {
+                Actions.pop()
+              }
+            })
+          },
+        },
+        { text: 'Cancel', onPress: () => {}, style: 'cancel' },
+      ])
     },
     onSubmit: props => values => {
-      const { email, password } = values
-      const { editting, setLoading, timeLogUser, app } = props
-      setLoading(true)
-      if (editting) {
-        timeLogUser(email, password)
-      } else {
-        var userData = { email, password }
+      const { newEntry, item: { _id }, app } = props
+
+      if (newEntry) {
         app
-          .service('users')
-          .create(userData)
+          .service('timelogs')
+          .create(values)
           .then(result => {
-            timeLogUser(email, password)
+            if (result._id) {
+              Actions.pop()
+            }
           })
-          .catch(err => {
-            console.log(err)
-            setLoading(false)
-            Alert.alert('Error', err.message)
+          .catch(catchError)
+      } else {
+        app
+          .service('timelogs')
+          .update(_id, values)
+          .then(result => {
+            if (result._id) {
+              Actions.pop()
+            }
           })
+          .catch(catchError)
       }
     },
   }),
@@ -59,6 +88,9 @@ const TimeLogContainer = compose(
     onSubmitFail: (errors, dispatch, submitError) => {
       console.log(submitError)
       console.log(errors)
+    },
+    initialValues: {
+      date: new Date(),
     },
   }),
 )(TimeLogView)

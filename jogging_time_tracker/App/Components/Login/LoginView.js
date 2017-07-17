@@ -2,7 +2,12 @@ import React from 'react'
 import { View, Button } from 'react-native'
 import { Field } from 'redux-form'
 
-import { required, minLength, maxLength } from '../../Helper/Validators.js'
+import {
+  required,
+  email,
+  minLength,
+  maxLength,
+} from '../../Helper/Validators.js'
 
 /* import SelectUsersButton from './SelectUsersButton.js'*/
 import FormFieldText from '../Common/FormFieldText.js'
@@ -31,19 +36,16 @@ const LoginView = props => {
   return (
     <View style={styles.container}>
       <Field
-        labelStyle={styles.labeldesign}
-        iconName="cutlery"
         component={FormFieldText}
         name="email"
         title="EMAIL"
-        validate={[required, minLength(2), maxLength(30)]}
+        validate={[required, email, minLength(2), maxLength(30)]}
       />
       <Field
-        labelStyle={styles.labeldesign}
-        iconName="cutlery"
         component={FormFieldText}
         name="password"
         title="PASSWORD"
+        secureTextEntry
         validate={[required, minLength(2), maxLength(30)]}
       />
       <Button
