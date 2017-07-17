@@ -2,7 +2,7 @@
 import React from 'react'
 import { compose, withState } from 'recompose'
 import { View } from 'react-native'
-import { Button } from 'react-native-elements'
+import { FormLabel, Button } from 'react-native-elements'
 import moment from 'moment'
 import DateTimePicker from 'react-native-modal-datetime-picker'
 
@@ -18,6 +18,7 @@ import type { Props } from './FormFieldText.js'
 export type NewProps = {
   datePickerVisible: boolean,
   setDatePickerVisible: () => mixed,
+  editable: boolean,
   minimumDate: Date,
   maximumDate: Date,
   mode: 'time' | 'date',
@@ -27,8 +28,10 @@ const TimeRow = (props: NewProps) => {
   const {
     datePickerVisible,
     setDatePickerVisible,
+    editable,
     minimumDate,
     maximumDate,
+    title,
     mode,
     input,
   } = props
@@ -47,6 +50,9 @@ const TimeRow = (props: NewProps) => {
 
   return (
     <View>
+      <FormLabel>
+        {title}:
+      </FormLabel>
       <DateTimePicker
         mode={mode}
         date={input.value}
@@ -57,6 +63,7 @@ const TimeRow = (props: NewProps) => {
         onCancel={datePickerCancel}
       />
       <Button
+        disabled={!editable}
         textStyle={styles.button}
         backgroundColor="#ffffff"
         onPress={() => setDatePickerVisible(true)}

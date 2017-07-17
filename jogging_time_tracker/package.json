@@ -19,7 +19,7 @@
 		"react-native-image-picker": "^0.26.3",
 		"react-native-loading-spinner-overlay": "^0.5.1",
 		"react-native-modal-datetime-picker": "^4.8.0",
-		"react-native-router-flux": "^4.0.0-beta.8",
+		"react-native-router-flux": "3",
 		"react-native-vector-icons": "^4.2.0",
 		"react-redux": "^5.0.5",
 		"recompose": "^0.24.0",

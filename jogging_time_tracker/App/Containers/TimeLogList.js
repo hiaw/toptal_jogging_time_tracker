@@ -10,7 +10,7 @@ import WeeklyAverageRow from '../Components/WeeklyAverageRow.js'
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 20,
+    marginTop: 60,
     borderTopWidth: StyleSheet.hairlineWidth,
     borderTopColor: 'black',
   },
