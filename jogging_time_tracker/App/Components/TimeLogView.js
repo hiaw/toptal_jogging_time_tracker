@@ -21,7 +21,6 @@ const TimeLogView = props => {
     newEntry,
   } = props
 
-  console.log(valid)
   /* const speedText = getSpeedText(distance, duration)*/
   let submitButton = null
   if (editting || newEntry) {
@@ -59,7 +58,7 @@ const TimeLogView = props => {
         name="distance"
         title="Distance"
         keyboardType="numeric"
-        editable={editting}
+        editable={editting || newEntry}
         validate={[required, number, minValue(0.001)]}
       />
       <Field
@@ -67,7 +66,7 @@ const TimeLogView = props => {
         name="duration"
         title="Duration"
         keyboardType="numeric"
-        editable={editting}
+        editable={editting || newEntry}
         validate={[required, number, minValue(0.001)]}
       />
       {editButton}

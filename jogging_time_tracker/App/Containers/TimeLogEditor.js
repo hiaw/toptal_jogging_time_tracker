@@ -58,13 +58,14 @@ const TimeLogContainer = compose(
       ])
     },
     onSubmit: props => values => {
-      const { newEntry, item: { _id }, app } = props
+      const { newEntry, item, app } = props
 
       if (newEntry) {
         app
           .service('timelogs')
           .create(values)
           .then(result => {
+            console.log(result)
             if (result._id) {
               Actions.pop()
             }
@@ -73,7 +74,7 @@ const TimeLogContainer = compose(
       } else {
         app
           .service('timelogs')
-          .update(_id, values)
+          .update(item._id, values)
           .then(result => {
             if (result._id) {
               Actions.pop()

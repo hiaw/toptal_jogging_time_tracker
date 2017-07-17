@@ -31,7 +31,8 @@ const renderItem = ({ item }) =>
     date={item.date}
     duration={item.duration}
     distance={item.distance}
-    onPress={() => Actions.timelog({ item, title: `ID: ${item._id}` })}
+    onPress={() =>
+      Actions.timelog({ item, title: `ID: ${item._id}`, newEntry: false })}
   />
 
 const keyExtractor = item => item._id
