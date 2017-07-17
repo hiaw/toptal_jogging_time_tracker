@@ -58,13 +58,20 @@ const TimeLogContainer = compose(
       ])
     },
     onSubmit: props => values => {
-      const { newEntry, item: { _id }, app } = props
+      const { date, duration, distance } = values
+      const newValues = {
+        date,
+        duration: parseFloat(duration),
+        distance: parseFloat(distance),
+      }
+      const { newEntry, item, app } = props
 
       if (newEntry) {
         app
           .service('timelogs')
-          .create(values)
+          .create(newValues)
           .then(result => {
+            console.log(result)
             if (result._id) {
               Actions.pop()
             }
@@ -73,7 +80,7 @@ const TimeLogContainer = compose(
       } else {
         app
           .service('timelogs')
-          .update(_id, values)
+          .update(item._id, newValues)
           .then(result => {
             if (result._id) {
               Actions.pop()
