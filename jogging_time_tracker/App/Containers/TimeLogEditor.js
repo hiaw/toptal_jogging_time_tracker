@@ -1,4 +1,4 @@
-import { compose, withHandlers, withState } from 'recompose'
+import { compose, mapProps, withHandlers, withState } from 'recompose'
 import { Alert } from 'react-native'
 import { reduxForm } from 'redux-form'
 import { Actions } from 'react-native-router-flux'
@@ -6,14 +6,26 @@ import { Actions } from 'react-native-router-flux'
 import TimeLogView from '../Components/TimeLogView.js'
 
 const catchError = err => {
-  console.log(err)
-  setLoading(false)
+  console.log(err.message)
   Alert.alert('Error', err.message)
 }
 
 const TimeLogContainer = compose(
-  withState('loading', 'setLoading', false),
-  withState('newEntry', 'setNewEntry', true),
+  mapProps(props => {
+    if (!props.newEntry) {
+      const { date, duration, distance } = props.item
+      console.log(props)
+      return {
+        ...props,
+        initialValues: {
+          date: new Date(date),
+          duration: duration.toString(),
+          distance: distance.toString(),
+        },
+      }
+    }
+    return props
+  }),
   withState('editting', 'setEditting', false),
   withState('buttonText', 'setButtonText', 'Edit'),
   withHandlers({
@@ -36,9 +48,8 @@ const TimeLogContainer = compose(
       console.log('should be deleting this ' + id)
     },
     onSubmit: props => values => {
-      const { newEntry, _id, setLoading, app } = props
+      const { newEntry, item: { _id }, app } = props
 
-      setLoading(true)
       if (newEntry) {
         app
           .service('timelogs')
@@ -50,6 +61,7 @@ const TimeLogContainer = compose(
           })
           .catch(catchError)
       } else {
+        console.log(_id)
         app
           .service('timelogs')
           .update(_id, values)
@@ -71,8 +83,6 @@ const TimeLogContainer = compose(
     },
     initialValues: {
       date: new Date(),
-      distance: '5000',
-      duration: '3600',
     },
   }),
 )(TimeLogView)

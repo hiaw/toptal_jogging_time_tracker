@@ -51,6 +51,7 @@ const TimeLogView = props => {
         component={FormFieldDate}
         name="date"
         title="Date"
+        editable={editting}
         maximumDate={new Date()}
         validate={[required]}
       />
@@ -59,6 +60,7 @@ const TimeLogView = props => {
         name="distance"
         title="Distance"
         keyboardType="numeric"
+        editable={editting}
         validate={[required, number, minValue(0.001)]}
       />
       <Field
@@ -66,6 +68,7 @@ const TimeLogView = props => {
         name="duration"
         title="Duration"
         keyboardType="numeric"
+        editable={editting}
         validate={[required, number, minValue(0.001)]}
       />
       {editButton}
