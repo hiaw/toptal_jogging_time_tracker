@@ -26,7 +26,7 @@ export default class NavigationRouter extends Component {
           />
           <Scene
             app={this.props.app}
-            key="timeloglist"
+            key="timelogs"
             component={TimeLogList}
             hideNavBar
           />

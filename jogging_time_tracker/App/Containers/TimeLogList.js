@@ -1,5 +1,6 @@
 import React from 'react'
 import { StyleSheet, SectionList, View } from 'react-native'
+import { compose, withState } from 'recompose'
 import moment from 'moment'
 import _ from 'lodash'
 
@@ -31,9 +32,51 @@ const renderItem = ({ item }) =>
     distance={item.distance}
   />
 
-const keyExtractor = item => item.distance
+const keyExtractor = item => item._id
 
 class TimeLogList extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.timelogService = props.app.service('timelogs')
+
+    this.updateList()
+
+    this.timelogService.on('created', timelog => {
+      this.updateList()
+    })
+    this.timelogService.on('removed', timelog => {
+      this.updateList()
+    })
+    this.timelogService.on('updated', timelog => {
+      this.updateList()
+    })
+    this.timelogService.on('patched', timelog => {
+      this.updateList()
+    })
+  }
+
+  updateList(q) {
+    const { setSection } = this.props
+    let decreasingDate = { $sort: { date: -1 } }
+    let newQ = _.merge(q, { query: decreasingDate })
+
+    this.timelogService.find(newQ).then(timelogs => {
+      console.log(timelogs)
+
+      const newTimelogs = timelogs.data.map(timelog => ({
+        ...timelog,
+        week: moment(timelog.date).isoWeek(),
+      }))
+      const sectionsObj = _.groupBy(newTimelogs, 'week')
+      const sections = Object.keys(sectionsObj).map(key => ({
+        key,
+        data: sectionsObj[key],
+      }))
+      setSection(sections)
+    })
+  }
+
   render() {
     const { sections } = this.props
     return (
@@ -49,4 +92,4 @@ class TimeLogList extends React.Component {
   }
 }
 
-export default TimeLogList
+export default compose(withState('sections', 'setSection', []))(TimeLogList)
