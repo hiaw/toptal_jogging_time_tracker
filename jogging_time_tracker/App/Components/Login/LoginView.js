@@ -31,19 +31,16 @@ const LoginView = props => {
   return (
     <View style={styles.container}>
       <Field
-        labelStyle={styles.labeldesign}
-        iconName="cutlery"
         component={FormFieldText}
         name="email"
         title="EMAIL"
         validate={[required, minLength(2), maxLength(30)]}
       />
       <Field
-        labelStyle={styles.labeldesign}
-        iconName="cutlery"
         component={FormFieldText}
         name="password"
         title="PASSWORD"
+        secureTextEntry
         validate={[required, minLength(2), maxLength(30)]}
       />
       <Button
