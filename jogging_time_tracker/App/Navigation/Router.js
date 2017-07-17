@@ -28,6 +28,7 @@ export default class NavigationRouter extends Component {
           <Scene
             app={this.props.app}
             key="timelogs"
+            title="Time Logs"
             component={TimeLogList}
             rightTitle="Plus"
             onRight={() => Actions.timelog({ newEntry: true })}

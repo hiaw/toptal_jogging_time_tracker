@@ -1,4 +1,4 @@
-import { Actions } from 'react-native-router-flux'
+import { Actions, ActionConst } from 'react-native-router-flux'
 
 export default function redirectAfterLogin(res) {
   /* let roles = res.data.roles
@@ -11,6 +11,6 @@ export default function redirectAfterLogin(res) {
    *     Actions.timelogs()
    *   }
    * } else {*/
-  Actions.timelogs()
+  Actions.timelogs({ type: ActionConst.RESET })
   /* }*/
 }
