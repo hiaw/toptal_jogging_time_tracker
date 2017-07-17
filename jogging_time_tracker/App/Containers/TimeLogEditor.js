@@ -43,11 +43,19 @@ const TimeLogContainer = compose(
     },
     deleteTimeLog: props => () => {
       const { item: { _id }, app } = props
-      app.service('timelogs').remove(_id).then(result => {
-        if (result._id) {
-          Actions.pop()
-        }
-      })
+      Alert.alert('Delete this time log?', 'Are you sure?', [
+        {
+          text: 'Yes',
+          onPress: () => {
+            app.service('timelogs').remove(_id).then(result => {
+              if (result._id) {
+                Actions.pop()
+              }
+            })
+          },
+        },
+        { text: 'Cancel', onPress: () => {}, style: 'cancel' },
+      ])
     },
     onSubmit: props => values => {
       const { newEntry, item: { _id }, app } = props
