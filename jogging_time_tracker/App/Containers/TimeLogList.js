@@ -1,5 +1,6 @@
 import React from 'react'
 import { StyleSheet, SectionList, View } from 'react-native'
+import { Actions } from 'react-native-router-flux'
 import { compose, withState } from 'recompose'
 import moment from 'moment'
 import _ from 'lodash'
@@ -30,6 +31,7 @@ const renderItem = ({ item }) =>
     date={item.date}
     duration={item.duration}
     distance={item.distance}
+    onPress={() => Actions.timelog({ item, title: `ID: ${item._id}` })}
   />
 
 const keyExtractor = item => item._id
