@@ -1,3 +1,4 @@
+/* @flow*/
 import { Actions, ActionConst } from 'react-native-router-flux'
 
 export default function redirectAfterLogin(res) {

@@ -1,3 +1,4 @@
+/* @flow*/
 import React from 'react'
 import { Button, Text, View } from 'react-native'
 import { Field } from 'redux-form'
@@ -8,17 +9,29 @@ import { required, number, minValue } from '../Helper/Validators.js'
 import FormFieldText from './Common/FormFieldText.js'
 import FormFieldDate from './Common/FormFieldDate.js'
 
+export type Props = {
+  buttonText: string,
+  valid: boolean,
+  newEntry: boolean,
+  editting: boolean,
+  alterEditting: () => mixed,
+  handleSubmit: () => mixed,
+  onSubmit: () => mixed,
+  deleteTimeLog: () => mixed,
+  cancelEditing: () => mixed,
+}
+
 const TimeLogView = props => {
   const {
     buttonText,
+    valid,
+    newEntry,
     editting,
     alterEditting,
     handleSubmit,
     onSubmit,
     deleteTimeLog,
     cancelEditing,
-    valid,
-    newEntry,
   } = props
 
   /* const speedText = getSpeedText(distance, duration)*/

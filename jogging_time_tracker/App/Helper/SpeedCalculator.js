@@ -1,3 +1,4 @@
+/* @flow*/
 import _ from 'lodash'
 
 const MINUTE_PER_HOUR = 3600

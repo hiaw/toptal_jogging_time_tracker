@@ -1,8 +1,13 @@
+/* @flow*/
 import React from 'react'
 import { Text, View } from 'react-native'
 import moment from 'moment'
 
 import styles from './Styles/WeeklyAverageRow.style.js'
+
+export type Props = {
+  date: string,
+}
 
 const WeeklyAverageRow = props => {
   const { date } = props

@@ -1,3 +1,4 @@
+/* @flow*/
 import React from 'react'
 import { StyleSheet, SectionList, View } from 'react-native'
 import { Actions } from 'react-native-router-flux'

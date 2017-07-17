@@ -1,3 +1,4 @@
+/* @flow*/
 import React from 'react'
 import { View, Button } from 'react-native'
 import { Field } from 'redux-form'
@@ -13,6 +14,15 @@ import {
 import FormFieldText from '../Common/FormFieldText.js'
 
 import styles from './LoginView.style.js'
+
+export type Props = {
+  handleSubmit: () => mixed,
+  onSubmit: () => mixed,
+  alterRegistered: () => mixed,
+  buttonText: string,
+  alternateButtonText: string,
+  valid: boolean,
+}
 
 const LoginView = props => {
   /* render () {
