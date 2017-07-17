@@ -11,7 +11,7 @@ export type Props = {
   duration: number,
 }
 
-const WeeklyAverageRow = props => {
+const WeeklyAverageRow = (props: Props) => {
   const { distance, duration } = props
   const distanceText = getDistanceText(distance)
   const speedText = getSpeedText(distance, duration)

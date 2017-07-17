@@ -16,7 +16,7 @@ import FormFieldText from '../Common/FormFieldText.js'
 import styles from './LoginView.style.js'
 
 export type Props = {
-  handleSubmit: () => mixed,
+  handleSubmit: (any) => () => mixed,
   onSubmit: () => mixed,
   alterRegistered: () => mixed,
   buttonText: string,
@@ -24,7 +24,7 @@ export type Props = {
   valid: boolean,
 }
 
-const LoginView = props => {
+const LoginView = (props: Props) => {
   /* render () {
    *   if (this.loading) {
    *     return <Spinner visible textContent={this.loadingText}

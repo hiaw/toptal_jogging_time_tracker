@@ -15,13 +15,13 @@ export type Props = {
   newEntry: boolean,
   editting: boolean,
   alterEditting: () => mixed,
-  handleSubmit: () => mixed,
+  handleSubmit: (any) =>()=> mixed,
   onSubmit: () => mixed,
   deleteTimeLog: () => mixed,
   cancelEditing: () => mixed,
 }
 
-const TimeLogView = props => {
+const TimeLogView = (props: Props) => {
   const {
     buttonText,
     valid,
