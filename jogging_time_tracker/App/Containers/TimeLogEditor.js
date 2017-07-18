@@ -4,14 +4,14 @@ import { Alert } from 'react-native'
 import { reduxForm } from 'redux-form'
 import { Actions } from 'react-native-router-flux'
 
-import TimeLogView from '../Components/TimeLogView.js'
+import TimeLogView from '../Components/TimeRow/TimeLogView.js'
 
 const catchError = err => {
   console.log(err.message)
   Alert.alert('Error', err.message)
 }
 
-const TimeLogContainer = compose(
+const TimeLogEditor = compose(
   mapProps(props => {
     if (!props.newEntry) {
       const { date, duration, distance } = props.item
@@ -26,16 +26,16 @@ const TimeLogContainer = compose(
     }
     return props
   }),
-  withState('editting', 'setEditting', false),
+  withState('editing', 'setEditing', false),
   withState('buttonText', 'setButtonText', 'Edit'),
   withHandlers({
-    alterEditting: props => () => {
-      const { editting, setEditting, setButtonText } = props
-      if (editting) {
-        setEditting(false)
+    alterEditing: props => () => {
+      const { editing, setEditing, setButtonText } = props
+      if (editing) {
+        setEditing(false)
         setButtonText('Edit')
       } else {
-        setEditting(true)
+        setEditing(true)
         setButtonText('Cancel Edit')
       }
     },
@@ -103,4 +103,4 @@ const TimeLogContainer = compose(
   }),
 )(TimeLogView)
 
-export default TimeLogContainer
+export default TimeLogEditor

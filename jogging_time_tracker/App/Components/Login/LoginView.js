@@ -13,10 +13,10 @@ import {
 /* import SelectUsersButton from './SelectUsersButton.js'*/
 import FormFieldText from '../Common/FormFieldText.js'
 
-import styles from './LoginView.style.js'
+import styles from './Style/LoginView.style.js'
 
 export type Props = {
-  handleSubmit: (any) => () => mixed,
+  handleSubmit: any => () => mixed,
   onSubmit: () => mixed,
   alterRegistered: () => mixed,
   buttonText: string,

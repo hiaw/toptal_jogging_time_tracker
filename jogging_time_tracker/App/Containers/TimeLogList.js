@@ -6,9 +6,9 @@ import { compose, withState } from 'recompose'
 import moment from 'moment'
 import _ from 'lodash'
 
-import TimeLogRow from '../Components/TimeLogRow.js'
-import WeeklyHeader from '../Components/WeeklyHeader.js'
-import WeeklyAverageRow from '../Components/WeeklyAverageRow.js'
+import TimeLogRow from '../Components/TimeRow/TimeLogRow.js'
+import WeeklyHeader from '../Components/TimeRow/WeeklyHeader.js'
+import WeeklyAverageRow from '../Components/TimeRow/WeeklyAverageRow.js'
 
 const styles = StyleSheet.create({
   container: {

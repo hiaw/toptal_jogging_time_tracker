@@ -4,8 +4,9 @@
 	"private": true,
 	"scripts": {
 		"start": "node node_modules/react-native/local-cli/cli.js start",
-		  "test": "jest",
-    "flow": "flow"
+		"test": "jest",
+		  "flow": "flow",
+    "cover": "jest --coverage"
 	},
 	"dependencies": {
 		"feathers": "^2.1.4",
@@ -32,10 +33,32 @@
 	"devDependencies": {
 		"babel-jest": "20.0.3",
 		"babel-preset-react-native": "2.1.0",
+		"detox": "^5.4.0",
 		"jest": "20.0.4",
+		"mocha": "^3.4.2",
 		"react-test-renderer": "16.0.0-alpha.12"
 	},
 	"jest": {
-		"preset": "react-native"
-	}
+		  "preset": "react-native",
+    "testPathIgnorePatterns": [
+      "/node_modules",
+      "/e2e"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules",
+      "Style/",
+      "Styles/",
+      "/jest/setup.js"
+    ]
+	},
+"detox": {
+  "configurations": {
+    "ios.sim.debug": {
+      "binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/jogging_time_tracker.app",
+      "build": "xcodebuild -project ios/jogging_time_tracker.xcodeproj -scheme jogging_time_tracker -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build",
+      "type": "ios.simulator",
+      "name": "iPhone 7"
+    }
+  } 
+}
 }

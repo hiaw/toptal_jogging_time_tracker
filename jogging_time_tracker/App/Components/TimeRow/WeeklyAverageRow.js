@@ -2,7 +2,7 @@
 import React from 'react'
 import { Text, View } from 'react-native'
 
-import { getDistanceText, getSpeedText } from '../Helper/SpeedCalculator.js'
+import { getDistanceText, getSpeedText } from '../../Helper/SpeedCalculator.js'
 
 import styles from './Styles/WeeklyAverageRow.style.js'
 

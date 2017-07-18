@@ -3,19 +3,19 @@ import React from 'react'
 import { Button, Text, View } from 'react-native'
 import { Field } from 'redux-form'
 
-import { getSpeedText } from '../Helper/SpeedCalculator.js'
+import { getSpeedText } from '../../Helper/SpeedCalculator.js'
 
-import { required, number, minValue } from '../Helper/Validators.js'
-import FormFieldText from './Common/FormFieldText.js'
-import FormFieldDate from './Common/FormFieldDate.js'
+import { required, number, minValue } from '../../Helper/Validators.js'
+import FormFieldText from '../Common/FormFieldText.js'
+import FormFieldDate from '../Common/FormFieldDate.js'
 
 export type Props = {
   buttonText: string,
   valid: boolean,
   newEntry: boolean,
-  editting: boolean,
-  alterEditting: () => mixed,
-  handleSubmit: (any) =>()=> mixed,
+  editing: boolean,
+  alterEditing: () => mixed,
+  handleSubmit: any => () => mixed,
   onSubmit: () => mixed,
   deleteTimeLog: () => mixed,
   cancelEditing: () => mixed,
@@ -26,8 +26,8 @@ const TimeLogView = (props: Props) => {
     buttonText,
     valid,
     newEntry,
-    editting,
-    alterEditting,
+    editing,
+    alterEditing,
     handleSubmit,
     onSubmit,
     deleteTimeLog,
@@ -36,7 +36,7 @@ const TimeLogView = (props: Props) => {
 
   /* const speedText = getSpeedText(distance, duration)*/
   let submitButton = null
-  if (editting || newEntry) {
+  if (editing || newEntry) {
     submitButton = (
       <Button
         disabled={!valid}
@@ -46,9 +46,9 @@ const TimeLogView = (props: Props) => {
     )
   }
 
-  let editButton = <Button onPress={alterEditting} title={buttonText} />
+  let editButton = <Button onPress={alterEditing} title={buttonText} />
   let deleteButton = null
-  if (editting) {
+  if (editing) {
     deleteButton = <Button onPress={deleteTimeLog} title="Delete" />
   }
   if (newEntry) {
@@ -62,7 +62,7 @@ const TimeLogView = (props: Props) => {
         component={FormFieldDate}
         name="date"
         title="Date"
-        editable={editting || newEntry}
+        editable={editing || newEntry}
         maximumDate={new Date()}
         validate={[required]}
       />
@@ -71,7 +71,7 @@ const TimeLogView = (props: Props) => {
         name="distance"
         title="Distance"
         keyboardType="numeric"
-        editable={editting || newEntry}
+        editable={editing || newEntry}
         validate={[required, number, minValue(0.001)]}
       />
       <Field
@@ -79,7 +79,7 @@ const TimeLogView = (props: Props) => {
         name="duration"
         title="Duration"
         keyboardType="numeric"
-        editable={editting || newEntry}
+        editable={editing || newEntry}
         validate={[required, number, minValue(0.001)]}
       />
       {editButton}
