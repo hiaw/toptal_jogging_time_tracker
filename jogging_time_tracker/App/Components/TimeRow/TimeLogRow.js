@@ -17,7 +17,7 @@ export type Props = {
   onPress: () => mixed,
 }
 
-const TimeLogList = (props: Props) => {
+const TimeLogRow = (props: Props) => {
   const { date, distance, duration, onPress } = props
   const dateText = moment(date).format('DD/MM/YYYY')
   const distanceText = getDistanceText(distance)
@@ -47,4 +47,4 @@ const TimeLogList = (props: Props) => {
   )
 }
 
-export default TimeLogList
+export default TimeLogRow

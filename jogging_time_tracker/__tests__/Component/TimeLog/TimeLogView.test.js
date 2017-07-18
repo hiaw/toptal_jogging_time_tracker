@@ -9,6 +9,8 @@ import TimeLogView from '../../../App/Components/TimeRow/TimeLogView.js'
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer'
 
+jest.mock('react-native-modal-datetime-picker')
+
 const noop = () => {}
 
 const store = createStore(() => ({}))
@@ -38,20 +40,38 @@ it('renders correctly', () => {
   )
 })
 
-/* it('renders invalid', () => {
- *   const tree = renderer.create(
- *     <Provider store={store}>
- *       <Decorated
- *         buttonText="Submit"
- *         valid={false}
- *         newEntry={true}
- *         editing={true}
- *         alterEditing={noop}
- *         handleSubmit={noop}
- *         onSubmit={noop}
- *         deleteTimeLog={noop}
- *         cancelEditing={noop}
- *       />
- *     </Provider>,
- *   )
- * })*/
+it('renders invalid', () => {
+  const tree = renderer.create(
+    <Provider store={store}>
+      <Decorated
+        buttonText="Submit"
+        valid={false}
+        newEntry={true}
+        editing={true}
+        alterEditing={noop}
+        handleSubmit={noop}
+        onSubmit={noop}
+        deleteTimeLog={noop}
+        cancelEditing={noop}
+      />
+    </Provider>,
+  )
+})
+
+it('renders not editing', () => {
+  const tree = renderer.create(
+    <Provider store={store}>
+      <Decorated
+        buttonText="Submit"
+        valid={false}
+        newEntry={false}
+        editing={false}
+        alterEditing={noop}
+        handleSubmit={noop}
+        onSubmit={noop}
+        deleteTimeLog={noop}
+        cancelEditing={noop}
+      />
+    </Provider>,
+  )
+})
