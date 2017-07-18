@@ -3,11 +3,11 @@ import React from 'react'
 import { Button, Text, View } from 'react-native'
 import { Field } from 'redux-form'
 
-import { getSpeedText } from '../Helper/SpeedCalculator.js'
+import { getSpeedText } from '../../Helper/SpeedCalculator.js'
 
-import { required, number, minValue } from '../Helper/Validators.js'
-import FormFieldText from './Common/FormFieldText.js'
-import FormFieldDate from './Common/FormFieldDate.js'
+import { required, number, minValue } from '../../Helper/Validators.js'
+import FormFieldText from '../Common/FormFieldText.js'
+import FormFieldDate from '../Common/FormFieldDate.js'
 
 export type Props = {
   buttonText: string,
@@ -15,7 +15,7 @@ export type Props = {
   newEntry: boolean,
   editting: boolean,
   alterEditting: () => mixed,
-  handleSubmit: (any) =>()=> mixed,
+  handleSubmit: any => () => mixed,
   onSubmit: () => mixed,
   deleteTimeLog: () => mixed,
   cancelEditing: () => mixed,

@@ -8,7 +8,7 @@ import {
   getDistanceText,
   getDurationText,
   getSpeedText,
-} from '../Helper/SpeedCalculator.js'
+} from '../../Helper/SpeedCalculator.js'
 
 export type Props = {
   date: string,
