@@ -9,7 +9,7 @@ export type Props = {
   date: string,
 }
 
-const WeeklyAverageRow = (props: Props) => {
+const WeeklyHeader = (props: Props) => {
   const { date } = props
   const dateText = `Week ${moment(date).isoWeek()}, ${moment(date).year()}`
 
@@ -22,4 +22,4 @@ const WeeklyAverageRow = (props: Props) => {
   )
 }
 
-export default WeeklyAverageRow
+export default WeeklyHeader
