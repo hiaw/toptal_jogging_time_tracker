@@ -13,7 +13,7 @@ it('renders correctly', () => {
     .create(
       <TimeLogRow
         date="2017-06-23T04:51:34.022Z"
-        distance={34.3}
+        distance={1034.3}
         duration={34.3}
         onPress={noop}
       />,

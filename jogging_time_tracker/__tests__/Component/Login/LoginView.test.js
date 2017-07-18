@@ -21,6 +21,7 @@ it('renders correctly', () => {
       <Provider store={store}>
         <Decorated
           handleSubmit={noop}
+          onSubmit={noop}
           alterRegistered={noop}
           buttonText="Register"
           alternateButtonText="Already Registered"
@@ -38,6 +39,7 @@ it('renders invalid', () => {
       <Provider store={store}>
         <Decorated
           handleSubmit={noop}
+          onSubmit={noop}
           alterRegistered={noop}
           buttonText="Register"
           alternateButtonText="Already Registered"

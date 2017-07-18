@@ -72,7 +72,7 @@ exports[`renders correctly 1`] = `
           }
         }
       >
-        3.6 km/h
+        108.6 km/h
       </Text>
     </View>
     <View
@@ -99,7 +99,7 @@ exports[`renders correctly 1`] = `
           }
         }
       >
-        34.3 m
+        1.03 km
       </Text>
       <Text
         accessible={true}

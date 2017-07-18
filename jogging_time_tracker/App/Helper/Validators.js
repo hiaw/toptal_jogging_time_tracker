@@ -17,23 +17,7 @@ export const minValue = (min: number) => (value: number) =>
 export const maxValue = (max: number) => (value: number) =>
   value && value > max ? `Must be less than ${max}` : undefined
 
-export const isInteger = (value: number) =>
-  value && +value % 1 ? `Must be an integer` : undefined
-
-export const tooOld = (value: number) =>
-  value && value > 65 ? 'You might be too old for this' : undefined
-
 export const email = (value: string) =>
   value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)
     ? 'Invalid email address'
-    : undefined
-
-export const alphaNumeric = (value: string) =>
-  value && /[^a-zA-Z0-9 ]/i.test(value)
-    ? 'Only alphanumeric characters'
-    : undefined
-
-export const phoneNumber = (value: string) =>
-  value && !/^(0|[1-9][0-9]{9})$/i.test(value)
-    ? 'Invalid phone number, must be 10 digits'
     : undefined
