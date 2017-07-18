@@ -20,24 +20,24 @@ const Decorated = reduxForm({
   },
 })(TimeLogView)
 
-/* it('renders correctly', () => {
- *   const tree = renderer.create(
- *     <Provider store={store}>
- *       <Decorated
- *         buttonText="Submit"
- *         valid={true}
- *         newEntry={true}
- *         editting={true}
- *         alterEditting={noop}
- *         handleSubmit={noop}
- *         onSubmit={noop}
- *         deleteTimeLog={noop}
- *         cancelEditing={noop}
- *       />
- *     </Provider>,
- *   )
- * })
- * */
+it('renders correctly', () => {
+  const tree = renderer.create(
+    <Provider store={store}>
+      <Decorated
+        buttonText="Submit"
+        valid={true}
+        newEntry={true}
+        editing={true}
+        alterEditing={noop}
+        handleSubmit={noop}
+        onSubmit={noop}
+        deleteTimeLog={noop}
+        cancelEditing={noop}
+      />
+    </Provider>,
+  )
+})
+
 /* it('renders invalid', () => {
  *   const tree = renderer.create(
  *     <Provider store={store}>
@@ -45,8 +45,8 @@ const Decorated = reduxForm({
  *         buttonText="Submit"
  *         valid={false}
  *         newEntry={true}
- *         editting={true}
- *         alterEditting={noop}
+ *         editing={true}
+ *         alterEditing={noop}
  *         handleSubmit={noop}
  *         onSubmit={noop}
  *         deleteTimeLog={noop}
