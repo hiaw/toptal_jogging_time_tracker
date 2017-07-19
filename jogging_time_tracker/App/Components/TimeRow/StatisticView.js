@@ -14,25 +14,29 @@ import {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 60,
+    paddingTop: 60,
+    paddingBottom: 20,
   },
 })
 
-export type Props = {
-  date: string,
-  distance: number,
-  duration: number,
-  onPress: () => mixed,
-}
+const moonDistance = 384000000
 
-const StatisticView = (props: Props) => {
-  const { data, onPress } = props
-  console.log(data)
+const StatisticView = props => {
+  const { data } = props
 
   const newData = data.map(timelog => ({
     ...timelog,
     speed: timelog.distance / timelog.duration,
+    day: moment(timelog.date).startOf('day'),
+    week: moment(timelog.date).isoWeek(),
+    month: moment(timelog.date).startOf('month'),
+    year: moment(timelog.date).startOf('year'),
   }))
+
+  const dayList = _.groupBy(newData, 'day')
+  const weekList = _.groupBy(newData, 'week')
+  const monthList = _.groupBy(newData, 'month')
+  const yearList = _.groupBy(newData, 'year')
 
   const fastestJogWeek = ''
   const fastestJogMonth = ''
@@ -46,12 +50,26 @@ const StatisticView = (props: Props) => {
   const monthSlowestJogRecordText = `Month: `
   const yearSlowestJogRecordText = `Year: `
 
-  const greatestDistanceDay = `Greatest`
+  console.log(dayList)
+  const newDayList = _.map(dayList, day => ({
+    ...day,
+    distance: _.sumBy(day, 'distance'),
+  }))
+
+  const greatestDistanceObj = _.maxBy(newDayList, 'distance')
+  const greatestDistanceDay = greatestDistanceObj[0].day.format('DD/MM/YYYY')
+  const greatestDistance = getDistanceText(greatestDistanceObj.distance)
+  const greatestDistanceDayText = `${greatestDistanceDay}: ${greatestDistance}`
 
   const lastWeekComparison = `Last Week`
 
-  const cumulativeDistance = getDistanceText(_.sumBy(newData, 'distance'))
+  const totalDistance = _.sumBy(newData, 'distance')
+  const moodDistancePercentage = _.round(totalDistance / moonDistance * 100, 3)
+  const moonDistanceText = `% Distance To Moon: ${moodDistancePercentage}%`
+
+  const cumulativeDistance = getDistanceText(totalDistance)
   const cumulativeDistanceText = 'Distance: ' + cumulativeDistance
+
   const totalTime = getDurationText(_.sumBy(newData, 'duration'))
   const totalTimeText = 'Time: ' + totalTime
 
@@ -61,7 +79,7 @@ const StatisticView = (props: Props) => {
    * const speedText = getSpeedText(distance, duration)
    */
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
       <Card title="Fastest Jog">
         <Text>
           {weekFastestJogRecordText}
@@ -88,7 +106,7 @@ const StatisticView = (props: Props) => {
 
       <Card title="Greatest Distance Day">
         <Text>
-          {greatestDistanceDay}
+          {greatestDistanceDayText}
         </Text>
       </Card>
 
@@ -99,6 +117,9 @@ const StatisticView = (props: Props) => {
       </Card>
 
       <Card title="Cumulative">
+        <Text>
+          {moonDistanceText}
+        </Text>
         <Text>
           {cumulativeDistanceText}
         </Text>
