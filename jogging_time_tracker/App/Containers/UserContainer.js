@@ -65,8 +65,8 @@ const UserEditor = compose(
       const { newEntry, user, app } = props
       const { email, password, role } = values
       const newValues = {
-        email,
-        roles: [role],
+        email: email.toLowerCase(),
+        roles: [role.toLowerCase()],
       }
       if (password != '') {
         newValues.password = password

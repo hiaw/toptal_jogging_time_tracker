@@ -74,6 +74,7 @@ const UserView = (props: Props) => {
     <View style={styles.container}>
       <Button onPress={showTimelogs} title="Show Timelogs" />
       <Field
+        autoCapitalize="none"
         component={FormFieldText}
         name="email"
         title="EMAIL"
