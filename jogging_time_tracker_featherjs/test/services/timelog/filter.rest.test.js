@@ -7,6 +7,7 @@ const Timelog = app.service('timelogs')
 const User = app.service('users')
 const authentication = require('feathers-authentication/client')
 const bodyParser = require('body-parser')
+const moment = require('moment')
 var token, userId
 
 // config for app to do authentication
@@ -22,35 +23,33 @@ var should = chai.should()
 function createSampleData() {
   Timelog.create({
     owner: userId,
-    date: new Date(2000, 1, 1).getTime(),
-    description: 'A',
-    amount: 1,
-    comment: 'Some long comment',
+    date: moment(2000, 1, 1).toISOString(),
+    duration: 1000,
+    distance: 1000,
   })
   Timelog.create({
     owner: userId,
-    date: new Date(2002, 2, 2).getTime(),
-    description: 'BBBBBBBbbbb',
-    amount: 20.99,
+    date: moment(2000, 2, 2).toISOString(),
+    duration: 2000,
+    distance: 2000,
   })
   Timelog.create({
     owner: userId,
-    date: new Date(2005, 5, 5).getTime(),
-    description: 'LLLLllllllll',
-    amount: 50,
-    comment: 'Some long comment',
+    date: moment(2000, 3, 3).toISOString(),
+    duration: 3000,
+    distance: 3000,
   })
   Timelog.create({
     owner: userId,
-    date: new Date(2008, 8, 8).getTime(),
-    description: 'OOOOoooooo',
-    amount: 80,
+    date: moment(2000, 4, 4).toISOString(),
+    duration: 4000,
+    distance: 4000,
   })
   Timelog.create({
     owner: userId,
-    date: new Date(2010, 10, 10).getTime(),
-    description: 'ZZZZzzzzz',
-    amount: 100,
+    date: moment(2000, 5, 5).toISOString(),
+    duration: 5000,
+    distance: 5000,
   })
 }
 

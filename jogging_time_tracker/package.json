@@ -1,64 +1,64 @@
 {
-	"name": "jogging_time_tracker",
-	"version": "0.0.1",
-	"private": true,
-	"scripts": {
-		"start": "node node_modules/react-native/local-cli/cli.js start",
-		"test": "jest",
-		  "flow": "flow",
-    "cover": "jest --coverage"
-	},
-	"dependencies": {
-		"feathers": "^2.1.4",
-		"feathers-authentication-client": "^0.3.2",
-		"feathers-hooks": "^2.0.2",
-		"feathers-socketio": "^2.0.0",
-		"flow-bin": "0.47",
-		"moment": "^2.18.1",
-		"react": "16.0.0-alpha.12",
-		"react-native": "0.46.2",
-		"react-native-elements": "^0.14.0",
-		"react-native-fetch-blob": "^0.10.6",
-		"react-native-image-picker": "^0.26.3",
-		"react-native-loading-spinner-overlay": "^0.5.1",
-		"react-native-modal-datetime-picker": "^4.8.0",
-		"react-native-router-flux": "3",
-		"react-native-vector-icons": "^4.2.0",
-		"react-redux": "^5.0.5",
-		"recompose": "^0.24.0",
-		"redux": "^3.7.2",
-		"redux-form": "6",
-		"socket.io-client": "^2.0.3"
-	},
-	"devDependencies": {
-		"babel-jest": "20.0.3",
-		"babel-preset-react-native": "2.1.0",
-		"detox": "^5.4.0",
-		"jest": "20.0.4",
-		"mocha": "^3.4.2",
-		"react-test-renderer": "16.0.0-alpha.12"
-	},
-	"jest": {
-		  "preset": "react-native",
-    "testPathIgnorePatterns": [
-      "/node_modules",
-      "/e2e"
-    ],
-    "coveragePathIgnorePatterns": [
-      "/node_modules",
-      "Style/",
-      "Styles/",
-      "/jest/setup.js"
-    ]
-	},
-"detox": {
-  "configurations": {
-    "ios.sim.debug": {
-      "binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/jogging_time_tracker.app",
-      "build": "xcodebuild -project ios/jogging_time_tracker.xcodeproj -scheme jogging_time_tracker -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build",
-      "type": "ios.simulator",
-      "name": "iPhone 7"
-    }
-  } 
-}
+		"name": "jogging_time_tracker",
+		"version": "0.0.1",
+		"private": true,
+		"scripts": {
+				"start": "node node_modules/react-native/local-cli/cli.js start",
+				"test": "jest",
+				"flow": "flow",
+				"cover": "jest --coverage"
+		},
+		"dependencies": {
+				"feathers": "^2.1.4",
+		"feathers-authentication": "^0.7.12",
+		"feathers-hooks": "^1.7.1",
+		"feathers-socketio": "^1.4.2",
+				"flow-bin": "0.47",
+				"moment": "^2.18.1",
+				"react": "16.0.0-alpha.12",
+				"react-native": "0.46.2",
+				"react-native-elements": "^0.14.0",
+				"react-native-fetch-blob": "^0.10.6",
+				"react-native-image-picker": "^0.26.3",
+				"react-native-loading-spinner-overlay": "^0.5.1",
+				"react-native-modal-datetime-picker": "^4.8.0",
+				"react-native-router-flux": "3",
+				"react-native-vector-icons": "^4.2.0",
+				"react-redux": "^5.0.5",
+				"recompose": "^0.24.0",
+				"redux": "^3.7.2",
+				"redux-form": "6",
+		"socket.io-client": "^1.7.3"
+		},
+		"devDependencies": {
+				"babel-jest": "20.0.3",
+				"babel-preset-react-native": "2.1.0",
+				"detox": "^5.4.0",
+				"jest": "20.0.4",
+				"mocha": "^3.4.2",
+				"react-test-renderer": "16.0.0-alpha.12"
+		},
+		"jest": {
+				"preset": "react-native",
+				"testPathIgnorePatterns": [
+						"/node_modules",
+						"/e2e"
+				],
+				"coveragePathIgnorePatterns": [
+						"/node_modules",
+						"Style/",
+						"Styles/",
+						"/jest/setup.js"
+				]
+		},
+		"detox": {
+				"configurations": {
+						"ios.sim.debug": {
+								"binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/jogging_time_tracker.app",
+								"build": "xcodebuild -project ios/jogging_time_tracker.xcodeproj -scheme jogging_time_tracker -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build",
+								"type": "ios.simulator",
+								"name": "iPhone 7"
+						}
+				}
+		}
 }

@@ -23,9 +23,9 @@ const LoginContainer = compose(
       const { app, setLoading } = props
       app
         .authenticate({
-          strategy: 'local',
-          email: email,
-          password: password,
+          type: 'local',
+          email,
+          password,
         })
         .then(res => {
           console.log(res)
@@ -92,7 +92,7 @@ const LoginContainer = compose(
     },
     initialValues: {
       email: 'user1@test.com',
-      password: 'password',
+      password: '123456',
     },
   }),
 )(LoginView)

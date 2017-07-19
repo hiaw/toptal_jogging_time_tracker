@@ -10,7 +10,7 @@ import { reducer as form } from 'redux-form'
 import feathers from 'feathers/client'
 import hooks from 'feathers-hooks'
 import socketio from 'feathers-socketio/client'
-import authentication from 'feathers-authentication-client'
+import authentication from 'feathers-authentication/client'
 import io from 'socket.io-client'
 
 import redirectAfterLogin from './Components/Login/RedirectAfterLogin.js'
@@ -27,8 +27,8 @@ export default class Root extends Component {
     const socket = io('http://localhost:3030', options)
 
     this.app = feathers()
-      .configure(hooks())
       .configure(socketio(socket))
+      .configure(hooks())
       // Use AsyncStorage to store our login token
       .configure(
         authentication({
