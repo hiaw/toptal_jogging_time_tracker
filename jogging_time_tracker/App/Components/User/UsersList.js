@@ -6,10 +6,11 @@ import { ListItem } from 'react-native-elements'
 
 const styles = {
   container: {
-    flex: 1,
     marginTop: 65,
   },
 }
+
+const keyExtractor = item => item._id
 
 class UsersList extends Component {
   constructor(props) {
@@ -54,6 +55,7 @@ class UsersList extends Component {
     return (
       <View style={styles.container}>
         <FlatList
+          keyExtractor={keyExtractor}
           data={this.props.lists}
           renderItem={user => this._renderUser(user.item)}
         />
@@ -61,7 +63,7 @@ class UsersList extends Component {
         <View style={{ backgroundColor: 'lightblue' }}>
           <Button
             onPress={() => {
-              Actions.user()
+              Actions.user({ newEntry: true })
             }}
             title="Add User"
           />
