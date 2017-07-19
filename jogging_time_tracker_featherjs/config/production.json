@@ -1,4 +1,12 @@
 {
   "host": "jogging_time_tracker_featherjs-app.feathersjs.com",
-  "port": "PORT"
+  "port": 80,
+  "nedb": "NEDB_BASE_PATH",
+  "public": "../public/",
+  "auth": {
+    "token": {
+      "secret": "FEATHERS_AUTH_SECRET"
+    },
+    "local": {}
+  }
 }

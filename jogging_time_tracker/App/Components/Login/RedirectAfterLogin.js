@@ -1,7 +1,7 @@
 /* @flow*/
 import { Actions, ActionConst } from 'react-native-router-flux'
 
-export default function redirectAfterLogin(res:any) {
+export default function redirectAfterLogin(res: any) {
   /* let roles = res.data.roles
    * if (roles) {
    *   if (roles.indexOf('admin') >= 0) {
@@ -12,6 +12,6 @@ export default function redirectAfterLogin(res:any) {
    *     Actions.timelogs()
    *   }
    * } else {*/
-  Actions.timelogs({ type: ActionConst.RESET })
+  Actions.timelogs()
   /* }*/
 }
