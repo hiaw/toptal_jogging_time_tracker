@@ -1,57 +1,111 @@
-# jogging_time_tracker_featherjs
-
-> 
+# Timelog Tracker Server by Daniel Chong for Toptal project interview
 
 ## About
 
-This project uses [Feathers](http://feathersjs.com). An open source web framework for building modern real-time applications.
+This feathersjs app provide the REST backend for the mobile Timelog Tracker app
 
-## Getting Started
+## Prerequisite
 
-Getting up and running is as easy as 1, 2, 3.
-
-1. Make sure you have [NodeJS](https://nodejs.org/) and [npm](https://www.npmjs.com/) installed.
-2. Install your dependencies
-
-    ```
-    cd path/to/jogging_time_tracker_featherjs; npm install
-    ```
-
-3. Start your app
-
-    ```
-    npm start
-    ```
-
-## Testing
-
-Simply run `npm test` and all your tests in the `test/` directory will be run.
-
-## Scaffolding
-
-Feathers has a powerful command line interface. Here are a few things it can do:
+[Feathers](http://feathersjs.com), `node`
 
 ```
 $ npm install -g feathers-cli             # Install Feathers CLI
-
-$ feathers generate service               # Generate a new Service
-$ feathers generate hook                  # Generate a new Hook
-$ feathers generate model                 # Generate a new Model
-$ feathers help                           # Show all commands
 ```
 
-## Help
+## Get Started
+```
+yarn
+npm start
+```
 
-For more information on all the things you can do with Feathers visit [docs.feathersjs.com](http://docs.feathersjs.com).
+## Testing
+```
+npm run mocha
+```
 
-## Changelog
+## Test Result
+```
+  Feathers application tests
+    ✓ starts and shows the index page (50ms)
+      ✓ shows a 404 HTML page
+      ✓ shows a 404 JSON error without stack trace
 
-__0.1.0__
+  REST filter timelog service
+    ✓ should get list of timelogs (98ms)
+    ✓ should limit timelog number
+    ✓ should filter by timelog description
 
-- Initial release
+  REST filter timelog service
+    ✓ should get list of timelogs
+    ✓ should filter by description
+    ✓ should filter by amount
+    ✓ should limit results
+    ✓ should filter by date
+    ✓ should filter by date
 
-## License
+  timelog service
+    ✓ registered the timelogs service
+    ✓ runs create
 
-Copyright (c) 2016
+  REST timelog service
+    ✓ should create the timelog data
+    ✓ should create another the timelog data
+    ✓ should get list of timelogs
+    ✓ should get the timelog
+    ✓ should update the timelog
+    ✓ should delete the timelog
+    ✓ should now only give single timelog
 
-Licensed under the [MIT license](LICENSE).
+  REST as Admin timelog service
+    ✓ registered the timelogs service
+    ✓ should create the timelog data
+    ✓ should create another the timelog data
+    ✓ should get the timelog
+    ✓ should update the timelog
+    ✓ should delete the timelog
+
+  REST as Admin timelog list service
+    ✓ should create an timelog data
+    ✓ user should get list of timelogs
+    ✓ admin should get list of timelogs
+
+  REST as Manager timelog service
+    ✓ should create another the timelog data
+    ✓ should not get the timelog
+    ✓ should not update the timelog
+    ✓ should not delete the timelog
+
+  REST as Manager timelog list service
+    ✓ should create an timelog data
+    ✓ user should get list of timelogs
+    ✓ manager should not get list of timelogs
+
+  user service
+    ✓ registered the users service
+    ✓ runs create (106ms)
+
+  REST user service
+    ✓ should not get list of users
+    ✓ should get the user
+    ✓ should update the user
+    ✓ should delete the user
+
+  REST as Admin user service
+    ✓ registered the users service
+    ✓ should create the user data (123ms)
+    ✓ should get list of users
+    ✓ should get the user
+    ✓ should update the user
+    ✓ should delete the user
+
+  REST as Manager user service
+    ✓ registered the users service
+    ✓ should create the user data (105ms)
+    ✓ should get list of users
+    ✓ should get the user
+    ✓ should update the user
+    ✓ should delete the user
+
+
+  55 passing (5s)
+```
