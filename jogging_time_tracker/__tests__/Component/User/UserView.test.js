@@ -4,23 +4,16 @@ import { reduxForm } from 'redux-form'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 
-import TimeLogView from '../../../App/Components/TimeRow/TimeLogView.js'
+import UserView from '../../../App/Components/User/UserView.js'
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer'
-
-jest.mock('react-native-modal-datetime-picker')
 
 const noop = () => {}
 
 const store = createStore(() => ({}))
 
-const Decorated = reduxForm({
-  form: 'time_log_form',
-  initialValues: {
-    date: new Date(),
-  },
-})(TimeLogView)
+const Decorated = reduxForm({ form: 'user_form' })(UserView)
 
 it('renders correctly', () => {
   const tree = renderer
