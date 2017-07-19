@@ -11,6 +11,7 @@ import {
 } from '../../Helper/Validators.js'
 
 import FormFieldText from '../Common/FormFieldText.js'
+import FormFieldSelect from '../Common/FormFieldSelect.js'
 import type { Props } from '../TimeRow/TimeLogView.js'
 
 const styles = {
@@ -18,6 +19,21 @@ const styles = {
     marginTop: 65,
   },
 }
+
+const options = [
+  {
+    label: 'Admin',
+    value: 'admin',
+  },
+  {
+    label: 'Manager',
+    value: 'manager',
+  },
+  {
+    label: 'User',
+    value: '',
+  },
+]
 
 const UserView = (props: Props) => {
   const {
@@ -71,6 +87,14 @@ const UserView = (props: Props) => {
         secureTextEntry
         editable={editing || newEntry}
         validate={[required, minLength(2), maxLength(30)]}
+      />
+      <Field
+        component={FormFieldSelect}
+        name="role"
+        title="ROLE"
+        editable={editing || newEntry}
+        options={options}
+        validate={[required, email, minLength(2), maxLength(30)]}
       />
       {editButton}
       {submitButton}

@@ -14,11 +14,12 @@ const catchError = err => {
 const UserEditor = compose(
   mapProps(props => {
     if (!props.newEntry) {
-      const { email } = props.user
+      const { email, roles } = props.user
       return {
         ...props,
         initialValues: {
           email,
+          role: roles[0],
         },
       }
     }
