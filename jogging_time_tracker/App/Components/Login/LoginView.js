@@ -10,12 +10,12 @@ import {
   maxLength,
 } from '../../Helper/Validators.js'
 
-/* import SelectUsersButton from './SelectUsersButton.js'*/
 import FormFieldText from '../Common/FormFieldText.js'
 
 import styles from './Style/LoginView.style.js'
 
 export type Props = {
+  changeUser: any => () => mixed,
   handleSubmit: any => () => mixed,
   onSubmit: () => mixed,
   alterRegistered: () => mixed,
@@ -24,16 +24,20 @@ export type Props = {
   valid: boolean,
 }
 
+const SelectUserButtons = (props: Props) => {
+  const { changeUser } = props
+
+  return (
+    <View>
+      <Button onPress={() => changeUser('admin@test.com')} title="Admin" />
+      <Button onPress={() => changeUser('manager@test.com')} title="Manager" />
+      <Button onPress={() => changeUser('user1@test.com')} title="User1" />
+      <Button onPress={() => changeUser('user2@test.com')} title="User2" />
+    </View>
+  )
+}
+
 const LoginView = (props: Props) => {
-  /* render () {
-   *   if (this.loading) {
-   *     return <Spinner visible textContent={this.loadingText}
-   *              textStyle={spinnerStyle} />
-   *   } else {
-   *     return this.renderMain()
-   *   }
-   * }
-   */
   const {
     handleSubmit,
     onSubmit,
@@ -45,6 +49,7 @@ const LoginView = (props: Props) => {
 
   return (
     <View style={styles.container}>
+      <SelectUserButtons {...props} />
       <Field
         component={FormFieldText}
         name="email"
@@ -69,5 +74,3 @@ const LoginView = (props: Props) => {
 }
 
 export default LoginView
-
-/* <SelectUsersButton setEmailPassword={this.setEmailPassword.bind(this)} />*/

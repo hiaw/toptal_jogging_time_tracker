@@ -1,12 +1,13 @@
 /* @flow*/
 import { compose, withHandlers, withState } from 'recompose'
 import { Alert } from 'react-native'
-import { reduxForm } from 'redux-form'
-import { Actions } from 'react-native-router-flux'
+import { reduxForm, change } from 'redux-form'
 
 import LoginView from '../Components/Login/LoginView.js'
 
 import redirectAfterLogin from '../Components/Login/RedirectAfterLogin.js'
+
+const form = 'login_form'
 
 const LoginContainer = compose(
   withState('loading', 'setLoading', false),
@@ -85,7 +86,7 @@ const LoginContainer = compose(
     },
   }),
   reduxForm({
-    form: 'login_form',
+    form,
     onSubmitFail: (errors, dispatch, submitError) => {
       console.log(submitError)
       console.log(errors)
@@ -93,6 +94,12 @@ const LoginContainer = compose(
     initialValues: {
       email: 'user1@test.com',
       password: '123456',
+    },
+  }),
+  withHandlers({
+    changeUser: props => (email, password) => {
+      const { dispatch } = props
+      dispatch(change(form, 'email', email))
     },
   }),
 )(LoginView)

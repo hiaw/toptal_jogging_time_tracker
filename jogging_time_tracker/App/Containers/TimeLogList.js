@@ -64,8 +64,11 @@ class TimeLogList extends React.Component {
   }
 
   updateList(q) {
-    const { setSection } = this.props
+    const { setSection, owner } = this.props
     let decreasingDate = { $sort: { date: -1 } }
+    if (owner) {
+      decreasingDate.owner = owner
+    }
     let newQ = _.merge(q, { query: decreasingDate })
 
     this.timelogService.find(newQ).then(timelogs => {

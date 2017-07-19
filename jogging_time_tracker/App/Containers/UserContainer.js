@@ -4,23 +4,22 @@ import { Alert } from 'react-native'
 import { reduxForm } from 'redux-form'
 import { Actions } from 'react-native-router-flux'
 
-import TimeLogView from '../Components/TimeRow/TimeLogView.js'
+import UserView from '../Components/User/UserView.js'
 
 const catchError = err => {
   console.log(err.message)
   Alert.alert('Error', err.message)
 }
 
-const TimeLogEditor = compose(
+const UserEditor = compose(
   mapProps(props => {
     if (!props.newEntry) {
-      const { date, duration, distance } = props.item
+      const { email, roles } = props.user
       return {
         ...props,
         initialValues: {
-          date: new Date(date),
-          duration: duration.toString(),
-          distance: distance.toString(),
+          email,
+          role: roles[0],
         },
       }
     }
@@ -29,6 +28,10 @@ const TimeLogEditor = compose(
   withState('editing', 'setEditing', false),
   withState('buttonText', 'setButtonText', 'Edit'),
   withHandlers({
+    showTimelogs: props => () => {
+      const { user: { _id } } = props
+      Actions.timelogs({ owner: _id })
+    },
     alterEditing: props => () => {
       const { editing, setEditing, setButtonText } = props
       if (editing) {
@@ -42,13 +45,13 @@ const TimeLogEditor = compose(
     cancelEditing: props => () => {
       Actions.pop()
     },
-    deleteTimeLog: props => () => {
-      const { item: { _id }, app } = props
-      Alert.alert('Delete this time log?', 'Are you sure?', [
+    deleteUser: props => () => {
+      const { user: { _id }, app } = props
+      Alert.alert('Delete this user?', 'Are you sure?', [
         {
           text: 'Yes',
           onPress: () => {
-            app.service('timelogs').remove(_id).then(result => {
+            app.service('users').remove(_id).then(result => {
               if (result._id) {
                 Actions.pop()
               }
@@ -59,17 +62,19 @@ const TimeLogEditor = compose(
       ])
     },
     onSubmit: props => values => {
-      const { date, duration, distance } = values
-      const { newEntry, item, app } = props
+      const { newEntry, user, app } = props
+      const { email, password, role } = values
       const newValues = {
-        date,
-        duration: parseFloat(duration),
-        distance: parseFloat(distance),
+        email: email.toLowerCase(),
+        roles: [role.toLowerCase()],
+      }
+      if (password != '') {
+        newValues.password = password
       }
 
       if (newEntry) {
         app
-          .service('timelogs')
+          .service('users')
           .create(newValues)
           .then(result => {
             if (result._id) {
@@ -78,10 +83,9 @@ const TimeLogEditor = compose(
           })
           .catch(catchError)
       } else {
-        newValues.owner = item.owner
         app
-          .service('timelogs')
-          .update(item._id, newValues)
+          .service('users')
+          .patch(user._id, newValues)
           .then(result => {
             if (result._id) {
               Actions.pop()
@@ -92,15 +96,12 @@ const TimeLogEditor = compose(
     },
   }),
   reduxForm({
-    form: 'timelog_form',
+    form: 'user_form',
     onSubmitFail: (errors, dispatch, submitError) => {
       console.log(submitError)
       console.log(errors)
     },
-    initialValues: {
-      date: new Date(),
-    },
   }),
-)(TimeLogView)
+)(UserView)
 
-export default TimeLogEditor
+export default UserEditor
