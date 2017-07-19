@@ -7,7 +7,9 @@ import LoginContainer from '../Containers/LoginContainer.js'
 import UserContainer from '../Containers/UserContainer.js'
 import TimeLogEditor from '../Containers/TimeLogEditor.js'
 import TimeLogList from '../Containers/TimeLogList.js'
+
 import UsersList from '../Components/User/UsersList.js'
+import StatisticView from '../Components/TimeRow/StatisticView.js'
 
 export default class NavigationRouter extends Component {
   render() {
@@ -46,6 +48,13 @@ export default class NavigationRouter extends Component {
           key="usersList"
           component={UsersList}
           title="Users"
+          hideNavBar={false}
+        />
+        <Scene
+          app={this.props.app}
+          key="statistics"
+          component={StatisticView}
+          title="Statistics"
           hideNavBar={false}
         />
       </Router>

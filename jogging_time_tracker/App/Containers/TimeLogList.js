@@ -1,6 +1,6 @@
 /* @flow*/
 import React from 'react'
-import { StyleSheet, SectionList, View } from 'react-native'
+import { Button, StyleSheet, SectionList, View } from 'react-native'
 import { Actions } from 'react-native-router-flux'
 import { compose, withState } from 'recompose'
 import moment from 'moment'
@@ -12,6 +12,7 @@ import WeeklyAverageRow from '../Components/TimeRow/WeeklyAverageRow.js'
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     marginTop: 60,
     borderTopWidth: StyleSheet.hairlineWidth,
     borderTopColor: 'black',
@@ -64,7 +65,7 @@ class TimeLogList extends React.Component {
   }
 
   updateList(q) {
-    const { setSection, owner } = this.props
+    const { setSection, owner, setData } = this.props
     let decreasingDate = { $sort: { date: -1 } }
     if (owner) {
       decreasingDate.owner = owner
@@ -72,6 +73,7 @@ class TimeLogList extends React.Component {
     let newQ = _.merge(q, { query: decreasingDate })
 
     this.timelogService.find(newQ).then(timelogs => {
+      setData(timelogs.data)
       const newTimelogs = timelogs.data.map(timelog => ({
         ...timelog,
         week: moment(timelog.date).isoWeek(),
@@ -86,7 +88,7 @@ class TimeLogList extends React.Component {
   }
 
   render() {
-    const { sections } = this.props
+    const { sections, data } = this.props
     return (
       <View style={styles.container}>
         <SectionList
@@ -96,9 +98,18 @@ class TimeLogList extends React.Component {
           renderItem={renderItem}
           sections={sections}
         />
+        <Button
+          onPress={() => {
+            Actions.statistics({ data })
+          }}
+          title="Open Statistics"
+        />
       </View>
     )
   }
 }
 
-export default compose(withState('sections', 'setSection', []))(TimeLogList)
+export default compose(
+  withState('sections', 'setSection', []),
+  withState('data', 'setData', []),
+)(TimeLogList)
