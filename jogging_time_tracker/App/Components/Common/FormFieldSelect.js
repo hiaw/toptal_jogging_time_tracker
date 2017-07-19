@@ -13,7 +13,7 @@ type NewProps = {
 } & Props
 
 const FormFieldSelect = (props: NewProps) => {
-  const { input, meta, options } = props
+  const { input, meta, editable, options } = props
 
   const pickerItem = options.map(option => {
     const { label: itemLabel, value } = option
@@ -22,6 +22,7 @@ const FormFieldSelect = (props: NewProps) => {
 
   return (
     <Picker
+      enabled={editable}
       mode="dropdown"
       selectedValue={input.value}
       onValueChange={t => {

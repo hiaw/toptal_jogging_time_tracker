@@ -86,7 +86,7 @@ const UserView = (props: Props) => {
         title="PASSWORD"
         secureTextEntry
         editable={editing || newEntry}
-        validate={[required, minLength(2), maxLength(30)]}
+        validate={[minLength(2), maxLength(30)]}
       />
       <Field
         component={FormFieldSelect}
@@ -94,7 +94,6 @@ const UserView = (props: Props) => {
         title="ROLE"
         editable={editing || newEntry}
         options={options}
-        validate={[required, email, minLength(2), maxLength(30)]}
       />
       {editButton}
       {submitButton}

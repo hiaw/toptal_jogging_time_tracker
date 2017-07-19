@@ -63,13 +63,20 @@ const UserEditor = compose(
     },
     onSubmit: props => values => {
       const { newEntry, user, app } = props
+      const { email, password, role } = values
+      const newValues = {
+        email,
+        roles: [role],
+      }
+      if (password != '') {
+        newValues.password = password
+      }
 
       if (newEntry) {
         app
           .service('users')
-          .create(values)
+          .create(newValues)
           .then(result => {
-            console.log(result)
             if (result._id) {
               Actions.pop()
             }
@@ -78,7 +85,7 @@ const UserEditor = compose(
       } else {
         app
           .service('users')
-          .update(user._id, values)
+          .patch(user._id, newValues)
           .then(result => {
             if (result._id) {
               Actions.pop()
