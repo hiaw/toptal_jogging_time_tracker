@@ -13,8 +13,12 @@ const genDuration = () => _.round(Math.random() * 1000, 2)
 
 const callback = (user, seed) => {
   return seed({
+    delete: false,
     count: 10,
     path: 'timelogs',
+    params: {
+      userId: user._id,
+    },
     template: {
       date: genDate,
       distance: genDistance,
@@ -25,42 +29,36 @@ const callback = (user, seed) => {
 }
 
 module.exports = {
-  delete: true,
   services: [
     {
+      delete: true,
+      randomize: false,
       path: 'users',
-      template: {
-        email: 'admin@test.com',
-        password: 'password',
-        roles: 'admin',
-      },
-      callback,
-    },
-    {
-      path: 'users',
-      template: {
-        email: 'manager@test.com',
-        password: 'password',
-        roles: 'manager',
-      },
-      callback,
-    },
-    {
-      path: 'users',
-      template: {
-        email: 'user1@test.com',
-        password: 'password',
-        roles: '',
-      },
-      callback,
-    },
-    {
-      path: 'users',
-      template: {
-        email: 'user2@test.com',
-        password: 'password',
-        roles: '',
-      },
+      templates: [
+        {
+          email: 'admin@test.com',
+          password: 'password',
+          roles: 'admin',
+        },
+
+        {
+          email: 'manager@test.com',
+          password: 'password',
+          roles: 'manager',
+        },
+
+        {
+          email: 'user1@test.com',
+          password: 'password',
+          roles: '',
+        },
+
+        {
+          email: 'user2@test.com',
+          password: 'password',
+          roles: '',
+        },
+      ],
       callback,
     },
   ],

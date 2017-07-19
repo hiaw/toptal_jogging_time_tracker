@@ -91,8 +91,8 @@ const LoginContainer = compose(
       console.log(errors)
     },
     initialValues: {
-      email: 'feathers@example.com',
-      password: 'secret',
+      email: 'user1@test.com',
+      password: 'password',
     },
   }),
 )(LoginView)
