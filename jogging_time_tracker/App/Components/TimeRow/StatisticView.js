@@ -17,6 +17,10 @@ const styles = StyleSheet.create({
     paddingTop: 60,
     paddingBottom: 20,
   },
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
 })
 
 const moonDistance = 384000000
@@ -33,7 +37,6 @@ const StatisticView = props => {
     year: moment(timelog.date).startOf('year'),
   }))
 
-  const dayList = _.groupBy(newData, 'day')
   const weekList = _.groupBy(newData, 'week')
   const monthList = _.groupBy(newData, 'month')
   const yearList = _.groupBy(newData, 'year')
@@ -50,7 +53,7 @@ const StatisticView = props => {
   const monthSlowestJogRecordText = `Month: `
   const yearSlowestJogRecordText = `Year: `
 
-  console.log(dayList)
+  const dayList = _.groupBy(newData, 'day')
   const newDayList = _.map(dayList, day => ({
     ...day,
     distance: _.sumBy(day, 'distance'),
@@ -59,55 +62,66 @@ const StatisticView = props => {
   const greatestDistanceObj = _.maxBy(newDayList, 'distance')
   const greatestDistanceDay = greatestDistanceObj[0].day.format('DD/MM/YYYY')
   const greatestDistance = getDistanceText(greatestDistanceObj.distance)
-  const greatestDistanceDayText = `${greatestDistanceDay}: ${greatestDistance}`
 
   const lastWeekComparison = `Last Week`
 
   const totalDistance = _.sumBy(newData, 'distance')
-  const moodDistancePercentage = _.round(totalDistance / moonDistance * 100, 3)
-  const moonDistanceText = `% Distance To Moon: ${moodDistancePercentage}%`
+  const moonDistancePercentage = _.round(totalDistance / moonDistance * 100, 3)
+  const moonDistanceText = '% Distance To Moon:'
 
   const cumulativeDistance = getDistanceText(totalDistance)
-  const cumulativeDistanceText = 'Distance: ' + cumulativeDistance
+  const cumulativeDistanceText = 'Distance: '
 
   const totalTime = getDurationText(_.sumBy(newData, 'duration'))
-  const totalTimeText = 'Time: ' + totalTime
+  const totalTimeText = 'Time: '
 
-  /* const dateText = moment(date).format('DD/MM/YYYY')
-   * const distanceText = getDistanceText(distance)
-   * const durationText = getDurationText(duration)
-   * const speedText = getSpeedText(distance, duration)
-   */
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Card title="Fastest Jog">
-        <Text>
-          {weekFastestJogRecordText}
-        </Text>
-        <Text>
-          {monthFastestJogRecordText}
-        </Text>
-        <Text>
-          {yearFastestJogRecordText}
-        </Text>
-      </Card>
+      <Card title="Record Speed">
+        <View style={styles.row}>
+          <View>
+            <Text />
+            <Text>Week</Text>
+            <Text>Month</Text>
+            <Text>Year</Text>
+          </View>
+          <View>
+            <Text>Fastest</Text>
+            <Text>
+              {weekFastestJogRecordText}
+            </Text>
+            <Text>
+              {monthFastestJogRecordText}
+            </Text>
+            <Text>
+              {yearFastestJogRecordText}
+            </Text>
+          </View>
 
-      <Card title="Slowest Jog">
-        <Text>
-          {weekSlowestJogRecordText}
-        </Text>
-        <Text>
-          {monthSlowestJogRecordText}
-        </Text>
-        <Text>
-          {yearSlowestJogRecordText}
-        </Text>
+          <View>
+            <Text>Slowest</Text>
+            <Text>
+              {weekSlowestJogRecordText}
+            </Text>
+            <Text>
+              {monthSlowestJogRecordText}
+            </Text>
+            <Text>
+              {yearSlowestJogRecordText}
+            </Text>
+          </View>
+        </View>
       </Card>
 
       <Card title="Greatest Distance Day">
-        <Text>
-          {greatestDistanceDayText}
-        </Text>
+        <View style={styles.row}>
+          <Text>
+            {greatestDistanceDay}
+          </Text>
+          <Text>
+            {greatestDistance}
+          </Text>
+        </View>
       </Card>
 
       <Card title="Last Week Comparison">
@@ -117,15 +131,30 @@ const StatisticView = props => {
       </Card>
 
       <Card title="Cumulative">
-        <Text>
-          {moonDistanceText}
-        </Text>
-        <Text>
-          {cumulativeDistanceText}
-        </Text>
-        <Text>
-          {totalTimeText}
-        </Text>
+        <View style={styles.row}>
+          <Text>
+            {moonDistanceText}
+          </Text>
+          <Text>
+            {moonDistancePercentage}
+          </Text>
+        </View>
+        <View style={styles.row}>
+          <Text>
+            {cumulativeDistanceText}
+          </Text>
+          <Text>
+            {cumulativeDistance}
+          </Text>
+        </View>
+        <View style={styles.row}>
+          <Text>
+            {totalTimeText}
+          </Text>
+          <Text>
+            {totalTime}
+          </Text>
+        </View>
       </Card>
     </ScrollView>
   )
