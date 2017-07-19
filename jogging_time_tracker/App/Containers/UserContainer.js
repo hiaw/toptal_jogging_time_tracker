@@ -27,6 +27,10 @@ const UserEditor = compose(
   withState('editing', 'setEditing', false),
   withState('buttonText', 'setButtonText', 'Edit'),
   withHandlers({
+    showTimelogs: props => () => {
+      const { user: { _id } } = props
+      Actions.timelogs({ owner: _id })
+    },
     alterEditing: props => () => {
       const { editing, setEditing, setButtonText } = props
       if (editing) {

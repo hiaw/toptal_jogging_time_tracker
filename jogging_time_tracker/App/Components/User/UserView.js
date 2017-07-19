@@ -30,6 +30,7 @@ const UserView = (props: Props) => {
     onSubmit,
     deleteUser,
     cancelEditing,
+    showTimelogs,
   } = props
 
   let submitButton = null
@@ -55,6 +56,7 @@ const UserView = (props: Props) => {
 
   return (
     <View style={styles.container}>
+      <Button onPress={showTimelogs} title="Show Timelogs" />
       <Field
         component={FormFieldText}
         name="email"
