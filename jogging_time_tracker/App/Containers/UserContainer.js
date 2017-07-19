@@ -14,12 +14,11 @@ const catchError = err => {
 const UserEditor = compose(
   mapProps(props => {
     if (!props.newEntry) {
-      const { email, password } = props.user
+      const { email } = props.user
       return {
         ...props,
         initialValues: {
           email,
-          password,
         },
       }
     }
@@ -43,7 +42,7 @@ const UserEditor = compose(
     },
     deleteUser: props => () => {
       const { user: { _id }, app } = props
-      Alert.alert('Delete this time log?', 'Are you sure?', [
+      Alert.alert('Delete this user?', 'Are you sure?', [
         {
           text: 'Yes',
           onPress: () => {

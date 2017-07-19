@@ -98,7 +98,6 @@ const LoginContainer = compose(
   }),
   withHandlers({
     changeUser: props => (email, password) => {
-      console.log(props)
       const { dispatch } = props
       dispatch(change(form, 'email', email))
     },

@@ -28,7 +28,7 @@ const UserView = (props: Props) => {
     alterEditing,
     handleSubmit,
     onSubmit,
-    deleteTimeLog,
+    deleteUser,
     cancelEditing,
   } = props
 
@@ -46,7 +46,7 @@ const UserView = (props: Props) => {
   let editButton = <Button onPress={alterEditing} title={buttonText} />
   let deleteButton = null
   if (editing) {
-    deleteButton = <Button onPress={deleteTimeLog} title="Delete" />
+    deleteButton = <Button onPress={deleteUser} title="Delete" />
   }
   if (newEntry) {
     deleteButton = <Button onPress={cancelEditing} title="Cancel" />
