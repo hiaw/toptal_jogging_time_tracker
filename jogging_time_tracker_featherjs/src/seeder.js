@@ -58,7 +58,7 @@ function generateRandomDateFromPastMonth() {
 }
 
 function createTimelogsForUser(userId, app) {
-  for (var i = 0; i < 50; i++) {
+  for (var i = 0; i < 10; i++) {
     app.service('timelogs').create({
       owner: userId,
       date: genDate(),

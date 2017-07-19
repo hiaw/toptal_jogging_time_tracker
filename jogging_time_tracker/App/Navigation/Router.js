@@ -22,16 +22,16 @@ export default class NavigationRouter extends Component {
           key="timelogs"
           title="Time Logs"
           component={TimeLogList}
-          leftTitle="Logout"
-          onLeft={() => Actions.login({ type: ActionConst.RESET })}
           rightTitle="Add"
           onRight={() => Actions.timelog({ newEntry: true })}
+          hideNavBar={false}
         />
         <Scene
           app={this.props.app}
           key="timelog"
           title="Time Log"
           component={TimeLogEditor}
+          hideNavBar={false}
         />
       </Router>
     )
