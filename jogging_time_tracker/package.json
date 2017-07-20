@@ -10,9 +10,9 @@
 		},
 		"dependencies": {
 				"feathers": "^2.1.4",
-		"feathers-authentication": "^0.7.12",
-		"feathers-hooks": "^1.7.1",
-		"feathers-socketio": "^1.4.2",
+				"feathers-authentication": "^0.7.12",
+				"feathers-hooks": "^1.7.1",
+				"feathers-socketio": "^1.4.2",
 				"flow-bin": "0.47",
 				"moment": "^2.18.1",
 				"react": "16.0.0-alpha.12",
@@ -28,7 +28,7 @@
 				"recompose": "^0.24.0",
 				"redux": "^3.7.2",
 				"redux-form": "6",
-		"socket.io-client": "^1.7.3"
+				"socket.io-client": "^1.7.3"
 		},
 		"devDependencies": {
 				"babel-jest": "20.0.3",

@@ -151,7 +151,7 @@ exports[`renders empty array 1`] = `
               disabled={false}
               ellipsizeMode="tail"
             >
-              0
+              0 km/h
             </Text>
             <Text
               accessible={true}
@@ -159,7 +159,7 @@ exports[`renders empty array 1`] = `
               disabled={false}
               ellipsizeMode="tail"
             >
-              0
+              0 km/h
             </Text>
             <Text
               accessible={true}
@@ -167,7 +167,7 @@ exports[`renders empty array 1`] = `
               disabled={false}
               ellipsizeMode="tail"
             >
-              0
+              0 km/h
             </Text>
           </View>
           <View>
@@ -185,7 +185,7 @@ exports[`renders empty array 1`] = `
               disabled={false}
               ellipsizeMode="tail"
             >
-              0
+              0 km/h
             </Text>
             <Text
               accessible={true}
@@ -193,7 +193,7 @@ exports[`renders empty array 1`] = `
               disabled={false}
               ellipsizeMode="tail"
             >
-              0
+              0 km/h
             </Text>
             <Text
               accessible={true}
@@ -201,7 +201,7 @@ exports[`renders empty array 1`] = `
               disabled={false}
               ellipsizeMode="tail"
             >
-              0
+              0 km/h
             </Text>
           </View>
         </View>
@@ -513,7 +513,7 @@ exports[`renders empty array 1`] = `
               disabled={false}
               ellipsizeMode="tail"
             >
-              0.00m
+              0 m
             </Text>
           </View>
         </View>
@@ -837,7 +837,7 @@ exports[`renders empty array 2`] = `
               disabled={false}
               ellipsizeMode="tail"
             >
-              0
+              8.1 km/h
             </Text>
             <Text
               accessible={true}
@@ -845,7 +845,7 @@ exports[`renders empty array 2`] = `
               disabled={false}
               ellipsizeMode="tail"
             >
-              27.240920881971466
+              27.2 km/h
             </Text>
             <Text
               accessible={true}
@@ -853,7 +853,7 @@ exports[`renders empty array 2`] = `
               disabled={false}
               ellipsizeMode="tail"
             >
-              27.240920881971466
+              27.2 km/h
             </Text>
           </View>
           <View>
@@ -871,7 +871,7 @@ exports[`renders empty array 2`] = `
               disabled={false}
               ellipsizeMode="tail"
             >
-              0
+              8.1 km/h
             </Text>
             <Text
               accessible={true}
@@ -879,7 +879,7 @@ exports[`renders empty array 2`] = `
               disabled={false}
               ellipsizeMode="tail"
             >
-              27.240920881971466
+              7 km/h
             </Text>
             <Text
               accessible={true}
@@ -887,7 +887,7 @@ exports[`renders empty array 2`] = `
               disabled={false}
               ellipsizeMode="tail"
             >
-              27.240920881971466
+              7 km/h
             </Text>
           </View>
         </View>
@@ -1034,7 +1034,7 @@ exports[`renders empty array 2`] = `
               disabled={false}
               ellipsizeMode="tail"
             >
-              5.1 km
+              5.49 km
             </Text>
             <Text
               accessible={true}
@@ -1042,7 +1042,7 @@ exports[`renders empty array 2`] = `
               disabled={false}
               ellipsizeMode="tail"
             >
-              0:10:32.4
+              0:13:01.3
             </Text>
             <Text
               accessible={true}
@@ -1050,7 +1050,7 @@ exports[`renders empty array 2`] = `
               disabled={false}
               ellipsizeMode="tail"
             >
-              29 km/h
+              25.3 km/h
             </Text>
           </View>
           <View>
@@ -1068,7 +1068,7 @@ exports[`renders empty array 2`] = `
               disabled={false}
               ellipsizeMode="tail"
             >
-              0 m
+              5.1 km
             </Text>
             <Text
               accessible={true}
@@ -1076,7 +1076,7 @@ exports[`renders empty array 2`] = `
               disabled={false}
               ellipsizeMode="tail"
             >
-              0:00:00
+              0:10:32.4
             </Text>
             <Text
               accessible={true}
@@ -1084,7 +1084,7 @@ exports[`renders empty array 2`] = `
               disabled={false}
               ellipsizeMode="tail"
             >
-              NaN km/h
+              29 km/h
             </Text>
           </View>
         </View>
@@ -1191,7 +1191,7 @@ exports[`renders empty array 2`] = `
               disabled={false}
               ellipsizeMode="tail"
             >
-              Not Found
+              09/02/2017
             </Text>
             <Text
               accessible={true}
@@ -1199,7 +1199,7 @@ exports[`renders empty array 2`] = `
               disabled={false}
               ellipsizeMode="tail"
             >
-              0.00m
+              5.49 km
             </Text>
           </View>
         </View>

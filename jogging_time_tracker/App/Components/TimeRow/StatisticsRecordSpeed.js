@@ -39,13 +39,13 @@ const StatisticsRecordSpeed = props => {
   const yearFastestText = formatSpeed(yearFastest)
 
   const weekSlowest =
-    thisWeek && thisWeek.length > 0 ? _.maxBy(thisWeek, 'speed').speed : 0
+    thisWeek && thisWeek.length > 0 ? _.minBy(thisWeek, 'speed').speed : 0
   const weekSlowestText = formatSpeed(weekSlowest)
   const monthSlowest =
-    thisMonth && thisMonth.length > 0 ? _.maxBy(thisMonth, 'speed').speed : 0
+    thisMonth && thisMonth.length > 0 ? _.minBy(thisMonth, 'speed').speed : 0
   const monthSlowestText = formatSpeed(monthSlowest)
   const yearSlowest =
-    thisYear && thisYear.length > 0 ? _.maxBy(thisYear, 'speed').speed : 0
+    thisYear && thisYear.length > 0 ? _.minBy(thisYear, 'speed').speed : 0
   const yearSlowestText = formatSpeed(yearSlowest)
 
   return (
@@ -60,26 +60,26 @@ const StatisticsRecordSpeed = props => {
         <View>
           <Text>Fastest</Text>
           <Text>
-            {weekFastest}
+            {weekFastestText}
           </Text>
           <Text>
-            {monthFastest}
+            {monthFastestText}
           </Text>
           <Text>
-            {yearFastest}
+            {yearFastestText}
           </Text>
         </View>
 
         <View>
           <Text>Slowest</Text>
           <Text>
-            {weekSlowest}
+            {weekSlowestText}
           </Text>
           <Text>
-            {monthSlowest}
+            {monthSlowestText}
           </Text>
           <Text>
-            {yearSlowest}
+            {yearSlowestText}
           </Text>
         </View>
       </View>
