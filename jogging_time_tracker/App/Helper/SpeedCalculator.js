@@ -27,6 +27,12 @@ export const getDurationText = (duration: number) => {
   return durationText
 }
 
+export const formatSpeed = (speed: number) => {
+  const nspeed = _.round(speed, 1)
+  const speedText = `${nspeed} km/h`
+  return speedText
+}
+
 export const getSpeedText = (distance: number, duration: number) => {
   const kms = distance / 1000
   const hours = duration / MINUTE_PER_HOUR

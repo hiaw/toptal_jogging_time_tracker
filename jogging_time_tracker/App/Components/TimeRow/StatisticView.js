@@ -9,6 +9,7 @@ import _ from 'lodash'
 import {
   getDistanceText,
   getDurationText,
+  formatSpeed,
   getSpeedText,
 } from '../../Helper/SpeedCalculator.js'
 
@@ -41,20 +42,23 @@ const StatisticView = props => {
   const monthList = _.groupBy(newData, 'month')
   const yearList = _.groupBy(newData, 'year')
 
-  const fastestJogWeek = ''
-  const fastestJogMonth = ''
-  const fastestJogYear = ''
+  const thisWeek = weekList[moment().isoWeek()]
+  const thisMonth = monthList[moment().startOf('month')]
+  const thisYear = yearList[moment().startOf('year')]
 
-  const weekFastestJogRecordText = `Week: `
-  const monthFastestJogRecordText = `Month: `
-  const yearFastestJogRecordText = `Year: `
+  const weekFastestJogRecordText = formatSpeed(_.maxBy(thisWeek, 'speed').speed)
+  const monthFastestJogRecordText = formatSpeed(
+    _.maxBy(thisMonth, 'speed').speed,
+  )
+  const yearFastestJogRecordText = formatSpeed(_.maxBy(thisYear, 'speed').speed)
 
-  const weekSlowestJogRecordText = `Week: `
-  const monthSlowestJogRecordText = `Month: `
-  const yearSlowestJogRecordText = `Year: `
+  const weekSlowestJogRecordText = formatSpeed(_.minBy(thisWeek, 'speed').speed)
+  const monthSlowestJogRecordText = formatSpeed(
+    _.minBy(thisMonth, 'speed').speed,
+  )
+  const yearSlowestJogRecordText = formatSpeed(_.minBy(thisYear, 'speed').speed)
 
   const lastWeek = weekList[moment().subtract(7, 'days').isoWeek()]
-  const thisWeek = weekList[moment().isoWeek()]
 
   const lastWeekDistance = _.sumBy(lastWeek, 'distance')
   const lastWeekDistanceText = getDistanceText(lastWeekDistance)
