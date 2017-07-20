@@ -2,13 +2,12 @@
 import React from 'react'
 import { Button, StyleSheet, SectionList, View } from 'react-native'
 import { Actions } from 'react-native-router-flux'
-import { compose, withState } from 'recompose'
 import moment from 'moment'
 import _ from 'lodash'
 
-import TimeLogRow from '../Components/TimeRow/TimeLogRow.js'
-import WeeklyHeader from '../Components/TimeRow/WeeklyHeader.js'
-import WeeklyAverageRow from '../Components/TimeRow/WeeklyAverageRow.js'
+import TimeLogRow from './TimeLogRow.js'
+import WeeklyHeader from './WeeklyHeader.js'
+import WeeklyAverageRow from './WeeklyAverageRow.js'
 
 const styles = StyleSheet.create({
   container: {
@@ -118,9 +117,4 @@ class TimeLogList extends React.Component {
   }
 }
 
-export default compose(
-  withState('sections', 'setSection', []),
-  withState('data', 'setData', []),
-  withState('fromDate', 'setFromDate', moment('2017-07-10').valueOf()),
-  withState('toDate', 'setToDate', moment().valueOf()),
-)(TimeLogList)
+export default TimeLogList
