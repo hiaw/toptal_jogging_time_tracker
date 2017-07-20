@@ -65,8 +65,11 @@ class TimeLogList extends React.Component {
   }
 
   updateList(q) {
-    const { setSection, owner, setData } = this.props
-    let decreasingDate = { $sort: { date: -1 } }
+    const { setSection, owner, setData, fromDate, toDate } = this.props
+    let decreasingDate = {
+      $sort: { date: -1 },
+      date: { $gte: fromDate, $lte: toDate },
+    }
     if (owner) {
       decreasingDate.owner = owner
     }
@@ -83,7 +86,7 @@ class TimeLogList extends React.Component {
         key,
         data: sectionsObj[key],
       }))
-      setSection(sections)
+      setSection(sections.reverse())
     })
   }
 
@@ -100,6 +103,12 @@ class TimeLogList extends React.Component {
         />
         <Button
           onPress={() => {
+            Actions.timelog({ newEntry: true })
+          }}
+          title="Add Time Log"
+        />
+        <Button
+          onPress={() => {
             Actions.statistics({ data })
           }}
           title="Open Statistics"
@@ -112,4 +121,6 @@ class TimeLogList extends React.Component {
 export default compose(
   withState('sections', 'setSection', []),
   withState('data', 'setData', []),
+  withState('fromDate', 'setFromDate', moment('2017-07-10').valueOf()),
+  withState('toDate', 'setToDate', moment().valueOf()),
 )(TimeLogList)
