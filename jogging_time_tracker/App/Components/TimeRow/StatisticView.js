@@ -1,28 +1,18 @@
 /* @flow*/
 import React from 'react'
-import { StyleSheet, ScrollView, Text, View } from 'react-native'
+import { ScrollView, Text, View } from 'react-native'
 import { Card } from 'react-native-elements'
 import moment from 'moment'
 import _ from 'lodash'
 
-/* import styles from './Styles/StatisticView.style.js'*/
+import StatisticsRecordSpeed from './StatisticsRecordSpeed.js'
+import styles from './Styles/StatisticsView.style.js'
+
 import {
   getDistanceText,
   getDurationText,
-  formatSpeed,
   getSpeedText,
 } from '../../Helper/SpeedCalculator.js'
-
-const styles = StyleSheet.create({
-  container: {
-    paddingTop: 60,
-    paddingBottom: 20,
-  },
-  row: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-})
 
 const moonDistance = 384000000
 
@@ -34,29 +24,11 @@ const StatisticView = props => {
     speed: timelog.distance / timelog.duration,
     day: moment(timelog.date).startOf('day'),
     week: moment(timelog.date).isoWeek(),
-    month: moment(timelog.date).startOf('month'),
-    year: moment(timelog.date).startOf('year'),
   }))
 
   const weekList = _.groupBy(newData, 'week')
-  const monthList = _.groupBy(newData, 'month')
-  const yearList = _.groupBy(newData, 'year')
 
   const thisWeek = weekList[moment().isoWeek()]
-  const thisMonth = monthList[moment().startOf('month')]
-  const thisYear = yearList[moment().startOf('year')]
-
-  const weekFastestJogRecordText = formatSpeed(_.maxBy(thisWeek, 'speed').speed)
-  const monthFastestJogRecordText = formatSpeed(
-    _.maxBy(thisMonth, 'speed').speed,
-  )
-  const yearFastestJogRecordText = formatSpeed(_.maxBy(thisYear, 'speed').speed)
-
-  const weekSlowestJogRecordText = formatSpeed(_.minBy(thisWeek, 'speed').speed)
-  const monthSlowestJogRecordText = formatSpeed(
-    _.minBy(thisMonth, 'speed').speed,
-  )
-  const yearSlowestJogRecordText = formatSpeed(_.minBy(thisYear, 'speed').speed)
 
   const lastWeek = weekList[moment().subtract(7, 'days').isoWeek()]
 
@@ -94,41 +66,7 @@ const StatisticView = props => {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Card title="Record Speed">
-        <View style={styles.row}>
-          <View>
-            <Text />
-            <Text>Week</Text>
-            <Text>Month</Text>
-            <Text>Year</Text>
-          </View>
-          <View>
-            <Text>Fastest</Text>
-            <Text>
-              {weekFastestJogRecordText}
-            </Text>
-            <Text>
-              {monthFastestJogRecordText}
-            </Text>
-            <Text>
-              {yearFastestJogRecordText}
-            </Text>
-          </View>
-
-          <View>
-            <Text>Slowest</Text>
-            <Text>
-              {weekSlowestJogRecordText}
-            </Text>
-            <Text>
-              {monthSlowestJogRecordText}
-            </Text>
-            <Text>
-              {yearSlowestJogRecordText}
-            </Text>
-          </View>
-        </View>
-      </Card>
+      <StatisticsRecordSpeed {...props} />
 
       <Card title="Last Week Comparison">
         <View style={styles.row}>
