@@ -1,10 +1,11 @@
 /* @flow*/
 import React from 'react'
-import { Button, StyleSheet, SectionList, View } from 'react-native'
+import { StyleSheet, SectionList, View } from 'react-native'
 import { Actions } from 'react-native-router-flux'
 import moment from 'moment'
 import _ from 'lodash'
 
+import BottomButtons from './BottomButtons.js'
 import TimeLogRow from './TimeLogRow.js'
 import WeeklyHeader from './WeeklyHeader.js'
 import WeeklyAverageRow from './WeeklyAverageRow.js'
@@ -90,7 +91,7 @@ class TimeLogList extends React.Component {
   }
 
   render() {
-    const { sections, data } = this.props
+    const { sections } = this.props
     return (
       <View style={styles.container}>
         <SectionList
@@ -100,18 +101,7 @@ class TimeLogList extends React.Component {
           renderItem={renderItem}
           sections={sections}
         />
-        <Button
-          onPress={() => {
-            Actions.timelog({ newEntry: true })
-          }}
-          title="Add Time Log"
-        />
-        <Button
-          onPress={() => {
-            Actions.statistics({ data })
-          }}
-          title="Open Statistics"
-        />
+        <BottomButtons {...this.props} />
       </View>
     )
   }
