@@ -28,17 +28,13 @@ const StatisticsRecordSpeed = props => {
   const thisMonth = monthList[moment().startOf('month')]
   const thisYear = yearList[moment().startOf('year')]
 
-  const weekFastestJogRecordText = formatSpeed(_.maxBy(thisWeek, 'speed').speed)
-  const monthFastestJogRecordText = formatSpeed(
-    _.maxBy(thisMonth, 'speed').speed,
-  )
-  const yearFastestJogRecordText = formatSpeed(_.maxBy(thisYear, 'speed').speed)
+  const weekFastest = formatSpeed(_.maxBy(thisWeek, 'speed').speed)
+  const monthFastest = formatSpeed(_.maxBy(thisMonth, 'speed').speed)
+  const yearFastest = formatSpeed(_.maxBy(thisYear, 'speed').speed)
 
-  const weekSlowestJogRecordText = formatSpeed(_.minBy(thisWeek, 'speed').speed)
-  const monthSlowestJogRecordText = formatSpeed(
-    _.minBy(thisMonth, 'speed').speed,
-  )
-  const yearSlowestJogRecordText = formatSpeed(_.minBy(thisYear, 'speed').speed)
+  const weekSlowest = formatSpeed(_.minBy(thisWeek, 'speed').speed)
+  const monthSlowest = formatSpeed(_.minBy(thisMonth, 'speed').speed)
+  const yearSlowest = formatSpeed(_.minBy(thisYear, 'speed').speed)
 
   return (
     <Card title="Record Speed">
@@ -52,26 +48,26 @@ const StatisticsRecordSpeed = props => {
         <View>
           <Text>Fastest</Text>
           <Text>
-            {weekFastestJogRecordText}
+            {weekFastest}
           </Text>
           <Text>
-            {monthFastestJogRecordText}
+            {monthFastest}
           </Text>
           <Text>
-            {yearFastestJogRecordText}
+            {yearFastest}
           </Text>
         </View>
 
         <View>
           <Text>Slowest</Text>
           <Text>
-            {weekSlowestJogRecordText}
+            {weekSlowest}
           </Text>
           <Text>
-            {monthSlowestJogRecordText}
+            {monthSlowest}
           </Text>
           <Text>
-            {yearSlowestJogRecordText}
+            {yearSlowest}
           </Text>
         </View>
       </View>

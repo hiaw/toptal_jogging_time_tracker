@@ -13,7 +13,7 @@ import {
   getSpeedText,
 } from '../../Helper/SpeedCalculator.js'
 
-const StatisticView = props => {
+const StatisticWeekComparison = props => {
   const { data } = props
 
   const newData = data.map(timelog => ({
@@ -79,4 +79,4 @@ const StatisticView = props => {
   )
 }
 
-export default StatisticView
+export default StatisticWeekComparison
