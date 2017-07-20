@@ -15,7 +15,10 @@ import FormFieldText from '../Common/FormFieldText.js'
 import styles from './Style/LoginView.style.js'
 
 export type Props = {
-  changeUser: any => () => mixed,
+  changeAdmin: any => () => mixed,
+  changeManager: any => () => mixed,
+  changeUser1: any => () => mixed,
+  changeUser2: any => () => mixed,
   handleSubmit: any => () => mixed,
   onSubmit: () => mixed,
   alterRegistered: () => mixed,
@@ -25,14 +28,14 @@ export type Props = {
 }
 
 const SelectUserButtons = (props: Props) => {
-  const { changeUser } = props
+  const { changeAdmin, changeManager, changeUser1, changeUser2 } = props
 
   return (
     <View>
-      <Button onPress={() => changeUser('admin@test.com')} title="Admin" />
-      <Button onPress={() => changeUser('manager@test.com')} title="Manager" />
-      <Button onPress={() => changeUser('user1@test.com')} title="User1" />
-      <Button onPress={() => changeUser('user2@test.com')} title="User2" />
+      <Button onPress={changeAdmin} title="Admin" />
+      <Button onPress={changeManager} title="Manager" />
+      <Button onPress={changeUser1} title="User1" />
+      <Button onPress={changeUser2} title="User2" />
     </View>
   )
 }
