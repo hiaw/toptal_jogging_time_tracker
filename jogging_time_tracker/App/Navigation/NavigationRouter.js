@@ -32,8 +32,6 @@ export default class NavigationRouter extends Component {
           key="timelogs"
           title="Time Logs"
           component={TimeLogsContainer}
-          rightTitle="Add"
-          onRight={() => Actions.timelog({ newEntry: true })}
           hideNavBar={false}
         />
         <Scene

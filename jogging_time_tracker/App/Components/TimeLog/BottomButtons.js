@@ -8,7 +8,7 @@ export type Props = {
   openStatistics: () => mixed,
 }
 
-const TimeLogList = (props: Props) => {
+const BottomButtons = (props: Props) => {
   const { openFilter, addTimeLog, openStatistics } = props
   return (
     <View>
@@ -19,4 +19,4 @@ const TimeLogList = (props: Props) => {
   )
 }
 
-export default TimeLogList
+export default BottomButtons

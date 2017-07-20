@@ -1,20 +1,13 @@
 /* @flow*/
 import React from 'react'
-import { StyleSheet, View } from 'react-native'
+import { View } from 'react-native'
 import moment from 'moment'
 import _ from 'lodash'
 
 import BottomButtons from './BottomButtons.js'
 import TimeLogList from './TimeLogList.js'
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: 60,
-    borderTopWidth: StyleSheet.hairlineWidth,
-    borderTopColor: 'black',
-  },
-})
+import styles from './Styles/TimeLogListView.style.js'
 
 class TimeLogListView extends React.Component {
   constructor(props) {
