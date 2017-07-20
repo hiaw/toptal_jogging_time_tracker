@@ -6,6 +6,7 @@ import moment from 'moment'
 import _ from 'lodash'
 
 import StatisticsRecordSpeed from './StatisticsRecordSpeed.js'
+import StatisticsWeeklyComparison from './StatisticsWeekComparison.js'
 import styles from './Styles/StatisticsView.style.js'
 
 import {
@@ -23,26 +24,7 @@ const StatisticView = props => {
     ...timelog,
     speed: timelog.distance / timelog.duration,
     day: moment(timelog.date).startOf('day'),
-    week: moment(timelog.date).isoWeek(),
   }))
-
-  const weekList = _.groupBy(newData, 'week')
-
-  const thisWeek = weekList[moment().isoWeek()]
-
-  const lastWeek = weekList[moment().subtract(7, 'days').isoWeek()]
-
-  const lastWeekDistance = _.sumBy(lastWeek, 'distance')
-  const lastWeekDistanceText = getDistanceText(lastWeekDistance)
-  const lastWeekDuration = _.sumBy(lastWeek, 'duration')
-  const lastWeekDurationText = getDurationText(lastWeekDuration)
-  const lastWeekSpeedText = getSpeedText(lastWeekDistance, lastWeekDuration)
-
-  const thisWeekDistance = _.sumBy(thisWeek, 'distance')
-  const thisWeekDistanceText = getDistanceText(thisWeekDistance)
-  const thisWeekDuration = _.sumBy(thisWeek, 'duration')
-  const thisWeekDurationText = getDurationText(thisWeekDuration)
-  const thisWeekSpeedText = getSpeedText(thisWeekDistance, thisWeekDuration)
 
   const dayList = _.groupBy(newData, 'day')
   const newDayList = _.map(dayList, day => ({
@@ -68,42 +50,7 @@ const StatisticView = props => {
     <ScrollView contentContainerStyle={styles.container}>
       <StatisticsRecordSpeed {...props} />
 
-      <Card title="Last Week Comparison">
-        <View style={styles.row}>
-          <View>
-            <Text />
-            <Text>Distance</Text>
-            <Text>Duration</Text>
-            <Text>Speed</Text>
-          </View>
-
-          <View>
-            <Text>Last Week</Text>
-            <Text>
-              {lastWeekDistanceText}
-            </Text>
-            <Text>
-              {lastWeekDurationText}
-            </Text>
-            <Text>
-              {lastWeekSpeedText}
-            </Text>
-          </View>
-
-          <View>
-            <Text>This Week</Text>
-            <Text>
-              {thisWeekDistanceText}
-            </Text>
-            <Text>
-              {thisWeekDurationText}
-            </Text>
-            <Text>
-              {thisWeekSpeedText}
-            </Text>
-          </View>
-        </View>
-      </Card>
+      <StatisticsWeeklyComparison {...props} />
 
       <Card title="Greatest Distance Day">
         <View style={styles.row}>
