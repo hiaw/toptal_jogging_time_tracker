@@ -9,7 +9,7 @@ import TimeLogEditor from '../Containers/TimeLogEditor.js'
 import TimeLogsContainer from '../Containers/TimeLogsContainer.js'
 
 import UsersList from '../Components/User/UsersList.js'
-import StatisticsView from '../Components/TimeRow/StatisticsView.js'
+import StatisticsView from '../Components/TimeLog/StatisticsView.js'
 
 export default class NavigationRouter extends Component {
   render() {

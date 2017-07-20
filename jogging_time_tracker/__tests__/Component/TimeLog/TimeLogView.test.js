@@ -4,7 +4,7 @@ import { reduxForm } from 'redux-form'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 
-import TimeLogView from '../../../App/Components/TimeRow/TimeLogView.js'
+import TimeLogView from '../../../App/Components/TimeLog/TimeLogView.js'
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer'

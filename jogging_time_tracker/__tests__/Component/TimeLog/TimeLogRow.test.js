@@ -1,7 +1,7 @@
 import 'react-native'
 import React from 'react'
 
-import TimeLogRow from '../../../App/Components/TimeRow/TimeLogRow.js'
+import TimeLogRow from '../../../App/Components/TimeLog/TimeLogRow.js'
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer'

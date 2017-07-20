@@ -2,7 +2,7 @@
 import { compose, withState } from 'recompose'
 import moment from 'moment'
 
-import TimeLogList from '../Components/TimeRow/TimeLogList.js'
+import TimeLogList from '../Components/TimeLog/TimeLogList.js'
 
 export default compose(
   withState('sections', 'setSection', []),

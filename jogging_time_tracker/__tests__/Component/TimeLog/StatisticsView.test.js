@@ -1,7 +1,7 @@
 import 'react-native'
 import React from 'react'
 
-import StatisticsView from '../../../App/Components/TimeRow/StatisticsView.js'
+import StatisticsView from '../../../App/Components/TimeLog/StatisticsView.js'
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer'
