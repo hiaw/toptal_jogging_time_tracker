@@ -4,13 +4,13 @@ import { Actions } from 'react-native-router-flux'
 import { reduxForm } from 'redux-form'
 import moment from 'moment'
 
-import TimeLogList from '../Components/TimeLog/TimeLogList.js'
+import TimeLogListView from '../Components/TimeLog/TimeLogListView.js'
 
 export default compose(
   withState('sections', 'setSection', []),
   withState('data', 'setData', []),
   withState('filterVisible', 'setFilterVisible', false),
-  withState('fromDate', 'setFromDate', moment('2017-07-10').valueOf()),
+  withState('fromDate', 'setFromDate', moment(0).valueOf()),
   withState('toDate', 'setToDate', moment().valueOf()),
   withHandlers({
     openFilter: ({ setFilterVisible }) => () => {
@@ -25,6 +25,12 @@ export default compose(
     openStatistics: ({ data }) => () => {
       Actions.statistics({ data })
     },
+    onSubmit: props => values => {
+      const { fromDate, toDate } = values
+      const { setFromDate, setToDate } = props
+      setFromDate(fromDate.value)
+      setToDate(toDate.value)
+    },
   }),
   reduxForm({
     form: 'filter_form',
@@ -37,4 +43,4 @@ export default compose(
       toDate: new Date(),
     },
   }),
-)(TimeLogList)
+)(TimeLogListView)
