@@ -100,7 +100,7 @@ class TimeLogList extends React.Component {
         />
         <Button
           onPress={() => {
-            Actions.statistics({ data })
+            Actions.statistics({ data: [] })
           }}
           title="Open Statistics"
         />
