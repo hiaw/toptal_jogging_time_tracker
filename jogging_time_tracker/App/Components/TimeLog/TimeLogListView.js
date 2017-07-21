@@ -36,18 +36,26 @@ class TimeLogListView extends React.Component {
     if (nextProps.fromDate !== this.props.fromDate) return true
     if (nextProps.toDate !== this.props.toDate) return true
     if (nextProps.sections !== this.props.sections) return true
-    if (nextProps.filtervisible !== this.props.filtervisible) return true
+    if (nextProps.filterVisible !== this.props.filterVisible) return true
     return false
   }
 
   componentWillUpdate(nextProps, nextState) {
-    this.updateList()
+    if (
+      nextProps.fromDate !== this.props.fromDate ||
+      nextProps.toDate !== this.props.toDate
+    ) {
+      this.updateListWithDate({}, nextProps.fromDate, nextProps.toDate)
+    }
   }
 
   updateList(q) {
-    const { setSection, owner, setData, fromDate, toDate } = this.props
-    console.log(fromDate)
-    console.log(toDate)
+    const { fromDate, toDate } = this.props
+    this.updateListWithDate(q, fromDate, toDate)
+  }
+
+  updateListWithDate(q, fromDate, toDate) {
+    const { setSection, owner, setData } = this.props
     let decreasingDate = {
       $sort: { date: -1 },
       date: { $gte: fromDate, $lte: toDate },
@@ -58,7 +66,6 @@ class TimeLogListView extends React.Component {
     let newQ = _.merge(q, { query: decreasingDate })
 
     this.timelogService.find(newQ).then(timelogs => {
-      console.log(timelogs.data)
       setData(timelogs.data)
       const newTimelogs = timelogs.data.map(timelog => ({
         ...timelog,
