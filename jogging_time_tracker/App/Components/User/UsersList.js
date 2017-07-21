@@ -11,6 +11,10 @@ const styles = {
   },
 }
 
+const showTimelogs = () => {
+  Actions.timelogs()
+}
+
 const keyExtractor = item => item._id
 
 class UsersList extends Component {
@@ -54,8 +58,15 @@ class UsersList extends Component {
   }
 
   render() {
+    let showTimelogsButton = null
+    if (this.props.role === 'manager') {
+      showTimelogsButton = (
+        <Button onPress={showTimelogs} title="Show My Timelogs" />
+      )
+    }
     return (
       <View style={styles.container}>
+        {showTimelogsButton}
         <FlatList
           keyExtractor={keyExtractor}
           data={this.props.lists}
