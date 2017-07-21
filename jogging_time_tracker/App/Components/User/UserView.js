@@ -37,6 +37,7 @@ const options = [
 
 const UserView = (props: Props) => {
   const {
+    role,
     buttonText,
     valid,
     newEntry,
@@ -70,9 +71,14 @@ const UserView = (props: Props) => {
     editButton = null
   }
 
+  let showTimelogsButton = null
+  if (role === 'admin') {
+    showTimelogsButton = <Button onPress={showTimelogs} title="Show Timelogs" />
+  }
+
   return (
     <View style={styles.container}>
-      <Button onPress={showTimelogs} title="Show Timelogs" />
+      {showTimelogsButton}
       <Field
         autoCapitalize="none"
         component={FormFieldText}

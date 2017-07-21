@@ -11,6 +11,10 @@ const styles = {
   },
 }
 
+const showTimelogs = () => {
+  Actions.timelogs()
+}
+
 const keyExtractor = item => item._id
 
 class UsersList extends Component {
@@ -36,7 +40,8 @@ class UsersList extends Component {
   }
 
   updateList() {
-    this.userService.find().then(users => {
+    let query = { query: { $sort: { email: 1 } } }
+    this.userService.find(query).then(users => {
       this.props.setList(users.data)
     })
   }
@@ -46,15 +51,22 @@ class UsersList extends Component {
       <ListItem
         title={user.email}
         onPress={() => {
-          Actions.user({ user })
+          Actions.user({ user, role: this.props.role })
         }}
       />
     )
   }
 
   render() {
+    let showTimelogsButton = null
+    if (this.props.role === 'manager') {
+      showTimelogsButton = (
+        <Button onPress={showTimelogs} title="Show My Timelogs" />
+      )
+    }
     return (
       <View style={styles.container}>
+        {showTimelogsButton}
         <FlatList
           keyExtractor={keyExtractor}
           data={this.props.lists}
