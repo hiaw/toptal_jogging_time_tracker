@@ -36,7 +36,8 @@ class UsersList extends Component {
   }
 
   updateList() {
-    this.userService.find().then(users => {
+    let query = { query: { $sort: { email: 1 } } }
+    this.userService.find(query).then(users => {
       this.props.setList(users.data)
     })
   }
@@ -46,7 +47,7 @@ class UsersList extends Component {
       <ListItem
         title={user.email}
         onPress={() => {
-          Actions.user({ user })
+          Actions.user({ user, role: this.props.role })
         }}
       />
     )

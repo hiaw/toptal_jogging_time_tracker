@@ -7,7 +7,7 @@ export default function redirectAfterLogin(res: any) {
     if (roles.indexOf('admin') >= 0) {
       Actions.usersList({ role: 'admin', title: 'Admin' })
     } else if (roles.indexOf('manager') >= 0) {
-      Actions.userAndTimelogs({ role: 'manager', title: 'Manager' })
+      Actions.usersList({ role: 'manager', title: 'Manager' })
     } else {
       Actions.timelogs()
     }
