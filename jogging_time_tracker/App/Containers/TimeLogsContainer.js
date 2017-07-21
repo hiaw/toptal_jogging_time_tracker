@@ -25,11 +25,14 @@ export default compose(
     openStatistics: ({ data }) => () => {
       Actions.statistics({ data })
     },
+  }),
+  withHandlers({
     onSubmit: props => values => {
-      const { fromDate, toDate } = values
-      const { setFromDate, setToDate } = props
-      setFromDate(fromDate.value)
-      setToDate(toDate.value)
+      const { fromDateValue, toDateValue } = values
+      const { setFromDate, setToDate, closeFilter } = props
+      setFromDate(fromDateValue.valueOf())
+      setToDate(toDateValue.valueOf())
+      closeFilter()
     },
   }),
   reduxForm({
@@ -39,8 +42,8 @@ export default compose(
       console.log(errors)
     },
     initialValues: {
-      fromDate: new Date(0),
-      toDate: new Date(),
+      fromDateValue: new Date('2017-06-01'),
+      toDateValue: new Date(),
     },
   }),
 )(TimeLogListView)
