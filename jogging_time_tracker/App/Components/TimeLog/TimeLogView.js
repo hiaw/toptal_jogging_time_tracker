@@ -59,6 +59,7 @@ const TimeLogView = (props: Props) => {
   return (
     <View style={{ flex: 1, marginTop: 60, backgroundColor: '#F5FCFF' }}>
       <Field
+        testID="timelog_form_date"
         component={FormFieldDate}
         name="date"
         title="Date"
@@ -67,6 +68,7 @@ const TimeLogView = (props: Props) => {
         validate={[required]}
       />
       <Field
+        testID="timelog_form_distance"
         component={FormFieldText}
         name="distance"
         title="Distance"
@@ -75,6 +77,7 @@ const TimeLogView = (props: Props) => {
         validate={[required, number, minValue(0.001)]}
       />
       <Field
+        testID="timelog_form_duration"
         component={FormFieldText}
         name="duration"
         title="Duration"

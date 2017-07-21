@@ -19,14 +19,15 @@ const styles = {
   },
 }
 export type Props = {
+  testID: string,
   label: string,
-    labelStyle: any,
-    iconName: string,
+  labelStyle: any,
+  iconName: string,
   title?: string,
   input: {
-    onBlur: (any) => mixed,
-    onChange: (any) => mixed,
-    onFocus: (any) => mixed,
+    onBlur: any => mixed,
+    onChange: any => mixed,
+    onFocus: any => mixed,
     value: any,
   },
   meta: {
@@ -35,7 +36,7 @@ export type Props = {
     touched: boolean,
     error?: string,
   },
-    blurblur: (any) => mixed,
+  blurblur: any => mixed,
   disabled?: boolean,
 }
 
@@ -45,6 +46,7 @@ type NewProps = {
 
 const FormFieldText = (props: NewProps) => {
   const {
+    testID,
     label,
     labelStyle,
     iconName,
@@ -93,7 +95,7 @@ const FormFieldText = (props: NewProps) => {
       <View style={styles.row}>
         {icon}
         <FormInput
-          testID="textQuestionInput"
+          testID={testID}
           {...inputProps}
           placeholder="Tap to write"
           value={input.value}
