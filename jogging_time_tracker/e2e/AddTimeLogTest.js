@@ -1,4 +1,4 @@
-describe('Add Time Log', () => {
+xdescribe('Add Time Log', () => {
   before(async () => {
     await device.reloadReactNative()
   })

@@ -1,4 +1,4 @@
-describe('FilterViewTest', () => {
+xdescribe('FilterViewTest', () => {
   before(async () => {
     await device.reloadReactNative()
   })

@@ -1,4 +1,4 @@
-describe('ManagerViewNavigationTest', () => {
+xdescribe('ManagerViewNavigationTest', () => {
   before(async () => {
     await device.reloadReactNative()
   })

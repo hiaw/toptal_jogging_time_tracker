@@ -60,7 +60,7 @@ const LoginContainer = compose(
         setRegistered(true)
         setButtonText('Login')
         setLoadingText('Logging in ...')
-        setAlternateButtonText('Note yet registered?')
+        setAlternateButtonText('Not yet registered?')
       }
     },
     onSubmit: props => values => {
