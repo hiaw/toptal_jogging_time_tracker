@@ -5,8 +5,6 @@ describe('UserViewNavigationTest', () => {
 
   // Login
   it('should show login page', async () => {
-    /* await expect(element(by.label('EMAIL'))).toBeVisible()*/
-    /* await expect(element(by.label('PASSWORD'))).toBeVisible()*/
     await expect(element(by.label('Login'))).toBeVisible()
     await expect(element(by.label('Not yet registered?'))).toBeVisible()
   })
