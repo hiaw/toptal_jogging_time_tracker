@@ -77,3 +77,25 @@ it('renders not editing', () => {
     .toJSON()
   expect(tree).toMatchSnapshot()
 })
+
+it('renders admin', () => {
+  const tree = renderer
+    .create(
+      <Provider store={store}>
+        <Decorated
+          buttonText="Submit"
+          role="admin"
+          valid={false}
+          newEntry={false}
+          editing={false}
+          alterEditing={noop}
+          handleSubmit={noop}
+          onSubmit={noop}
+          deleteTimeLog={noop}
+          cancelEditing={noop}
+        />
+      </Provider>,
+    )
+    .toJSON()
+  expect(tree).toMatchSnapshot()
+})
