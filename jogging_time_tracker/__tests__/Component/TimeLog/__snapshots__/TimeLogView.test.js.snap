@@ -92,7 +92,7 @@ exports[`renders correctly 1`] = `
             undefined,
           ]
         }
-        testID={undefined}
+        testID="timelog_form_date"
         tvParallaxProperties={undefined}
       >
         <View
@@ -253,7 +253,7 @@ exports[`renders correctly 1`] = `
               undefined,
             ]
           }
-          testID="textQuestionInput"
+          testID="timelog_form_distance"
           underlineColorAndroid="transparent"
           value=""
         />
@@ -345,7 +345,7 @@ exports[`renders correctly 1`] = `
               undefined,
             ]
           }
-          testID="textQuestionInput"
+          testID="timelog_form_duration"
           underlineColorAndroid="transparent"
           value=""
         />
@@ -557,7 +557,7 @@ exports[`renders invalid 1`] = `
             undefined,
           ]
         }
-        testID={undefined}
+        testID="timelog_form_date"
         tvParallaxProperties={undefined}
       >
         <View
@@ -718,7 +718,7 @@ exports[`renders invalid 1`] = `
               undefined,
             ]
           }
-          testID="textQuestionInput"
+          testID="timelog_form_distance"
           underlineColorAndroid="transparent"
           value=""
         />
@@ -810,7 +810,7 @@ exports[`renders invalid 1`] = `
               undefined,
             ]
           }
-          testID="textQuestionInput"
+          testID="timelog_form_duration"
           underlineColorAndroid="transparent"
           value=""
         />
@@ -1022,7 +1022,7 @@ exports[`renders not editing 1`] = `
             undefined,
           ]
         }
-        testID={undefined}
+        testID="timelog_form_date"
         tvParallaxProperties={undefined}
       >
         <View
@@ -1185,7 +1185,7 @@ exports[`renders not editing 1`] = `
               undefined,
             ]
           }
-          testID="textQuestionInput"
+          testID="timelog_form_distance"
           underlineColorAndroid="transparent"
           value=""
         />
@@ -1277,7 +1277,7 @@ exports[`renders not editing 1`] = `
               undefined,
             ]
           }
-          testID="textQuestionInput"
+          testID="timelog_form_duration"
           underlineColorAndroid="transparent"
           value=""
         />
