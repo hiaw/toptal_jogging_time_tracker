@@ -19,8 +19,8 @@ export default compose(
     closeFilter: ({ setFilterVisible }) => () => {
       setFilterVisible(false)
     },
-    addTimeLog: () => () => {
-      Actions.timelog({ newEntry: true })
+    addTimeLog: ({ owner }) => () => {
+      Actions.timelog({ newEntry: true, owner: owner })
     },
     openStatistics: ({ data }) => () => {
       Actions.statistics({ data })

@@ -60,14 +60,15 @@ const TimeLogEditor = compose(
     },
     onSubmit: props => values => {
       const { date, duration, distance } = values
-      const { newEntry, item, app } = props
+      const { newEntry, item, app, owner } = props
       const newValues = {
-        date,
+        date: date.valueOf(),
         duration: parseFloat(duration),
         distance: parseFloat(distance),
       }
 
       if (newEntry) {
+        newValues.owner = owner
         app
           .service('timelogs')
           .create(newValues)
