@@ -29,8 +29,8 @@ describe('Add Time Log', () => {
 
   // Distance
   it('should enter distance and duration', async () => {
-    await element(by.id('timelog_form_distance')).typeText('2000')
-    await element(by.id('timelog_form_duration')).typeText('2000')
+    await element(by.id('timelog_form_distance')).typeText('4000')
+    await element(by.id('timelog_form_duration')).typeText('3600')
     await expect(element(by.label('Submit'))).toBeVisible()
   })
 
@@ -38,5 +38,8 @@ describe('Add Time Log', () => {
   it('should submit new time log', async () => {
     await element(by.label('Submit')).tap()
     await expect(element(by.label('Time Logs'))).toBeVisible()
+    await expect(element(by.label('4 km'))).toBeVisible()
+    await expect(element(by.label('4 km/h'))).toBeVisible()
+    await expect(element(by.label('1:00:00'))).toBeVisible()
   })
 })
