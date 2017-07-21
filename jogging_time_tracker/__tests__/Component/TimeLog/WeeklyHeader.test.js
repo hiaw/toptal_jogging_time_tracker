@@ -1,7 +1,7 @@
 import 'react-native'
 import React from 'react'
 
-import WeeklyHeader from '../../../App/Components/TimeRow/WeeklyHeader.js'
+import WeeklyHeader from '../../../App/Components/TimeLog/WeeklyHeader.js'
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer'

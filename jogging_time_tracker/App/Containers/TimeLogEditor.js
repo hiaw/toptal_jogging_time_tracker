@@ -4,7 +4,7 @@ import { Alert } from 'react-native'
 import { reduxForm } from 'redux-form'
 import { Actions } from 'react-native-router-flux'
 
-import TimeLogView from '../Components/TimeRow/TimeLogView.js'
+import TimeLogView from '../Components/TimeLog/TimeLogView.js'
 
 const catchError = err => {
   console.log(err.message)

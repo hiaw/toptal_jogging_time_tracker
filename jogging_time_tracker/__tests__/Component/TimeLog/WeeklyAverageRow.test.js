@@ -1,7 +1,7 @@
 import 'react-native'
 import React from 'react'
 
-import WeeklyAverageRow from '../../../App/Components/TimeRow/WeeklyAverageRow.js'
+import WeeklyAverageRow from '../../../App/Components/TimeLog/WeeklyAverageRow.js'
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer'

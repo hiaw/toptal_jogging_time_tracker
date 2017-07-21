@@ -45,7 +45,7 @@ const genDate = () => {
   const day = Math.round(Math.random() * 30)
   const seconds = Math.round(Math.random() * 60)
   const date = moment().subtract(day, 'days').subtract(seconds, 'seconds')
-  return date.toISOString()
+  return date.valueOf()
 }
 
 const genDistance = () => _.round(Math.random() * 10000, 2)

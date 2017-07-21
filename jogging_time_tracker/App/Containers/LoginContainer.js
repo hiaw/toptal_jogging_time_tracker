@@ -97,9 +97,23 @@ const LoginContainer = compose(
     },
   }),
   withHandlers({
-    changeUser: props => (email, password) => {
+    changeUser: props => email => {
       const { dispatch } = props
       dispatch(change(form, 'email', email))
+    },
+  }),
+  withHandlers({
+    changeAdmin: ({ changeUser }) => () => {
+      changeUser('admin@test.com')
+    },
+    changeManager: ({ changeUser }) => () => {
+      changeUser('manager@test.com')
+    },
+    changeUser1: ({ changeUser }) => () => {
+      changeUser('user1@test.com')
+    },
+    changeUser2: ({ changeUser }) => () => {
+      changeUser('user2@test.com')
     },
   }),
 )(LoginView)

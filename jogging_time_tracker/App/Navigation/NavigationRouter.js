@@ -6,10 +6,10 @@ import { Actions, ActionConst, Scene, Router } from 'react-native-router-flux'
 import LoginContainer from '../Containers/LoginContainer.js'
 import UserContainer from '../Containers/UserContainer.js'
 import TimeLogEditor from '../Containers/TimeLogEditor.js'
-import TimeLogList from '../Containers/TimeLogList.js'
+import TimeLogsContainer from '../Containers/TimeLogsContainer.js'
 
 import UsersList from '../Components/User/UsersList.js'
-import StatisticsView from '../Components/TimeRow/StatisticsView.js'
+import StatisticsView from '../Components/TimeLog/StatisticsView.js'
 
 export default class NavigationRouter extends Component {
   render() {
@@ -31,9 +31,7 @@ export default class NavigationRouter extends Component {
           app={this.props.app}
           key="timelogs"
           title="Time Logs"
-          component={TimeLogList}
-          rightTitle="Add"
-          onRight={() => Actions.timelog({ newEntry: true })}
+          component={TimeLogsContainer}
           hideNavBar={false}
         />
         <Scene

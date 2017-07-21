@@ -131,6 +131,7 @@ exports[`renders correctly 1`] = `
         }
       >
         <TextInput
+          autoCapitalize="none"
           editable={true}
           onBlur={[Function]}
           onChangeText={[Function]}
@@ -245,6 +246,43 @@ exports[`renders correctly 1`] = `
         />
       </View>
     </View>
+  </View>
+  <View
+    style={undefined}
+  >
+    <RCTPicker
+      items={
+        Array [
+          Object {
+            "label": "Admin",
+            "textColor": undefined,
+            "value": "admin",
+          },
+          Object {
+            "label": "Manager",
+            "textColor": undefined,
+            "value": "manager",
+          },
+          Object {
+            "label": "User",
+            "textColor": undefined,
+            "value": "",
+          },
+        ]
+      }
+      onChange={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      selectedIndex={2}
+      style={
+        Array [
+          Object {
+            "height": 216,
+          },
+          undefined,
+        ]
+      }
+    />
   </View>
   <View
     accessibilityComponentType="button"
@@ -490,6 +528,7 @@ exports[`renders invalid 1`] = `
         }
       >
         <TextInput
+          autoCapitalize="none"
           editable={true}
           onBlur={[Function]}
           onChangeText={[Function]}
@@ -604,6 +643,43 @@ exports[`renders invalid 1`] = `
         />
       </View>
     </View>
+  </View>
+  <View
+    style={undefined}
+  >
+    <RCTPicker
+      items={
+        Array [
+          Object {
+            "label": "Admin",
+            "textColor": undefined,
+            "value": "admin",
+          },
+          Object {
+            "label": "Manager",
+            "textColor": undefined,
+            "value": "manager",
+          },
+          Object {
+            "label": "User",
+            "textColor": undefined,
+            "value": "",
+          },
+        ]
+      }
+      onChange={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      selectedIndex={2}
+      style={
+        Array [
+          Object {
+            "height": 216,
+          },
+          undefined,
+        ]
+      }
+    />
   </View>
   <View
     accessibilityComponentType="button"
@@ -849,6 +925,7 @@ exports[`renders not editing 1`] = `
         }
       >
         <TextInput
+          autoCapitalize="none"
           editable={false}
           onBlur={[Function]}
           onChangeText={[Function]}
@@ -963,6 +1040,43 @@ exports[`renders not editing 1`] = `
         />
       </View>
     </View>
+  </View>
+  <View
+    style={undefined}
+  >
+    <RCTPicker
+      items={
+        Array [
+          Object {
+            "label": "Admin",
+            "textColor": undefined,
+            "value": "admin",
+          },
+          Object {
+            "label": "Manager",
+            "textColor": undefined,
+            "value": "manager",
+          },
+          Object {
+            "label": "User",
+            "textColor": undefined,
+            "value": "",
+          },
+        ]
+      }
+      onChange={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      selectedIndex={2}
+      style={
+        Array [
+          Object {
+            "height": 216,
+          },
+          undefined,
+        ]
+      }
+    />
   </View>
   <View
     accessibilityComponentType="button"

@@ -28,13 +28,25 @@ const StatisticsRecordSpeed = props => {
   const thisMonth = monthList[moment().startOf('month')]
   const thisYear = yearList[moment().startOf('year')]
 
-  const weekFastest = formatSpeed(_.maxBy(thisWeek, 'speed').speed)
-  const monthFastest = formatSpeed(_.maxBy(thisMonth, 'speed').speed)
-  const yearFastest = formatSpeed(_.maxBy(thisYear, 'speed').speed)
+  const weekFastest =
+    thisWeek && thisWeek.length > 0 ? _.maxBy(thisWeek, 'speed').speed : 0
+  const weekFastestText = formatSpeed(weekFastest)
+  const monthFastest =
+    thisMonth && thisMonth.length > 0 ? _.maxBy(thisMonth, 'speed').speed : 0
+  const monthFastestText = formatSpeed(monthFastest)
+  const yearFastest =
+    thisYear && thisYear.length > 0 ? _.maxBy(thisYear, 'speed').speed : 0
+  const yearFastestText = formatSpeed(yearFastest)
 
-  const weekSlowest = formatSpeed(_.minBy(thisWeek, 'speed').speed)
-  const monthSlowest = formatSpeed(_.minBy(thisMonth, 'speed').speed)
-  const yearSlowest = formatSpeed(_.minBy(thisYear, 'speed').speed)
+  const weekSlowest =
+    thisWeek && thisWeek.length > 0 ? _.minBy(thisWeek, 'speed').speed : 0
+  const weekSlowestText = formatSpeed(weekSlowest)
+  const monthSlowest =
+    thisMonth && thisMonth.length > 0 ? _.minBy(thisMonth, 'speed').speed : 0
+  const monthSlowestText = formatSpeed(monthSlowest)
+  const yearSlowest =
+    thisYear && thisYear.length > 0 ? _.minBy(thisYear, 'speed').speed : 0
+  const yearSlowestText = formatSpeed(yearSlowest)
 
   return (
     <Card title="Record Speed">
@@ -48,26 +60,26 @@ const StatisticsRecordSpeed = props => {
         <View>
           <Text>Fastest</Text>
           <Text>
-            {weekFastest}
+            {weekFastestText}
           </Text>
           <Text>
-            {monthFastest}
+            {monthFastestText}
           </Text>
           <Text>
-            {yearFastest}
+            {yearFastestText}
           </Text>
         </View>
 
         <View>
           <Text>Slowest</Text>
           <Text>
-            {weekSlowest}
+            {weekSlowestText}
           </Text>
           <Text>
-            {monthSlowest}
+            {monthSlowestText}
           </Text>
           <Text>
-            {yearSlowest}
+            {yearSlowestText}
           </Text>
         </View>
       </View>

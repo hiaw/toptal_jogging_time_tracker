@@ -30,8 +30,13 @@ const StatisticOthers = props => {
   }))
 
   const greatestDistanceObj = _.maxBy(newDayList, 'distance')
-  const greatestDistanceDay = greatestDistanceObj[0].day.format('DD/MM/YYYY')
-  const greatestDistance = getDistanceText(greatestDistanceObj.distance)
+
+  let greatestDistanceDay = 'Not Found'
+  let greatestDistance = '0 m'
+  if (greatestDistanceObj && greatestDistanceObj[0]) {
+    greatestDistanceDay = greatestDistanceObj[0].day.format('DD/MM/YYYY')
+    greatestDistance = getDistanceText(greatestDistanceObj.distance)
+  }
 
   const totalDistance = _.sumBy(newData, 'distance')
   const moonDistancePercentage = _.round(totalDistance / moonDistance * 100, 3)

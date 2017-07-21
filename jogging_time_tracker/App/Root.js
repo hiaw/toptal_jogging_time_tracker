@@ -14,7 +14,7 @@ import authentication from 'feathers-authentication/client'
 import io from 'socket.io-client'
 
 import redirectAfterLogin from './Components/Login/RedirectAfterLogin.js'
-import Router from './Navigation/Router.js'
+import NavigationRouter from './Navigation/NavigationRouter.js'
 
 const rootReducer = combineReducers({ form })
 const store = createStore(rootReducer)
@@ -53,7 +53,7 @@ export default class Root extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Router app={this.app} />
+        <NavigationRouter app={this.app} />
       </Provider>
     )
   }
