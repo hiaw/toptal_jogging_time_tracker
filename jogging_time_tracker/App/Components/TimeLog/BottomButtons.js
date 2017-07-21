@@ -6,10 +6,11 @@ export type Props = {
   openFilter: () => mixed,
   addTimeLog: () => mixed,
   openStatistics: () => mixed,
+  owner: string,
 }
 
 const BottomButtons = (props: Props) => {
-  const { openFilter, addTimeLog, openStatistics } = props
+  const { openFilter, addTimeLog, openStatistics, owner } = props
   return (
     <View>
       <Button onPress={openFilter} title="Filter" />

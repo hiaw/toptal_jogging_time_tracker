@@ -39,10 +39,10 @@ export default class Root extends Component {
 
   componentDidMount() {
     this.app.io.on('connect', () => {
-      this.app.authenticate().then(redirectAfterLogin).catch(error => {
-        console.log(error)
-        Actions.login()
-      })
+      /* this.app.authenticate().then(redirectAfterLogin).catch(error => {
+       *   console.log(error)
+       *   Actions.login()
+       * })*/
     })
 
     this.app.io.on('disconnect', () => {

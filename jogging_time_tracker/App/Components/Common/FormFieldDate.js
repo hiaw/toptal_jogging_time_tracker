@@ -18,7 +18,7 @@ import type { Props } from './FormFieldText.js'
 export type NewProps = {
   ...Props,
   datePickerVisible: boolean,
-  setDatePickerVisible: (boolean) => mixed,
+  setDatePickerVisible: boolean => mixed,
   editable: boolean,
   minimumDate: Date,
   maximumDate: Date,
@@ -27,6 +27,7 @@ export type NewProps = {
 
 const TimeRow = (props: NewProps) => {
   const {
+    testID,
     datePickerVisible,
     setDatePickerVisible,
     editable,
@@ -64,6 +65,7 @@ const TimeRow = (props: NewProps) => {
         onCancel={datePickerCancel}
       />
       <Button
+        testID={testID}
         disabled={!editable}
         textStyle={styles.button}
         backgroundColor="#ffffff"

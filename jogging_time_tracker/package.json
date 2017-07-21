@@ -6,7 +6,9 @@
 				"start": "node node_modules/react-native/local-cli/cli.js start",
 				"test": "jest",
 				"flow": "flow",
-				"cover": "jest --coverage"
+				"cover": "jest --coverage",
+        "detox-build": "detox build",
+        "detox-test": "detox test --reuse"
 		},
 		"dependencies": {
 				"feathers": "^2.1.4",

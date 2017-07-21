@@ -316,7 +316,7 @@ exports[`renders correctly 1`] = `
               undefined,
             ]
           }
-          testID="textQuestionInput"
+          testID={undefined}
           underlineColorAndroid="transparent"
           value=""
         />
@@ -407,7 +407,7 @@ exports[`renders correctly 1`] = `
               undefined,
             ]
           }
-          testID="textQuestionInput"
+          testID={undefined}
           underlineColorAndroid="transparent"
           value=""
         />
@@ -843,7 +843,7 @@ exports[`renders invalid 1`] = `
               undefined,
             ]
           }
-          testID="textQuestionInput"
+          testID={undefined}
           underlineColorAndroid="transparent"
           value=""
         />
@@ -934,7 +934,7 @@ exports[`renders invalid 1`] = `
               undefined,
             ]
           }
-          testID="textQuestionInput"
+          testID={undefined}
           underlineColorAndroid="transparent"
           value=""
         />
