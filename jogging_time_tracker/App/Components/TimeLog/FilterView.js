@@ -18,6 +18,7 @@ const FilterView = (props: Props) => {
   return (
     <View style={{ flex: 1, paddingTop: 60, backgroundColor: '#F5FCFF' }}>
       <Field
+        testID="timelog_filter_fromdate"
         component={FormFieldDate}
         name="fromDateValue"
         title="From"
@@ -26,6 +27,7 @@ const FilterView = (props: Props) => {
         maximumDate={new Date(toDate)}
       />
       <Field
+        testID="timelog_filter_todate"
         component={FormFieldDate}
         name="toDateValue"
         title="To"
