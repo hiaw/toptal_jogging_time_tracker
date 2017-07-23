@@ -54,7 +54,7 @@ function createSampleData() {
   })
 }
 
-describe('REST filter timelog service', () => {
+describe('filter timelog service', () => {
   before(done => {
     // start the server
     this.server = app.listen(3030)
