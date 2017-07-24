@@ -17,8 +17,7 @@
   },
   "scripts": {
     "test": "npm run mocha",
-    "jshint": "jshint src/. test/. --config",
-    "start": "node src/",
+      "start": "node src/",
     "mocha": "mocha test/ --recursive"
   },
   "dependencies": {
