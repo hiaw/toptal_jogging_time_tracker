@@ -1,6 +1,6 @@
 /* @flow*/
 import { compose, withHandlers, withState } from 'recompose'
-import { Platform, Alert } from 'react-native'
+import { Platform } from 'react-native'
 import { RNS3 } from 'react-native-aws3'
 import ImageResizer from 'react-native-image-resizer'
 import ImagePicker from 'react-native-image-picker'

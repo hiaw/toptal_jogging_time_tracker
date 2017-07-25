@@ -1,6 +1,6 @@
 /* @flow*/
 import React from 'react'
-import { View, Button } from 'react-native'
+import { Image, View, Button } from 'react-native'
 import { Field } from 'redux-form'
 
 import {
@@ -10,6 +10,7 @@ import {
   maxLength,
 } from '../../Helper/Validators.js'
 
+import BottomButtons from './BottomButtons.js'
 import FormFieldText from '../Common/FormFieldText.js'
 import FormFieldSelect from '../Common/FormFieldSelect.js'
 import type { Props } from '../TimeRow/TimeLogView.js'
@@ -38,39 +39,14 @@ const options = [
 const UserView = (props: Props) => {
   const {
     role,
-    buttonText,
     valid,
     newEntry,
     editing,
-    alterEditing,
     handleSubmit,
     onSubmit,
-    deleteUser,
-    cancelEditing,
-    showTimelogs,
     pickImage,
+    showTimelogs,
   } = props
-
-  let submitButton = null
-  if (editing || newEntry) {
-    submitButton = (
-      <Button
-        disabled={!valid}
-        onPress={handleSubmit(onSubmit)}
-        title="Submit"
-      />
-    )
-  }
-
-  let editButton = <Button onPress={alterEditing} title={buttonText} />
-  let deleteButton = null
-  if (editing) {
-    deleteButton = <Button onPress={deleteUser} title="Delete" />
-  }
-  if (newEntry) {
-    deleteButton = <Button onPress={cancelEditing} title="Cancel" />
-    editButton = null
-  }
 
   let showTimelogsButton = null
   if (role === 'admin') {
@@ -111,9 +87,7 @@ const UserView = (props: Props) => {
       />
       <Button title="upload image" onPress={pickImage} />
       {selectRole}
-      {editButton}
-      {submitButton}
-      {deleteButton}
+      <BottomButtons {...props} />
     </View>
   )
 }
