@@ -1,8 +1,9 @@
 /* @flow*/
 import React from 'react'
-import { Button, Text, View } from 'react-native'
+import { Button, Text, ScrollView } from 'react-native'
 import { Field } from 'redux-form'
 
+import TimeLogMapView from './TimeLogMapView.js'
 import { getSpeedText } from '../../Helper/SpeedCalculator.js'
 
 import {
@@ -37,6 +38,7 @@ const TimeLogView = (props: Props) => {
     onSubmit,
     deleteTimeLog,
     cancelEditing,
+    coordinate,
   } = props
 
   /* const speedText = getSpeedText(distance, duration)*/
@@ -62,7 +64,12 @@ const TimeLogView = (props: Props) => {
   }
 
   return (
-    <View style={{ flex: 1, marginTop: 60, backgroundColor: '#F5FCFF' }}>
+    <ScrollView
+      contentContainerStyle={{
+        paddingTop: 60,
+        backgroundColor: '#F5FCFF',
+      }}
+    >
       <Field
         testID="timelog_form_date"
         component={FormFieldDate}
@@ -111,7 +118,8 @@ const TimeLogView = (props: Props) => {
       {editButton}
       {submitButton}
       {deleteButton}
-    </View>
+      <TimeLogMapView coordinate={coordinate} />
+    </ScrollView>
   )
 }
 

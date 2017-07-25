@@ -17,6 +17,10 @@ const TimeLogEditor = compose(
       const { date, duration, distance, latitude, longitude } = props.item
       return {
         ...props,
+        coordinate: {
+          latitude,
+          longitude,
+        },
         initialValues: {
           date: new Date(date),
           duration: duration.toString(),
