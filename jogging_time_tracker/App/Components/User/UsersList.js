@@ -51,7 +51,7 @@ class UsersList extends Component {
       <ListItem
         title={user.email}
         onPress={() => {
-          Actions.user({ user, role: this.props.role })
+          Actions.user({ user, role: this.props.role, newEntry: false })
         }}
       />
     )

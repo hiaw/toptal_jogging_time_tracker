@@ -26,7 +26,7 @@ export default compose(
       Actions.statistics({ data })
     },
     openProfile: ({ user, role }) => () => {
-      Actions.user({ user, role })
+      Actions.user({ user, role, newEntry: false })
     },
   }),
   withHandlers({
