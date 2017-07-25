@@ -104,7 +104,7 @@ const TimeLogView = (props: Props) => {
         title="latitude"
         keyboardType="numeric"
         editable={editing || newEntry}
-        validate={[required, number, minValue(-90), maxValue(90)]}
+        validate={[number, minValue(-90), maxValue(90)]}
       />
       <Field
         testID="timelog_form_longitude"
@@ -113,7 +113,7 @@ const TimeLogView = (props: Props) => {
         title="Longitude"
         keyboardType="numeric"
         editable={editing || newEntry}
-        validate={[required, number, minValue(-180), maxValue(180)]}
+        validate={[number, minValue(-180), maxValue(180)]}
       />
       {editButton}
       {submitButton}
