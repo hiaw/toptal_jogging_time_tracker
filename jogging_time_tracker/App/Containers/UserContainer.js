@@ -13,11 +13,13 @@ const catchError = err => {
 }
 
 const UserEditor = compose(
+  UserImageHOC,
   mapProps(props => {
     if (!props.newEntry) {
-      const { email, roles } = props.user
+      const { email, roles, imageURL } = props.user
       return {
         ...props,
+        imageURL: imageURL ? imageURL : '',
         initialValues: {
           email,
           role: roles[0],
@@ -28,7 +30,6 @@ const UserEditor = compose(
   }),
   withState('editing', 'setEditing', false),
   withState('buttonText', 'setButtonText', 'Edit'),
-  UserImageHOC,
   withHandlers({
     showTimelogs: props => () => {
       const { user: { _id } } = props
