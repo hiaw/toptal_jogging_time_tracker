@@ -36,7 +36,7 @@ const UserImageHOC = compose(
       RNS3.put(file, options).then(response => {
         if (response.status !== 201)
           throw new Error('Failed to upload image to S3')
-        console.log(response.body)
+        setImageURL(response.body.postResponse.location)
       })
     },
   }),

@@ -64,14 +64,19 @@ const UserEditor = compose(
       ])
     },
     onSubmit: props => values => {
-      const { newEntry, user, app } = props
+      const { newEntry, user, app, imageURL } = props
       const { email, password, role } = values
       const newValues = {
         email: email.toLowerCase(),
-        roles: [role.toLowerCase()],
       }
-      if (password != '') {
+      if (role && role !== '') {
+        newValues.roles = [role.toLowerCase()]
+      }
+      if (password && password !== '') {
         newValues.password = password
+      }
+      if (imageURL && imageURL !== '') {
+        newValues.imageURL = imageURL
       }
 
       if (newEntry) {

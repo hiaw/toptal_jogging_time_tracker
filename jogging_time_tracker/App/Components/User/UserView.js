@@ -82,7 +82,7 @@ const UserView = (props: Props) => {
   if (imageURL === '') {
     imageComp = <Image style={styles.image} source={placeHolder} />
   } else {
-    imageComp = <Image style={styles.image} source={imageURL} />
+    imageComp = <Image style={styles.image} source={{ uri: imageURL }} />
   }
 
   return (
