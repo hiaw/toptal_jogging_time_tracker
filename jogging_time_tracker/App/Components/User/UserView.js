@@ -48,6 +48,7 @@ const UserView = (props: Props) => {
     deleteUser,
     cancelEditing,
     showTimelogs,
+    pickImage,
   } = props
 
   let submitButton = null
@@ -108,6 +109,7 @@ const UserView = (props: Props) => {
         editable={editing || newEntry}
         validate={[minLength(2), maxLength(30)]}
       />
+      <Button title="upload image" onPress={pickImage} />
       {selectRole}
       {editButton}
       {submitButton}
