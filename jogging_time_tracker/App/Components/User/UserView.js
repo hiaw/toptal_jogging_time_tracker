@@ -1,6 +1,12 @@
 /* @flow*/
 import React from 'react'
-import { Image, View, TouchableHighlight, Button } from 'react-native'
+import {
+  Image,
+  View,
+  TouchableHighlight,
+  Button,
+  ProgressViewIOS,
+} from 'react-native'
 import { Field } from 'redux-form'
 
 import {
@@ -46,6 +52,7 @@ const options = [
 
 const UserView = (props: Props) => {
   const {
+    uploading,
     imageURL,
     role,
     valid,
@@ -85,6 +92,11 @@ const UserView = (props: Props) => {
     imageComp = <Image style={styles.image} source={{ uri: imageURL }} />
   }
 
+  let progress = null
+  if (uploading) {
+    progress = <ProgressViewIOS />
+  }
+
   return (
     <View style={styles.container}>
       {showTimelogsButton}
@@ -104,6 +116,7 @@ const UserView = (props: Props) => {
         editable={enableInput}
         validate={[minLength(2), maxLength(30)]}
       />
+      {progress}
       <TouchableHighlight disabled={disableInput} onPress={pickImage}>
         {imageComp}
       </TouchableHighlight>

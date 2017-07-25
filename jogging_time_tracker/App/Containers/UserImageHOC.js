@@ -17,7 +17,8 @@ const UserImageHOC = compose(
   withState('imageURL', 'setImageURL', ''),
   withHandlers({
     uploadImage: props => source => {
-      const { setImageURL, user: { _id } } = props
+      const { setUploading, setImageURL, user: { _id } } = props
+
       const file = {
         uri: source,
         name: `${_id}.png`,
@@ -37,12 +38,30 @@ const UserImageHOC = compose(
         if (response.status !== 201)
           throw new Error('Failed to upload image to S3')
         setImageURL(response.body.postResponse.location)
+        setUploading(false)
       })
     },
   }),
   withHandlers({
+    resizeImage: props => original => {
+      const { setUploading, uploadImage } = props
+      ImageResizer.createResizedImage(original, 100, 100, 'JPEG', 80)
+        .then(resizedImageUri => {
+          let source = resizedImageUri
+          if (Platform.OS === 'android') {
+            source = resizedImageUri.replace('file://', '')
+          }
+          uploadImage(source)
+        })
+        .catch(err => {
+          setUploading(false)
+          console.error(err)
+        })
+    },
+  }),
+  withHandlers({
     pickImage: props => () => {
-      const { uploadImage } = props
+      const { setUploading, resizeImage } = props
       ImagePicker.showImagePicker(imagePickerOptions, response => {
         if (response.didCancel) {
           console.log('User cancelled image picker')
@@ -53,7 +72,8 @@ const UserImageHOC = compose(
         } else {
           const path = Platform.OS === 'ios' ? 'file://' : ''
           const source = response.uri.replace(path, '')
-          uploadImage(source)
+          setUploading(true)
+          resizeImage(source)
         }
       })
     },
