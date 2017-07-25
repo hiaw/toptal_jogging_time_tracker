@@ -25,6 +25,9 @@ export default compose(
     openStatistics: ({ data }) => () => {
       Actions.statistics({ data })
     },
+    openProfile: ({ user, role }) => () => {
+      Actions.user({ user, role })
+    },
   }),
   withHandlers({
     onSubmit: props => values => {
