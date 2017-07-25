@@ -5,7 +5,12 @@ import { Field } from 'redux-form'
 
 import { getSpeedText } from '../../Helper/SpeedCalculator.js'
 
-import { required, number, minValue } from '../../Helper/Validators.js'
+import {
+  required,
+  number,
+  minValue,
+  maxValue,
+} from '../../Helper/Validators.js'
 import FormFieldText from '../Common/FormFieldText.js'
 import FormFieldDate from '../Common/FormFieldDate.js'
 
@@ -84,6 +89,24 @@ const TimeLogView = (props: Props) => {
         keyboardType="numeric"
         editable={editing || newEntry}
         validate={[required, number, minValue(0.001)]}
+      />
+      <Field
+        testID="timelog_form_latitude"
+        component={FormFieldText}
+        name="latitude"
+        title="latitude"
+        keyboardType="numeric"
+        editable={editing || newEntry}
+        validate={[required, number, minValue(-90), maxValue(90)]}
+      />
+      <Field
+        testID="timelog_form_longitude"
+        component={FormFieldText}
+        name="longitude"
+        title="Longitude"
+        keyboardType="numeric"
+        editable={editing || newEntry}
+        validate={[required, number, minValue(-180), maxValue(180)]}
       />
       {editButton}
       {submitButton}
