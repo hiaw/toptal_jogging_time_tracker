@@ -3785,6 +3785,10 @@ react-native-loading-spinner-overlay@^0.5.1:
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/react-native-loading-spinner-overlay/-/react-native-loading-spinner-overlay-0.5.1.tgz#5484fc8511dd85038bd595746e8a6207aa72c6c1"
 
+react-native-maps@^0.15.3:
+  version "0.15.3"
+  resolved "https://registry.yarnpkg.com/react-native-maps/-/react-native-maps-0.15.3.tgz#5d9e0a8e30ecc51dc755b7a3b9d6b6ed5e2dd08c"
+
 react-native-modal-datetime-picker@^4.8.0:
   version "4.8.0"
   resolved "https://registry.yarnpkg.com/react-native-modal-datetime-picker/-/react-native-modal-datetime-picker-4.8.0.tgz#2c3a99b48e54456c4d67de56f90677b29cab0fdf"
