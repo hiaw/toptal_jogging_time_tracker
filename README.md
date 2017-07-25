@@ -67,12 +67,3 @@ npm run detox-text
 
 ![E2E test demo](doc/jest_demo.gif "Test Coverage Test demo")
 
-
-### Server
-
-To run server unit test
-
-```
-cd jogging_time_tracker_featherjs
-npm test
-```
