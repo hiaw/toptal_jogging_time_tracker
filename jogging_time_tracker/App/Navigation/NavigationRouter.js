@@ -1,6 +1,6 @@
 /* @flow*/
 import React, { Component } from 'react'
-import { Actions, ActionConst, Scene, Router } from 'react-native-router-flux'
+import { Scene, Router } from 'react-native-router-flux'
 
 // Containers
 import LoginContainer from '../Containers/LoginContainer.js'

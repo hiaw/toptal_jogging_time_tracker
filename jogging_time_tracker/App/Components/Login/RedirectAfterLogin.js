@@ -9,9 +9,9 @@ export default function redirectAfterLogin(res: any) {
     } else if (roles.indexOf('manager') >= 0) {
       Actions.usersList({ role: 'manager', title: 'Manager' })
     } else {
-      Actions.timelogs({ owner: res.data._id })
+      Actions.timelogs({ role: 'user', user: res.data, owner: res.data._id })
     }
   } else {
-    Actions.timelogs({ owner: res.data._id })
+    Actions.timelogs({ role: 'user', user: res.data, owner: res.data._id })
   }
 }

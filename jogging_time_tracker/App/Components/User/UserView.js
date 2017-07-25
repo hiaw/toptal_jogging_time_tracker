@@ -76,6 +76,19 @@ const UserView = (props: Props) => {
     showTimelogsButton = <Button onPress={showTimelogs} title="Show Timelogs" />
   }
 
+  let selectRole = (
+    <Field
+      component={FormFieldSelect}
+      name="role"
+      title="ROLE"
+      editable={editing || newEntry}
+      options={options}
+    />
+  )
+  if (role === 'user') {
+    selectRole = null
+  }
+
   return (
     <View style={styles.container}>
       {showTimelogsButton}
@@ -95,13 +108,7 @@ const UserView = (props: Props) => {
         editable={editing || newEntry}
         validate={[minLength(2), maxLength(30)]}
       />
-      <Field
-        component={FormFieldSelect}
-        name="role"
-        title="ROLE"
-        editable={editing || newEntry}
-        options={options}
-      />
+      {selectRole}
       {editButton}
       {submitButton}
       {deleteButton}
