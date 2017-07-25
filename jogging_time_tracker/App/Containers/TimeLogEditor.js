@@ -14,13 +14,19 @@ const catchError = err => {
 const TimeLogEditor = compose(
   mapProps(props => {
     if (!props.newEntry) {
-      const { date, duration, distance } = props.item
+      const { date, duration, distance, latitude, longitude } = props.item
       return {
         ...props,
+        coordinate: {
+          latitude,
+          longitude,
+        },
         initialValues: {
           date: new Date(date),
           duration: duration.toString(),
           distance: distance.toString(),
+          latitude: latitude ? latitude.toString() : '',
+          longitude: longitude ? longitude.toString() : '',
         },
       }
     }
@@ -59,12 +65,14 @@ const TimeLogEditor = compose(
       ])
     },
     onSubmit: props => values => {
-      const { date, duration, distance } = values
+      const { date, duration, distance, latitude, longitude } = values
       const { newEntry, item, app, owner } = props
       const newValues = {
         date: date.valueOf(),
         duration: parseFloat(duration),
         distance: parseFloat(distance),
+        latitude: parseFloat(latitude),
+        longitude: parseFloat(longitude),
       }
 
       if (newEntry) {

@@ -1,11 +1,17 @@
 /* @flow*/
 import React from 'react'
-import { Button, Text, View } from 'react-native'
+import { Button, Text, ScrollView } from 'react-native'
 import { Field } from 'redux-form'
 
+import TimeLogMapView from './TimeLogMapView.js'
 import { getSpeedText } from '../../Helper/SpeedCalculator.js'
 
-import { required, number, minValue } from '../../Helper/Validators.js'
+import {
+  required,
+  number,
+  minValue,
+  maxValue,
+} from '../../Helper/Validators.js'
 import FormFieldText from '../Common/FormFieldText.js'
 import FormFieldDate from '../Common/FormFieldDate.js'
 
@@ -32,6 +38,7 @@ const TimeLogView = (props: Props) => {
     onSubmit,
     deleteTimeLog,
     cancelEditing,
+    coordinate,
   } = props
 
   /* const speedText = getSpeedText(distance, duration)*/
@@ -57,7 +64,12 @@ const TimeLogView = (props: Props) => {
   }
 
   return (
-    <View style={{ flex: 1, marginTop: 60, backgroundColor: '#F5FCFF' }}>
+    <ScrollView
+      contentContainerStyle={{
+        paddingTop: 60,
+        backgroundColor: '#F5FCFF',
+      }}
+    >
       <Field
         testID="timelog_form_date"
         component={FormFieldDate}
@@ -85,10 +97,29 @@ const TimeLogView = (props: Props) => {
         editable={editing || newEntry}
         validate={[required, number, minValue(0.001)]}
       />
+      <Field
+        testID="timelog_form_latitude"
+        component={FormFieldText}
+        name="latitude"
+        title="latitude"
+        keyboardType="numeric"
+        editable={editing || newEntry}
+        validate={[number, minValue(-90), maxValue(90)]}
+      />
+      <Field
+        testID="timelog_form_longitude"
+        component={FormFieldText}
+        name="longitude"
+        title="Longitude"
+        keyboardType="numeric"
+        editable={editing || newEntry}
+        validate={[number, minValue(-180), maxValue(180)]}
+      />
       {editButton}
       {submitButton}
       {deleteButton}
-    </View>
+      <TimeLogMapView coordinate={coordinate} />
+    </ScrollView>
   )
 }
 
