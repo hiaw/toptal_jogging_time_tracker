@@ -4,6 +4,7 @@ import { Platform, Alert } from 'react-native'
 import { reduxForm } from 'redux-form'
 import { Actions } from 'react-native-router-flux'
 import { RNS3 } from 'react-native-aws3'
+import ImageResizer from 'react-native-image-resizer'
 import ImagePicker from 'react-native-image-picker'
 
 import UserView from '../Components/User/UserView.js'
@@ -40,10 +41,10 @@ const UserEditor = compose(
   withState('buttonText', 'setButtonText', 'Edit'),
   withHandlers({
     uploadImage: props => source => {
-      const { setImageURL } = props
+      const { setImageURL, user: { _id } } = props
       const file = {
         uri: source,
-        name: 'image.png',
+        name: `${_id}.png`,
         type: 'image/png',
       }
 
