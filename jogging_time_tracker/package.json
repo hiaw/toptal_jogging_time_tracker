@@ -48,6 +48,7 @@
 				],
 				"coveragePathIgnorePatterns": [
 						"/node_modules",
+						"/App/Components/Common",
 						"Style/",
 						"Styles/",
 						"/jest/setup.js"
