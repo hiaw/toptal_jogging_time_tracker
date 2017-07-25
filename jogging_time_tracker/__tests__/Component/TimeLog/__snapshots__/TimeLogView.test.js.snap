@@ -1,1343 +1,1898 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<View
-  style={
+<RCTScrollView
+  contentContainerStyle={
     Object {
       "backgroundColor": "#F5FCFF",
-      "flex": 1,
-      "marginTop": 60,
+      "paddingTop": 60,
     }
   }
 >
   <View>
-    <View
-      style={
-        Array [
-          Object {},
-          undefined,
-        ]
-      }
-    >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
+    <View>
+      <View
         style={
           Array [
             Object {},
             undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            Array [
-              Object {
-                "color": "#86939e",
-                "fontSize": 15,
-                "fontWeight": "bold",
-                "marginBottom": 1,
-                "marginLeft": 20,
-                "marginRight": 20,
-                "marginTop": 15,
-              },
-              undefined,
-              undefined,
-            ],
           ]
         }
       >
-        Date
-        :
-      </Text>
-    </View>
-    <View
-      style={
-        Array [
-          Object {
-            "marginLeft": 15,
-            "marginRight": 15,
-          },
-          undefined,
-          undefined,
-        ]
-      }
-    >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {},
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              Array [
+                Object {
+                  "color": "#86939e",
+                  "fontSize": 15,
+                  "fontWeight": "bold",
+                  "marginBottom": 1,
+                  "marginLeft": 20,
+                  "marginRight": 20,
+                  "marginTop": 15,
+                },
+                undefined,
+                undefined,
+              ],
+            ]
+          }
+        >
+          Date
+          :
+        </Text>
+      </View>
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
-        accessible={true}
-        hasTVPreferredFocus={undefined}
-        hitSlop={undefined}
-        isTVSelectable={true}
-        nativeID={undefined}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
         style={
           Array [
             Object {
-              "backgroundColor": "transparent",
+              "marginLeft": 15,
+              "marginRight": 15,
             },
+            undefined,
             undefined,
           ]
         }
-        testID="timelog_form_date"
-        tvParallaxProperties={undefined}
+      >
+        <View
+          accessibilityComponentType={undefined}
+          accessibilityLabel={undefined}
+          accessibilityTraits={undefined}
+          accessible={true}
+          hasTVPreferredFocus={undefined}
+          hitSlop={undefined}
+          isTVSelectable={true}
+          nativeID={undefined}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              undefined,
+            ]
+          }
+          testID="timelog_form_date"
+          tvParallaxProperties={undefined}
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#9E9E9E",
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                  "padding": 19,
+                },
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                Object {
+                  "backgroundColor": "#ffffff",
+                },
+                undefined,
+                Object {
+                  "padding": 12,
+                },
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                false,
+                false,
+              ]
+            }
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              disabled={false}
+              ellipsizeMode="tail"
+              style={
+                Array [
+                  Object {},
+                  undefined,
+                  undefined,
+                  undefined,
+                  undefined,
+                  undefined,
+                  undefined,
+                  undefined,
+                  undefined,
+                  undefined,
+                  Array [
+                    Object {
+                      "color": "white",
+                      "fontSize": 20,
+                    },
+                    undefined,
+                    Object {
+                      "fontSize": 17.5,
+                    },
+                    undefined,
+                    Object {
+                      "color": "grey",
+                    },
+                    undefined,
+                    undefined,
+                  ],
+                ]
+              }
+            >
+              Invalid date
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View>
+      <View
+        style={
+          Array [
+            Object {},
+            undefined,
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {},
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              Array [
+                Object {
+                  "color": "#86939e",
+                  "fontSize": 15,
+                  "fontWeight": "bold",
+                  "marginBottom": 1,
+                  "marginLeft": 20,
+                  "marginRight": 20,
+                  "marginTop": 15,
+                },
+                undefined,
+                undefined,
+              ],
+            ]
+          }
+        >
+          Distance
+          :
+           
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+          }
+        }
       >
         <View
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "#9E9E9E",
-                "flexDirection": "row",
-                "justifyContent": "center",
-                "padding": 19,
+                "borderBottomColor": "#bdc6cf",
+                "borderBottomWidth": 1,
+                "marginLeft": 20,
+                "marginRight": 20,
               },
               undefined,
-              undefined,
-              undefined,
-              undefined,
-              undefined,
-              Object {
-                "backgroundColor": "#ffffff",
-              },
-              undefined,
-              Object {
-                "padding": 12,
-              },
-              undefined,
-              undefined,
-              undefined,
-              undefined,
-              false,
-              false,
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
+          <TextInput
+            editable={true}
+            keyboardType="numeric"
+            onBlur={[Function]}
+            onChangeText={[Function]}
+            onFocus={[Function]}
+            placeholder="Tap to write"
             style={
               Array [
-                Object {},
+                Object {
+                  "color": "#86939e",
+                  "fontSize": 17.5,
+                  "minHeight": 36,
+                  "width": 750,
+                },
                 undefined,
-                undefined,
-                undefined,
-                undefined,
-                undefined,
-                undefined,
-                undefined,
-                undefined,
-                undefined,
-                Array [
-                  Object {
-                    "color": "white",
-                    "fontSize": 20,
-                  },
-                  undefined,
-                  Object {
-                    "fontSize": 17.5,
-                  },
-                  undefined,
-                  Object {
-                    "color": "grey",
-                  },
-                  undefined,
-                  undefined,
-                ],
               ]
             }
-          >
-            Invalid date
-          </Text>
+            testID="timelog_form_distance"
+            underlineColorAndroid="transparent"
+            value=""
+          />
         </View>
       </View>
     </View>
-  </View>
-  <View>
-    <View
-      style={
-        Array [
-          Object {},
-          undefined,
-        ]
-      }
-    >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
+    <View>
+      <View
         style={
           Array [
             Object {},
             undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            Array [
-              Object {
-                "color": "#86939e",
-                "fontSize": 15,
-                "fontWeight": "bold",
-                "marginBottom": 1,
-                "marginLeft": 20,
-                "marginRight": 20,
-                "marginTop": 15,
-              },
-              undefined,
-              undefined,
-            ],
           ]
         }
       >
-        Distance
-        :
-         
-      </Text>
-    </View>
-    <View
-      style={
-        Object {
-          "flexDirection": "row",
-        }
-      }
-    >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {},
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              Array [
+                Object {
+                  "color": "#86939e",
+                  "fontSize": 15,
+                  "fontWeight": "bold",
+                  "marginBottom": 1,
+                  "marginLeft": 20,
+                  "marginRight": 20,
+                  "marginTop": 15,
+                },
+                undefined,
+                undefined,
+              ],
+            ]
+          }
+        >
+          Duration
+          :
+           
+        </Text>
+      </View>
       <View
         style={
-          Array [
-            Object {
-              "borderBottomColor": "#bdc6cf",
-              "borderBottomWidth": 1,
-              "marginLeft": 20,
-              "marginRight": 20,
-            },
-            undefined,
-          ]
+          Object {
+            "flexDirection": "row",
+          }
         }
       >
-        <TextInput
-          editable={true}
-          keyboardType="numeric"
-          onBlur={[Function]}
-          onChangeText={[Function]}
-          onFocus={[Function]}
-          placeholder="Tap to write"
+        <View
           style={
             Array [
               Object {
-                "color": "#86939e",
-                "fontSize": 17.5,
-                "minHeight": 36,
-                "width": 750,
+                "borderBottomColor": "#bdc6cf",
+                "borderBottomWidth": 1,
+                "marginLeft": 20,
+                "marginRight": 20,
               },
               undefined,
             ]
           }
-          testID="timelog_form_distance"
-          underlineColorAndroid="transparent"
-          value=""
-        />
+        >
+          <TextInput
+            editable={true}
+            keyboardType="numeric"
+            onBlur={[Function]}
+            onChangeText={[Function]}
+            onFocus={[Function]}
+            placeholder="Tap to write"
+            style={
+              Array [
+                Object {
+                  "color": "#86939e",
+                  "fontSize": 17.5,
+                  "minHeight": 36,
+                  "width": 750,
+                },
+                undefined,
+              ]
+            }
+            testID="timelog_form_duration"
+            underlineColorAndroid="transparent"
+            value=""
+          />
+        </View>
       </View>
     </View>
-  </View>
-  <View>
-    <View
-      style={
-        Array [
-          Object {},
-          undefined,
-        ]
-      }
-    >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
+    <View>
+      <View
         style={
           Array [
             Object {},
             undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            Array [
-              Object {
-                "color": "#86939e",
-                "fontSize": 15,
-                "fontWeight": "bold",
-                "marginBottom": 1,
-                "marginLeft": 20,
-                "marginRight": 20,
-                "marginTop": 15,
-              },
-              undefined,
-              undefined,
-            ],
           ]
         }
       >
-        Duration
-        :
-         
-      </Text>
-    </View>
-    <View
-      style={
-        Object {
-          "flexDirection": "row",
-        }
-      }
-    >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {},
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              Array [
+                Object {
+                  "color": "#86939e",
+                  "fontSize": 15,
+                  "fontWeight": "bold",
+                  "marginBottom": 1,
+                  "marginLeft": 20,
+                  "marginRight": 20,
+                  "marginTop": 15,
+                },
+                undefined,
+                undefined,
+              ],
+            ]
+          }
+        >
+          latitude
+          :
+           
+        </Text>
+      </View>
       <View
         style={
-          Array [
-            Object {
-              "borderBottomColor": "#bdc6cf",
-              "borderBottomWidth": 1,
-              "marginLeft": 20,
-              "marginRight": 20,
-            },
-            undefined,
-          ]
+          Object {
+            "flexDirection": "row",
+          }
         }
       >
-        <TextInput
-          editable={true}
-          keyboardType="numeric"
-          onBlur={[Function]}
-          onChangeText={[Function]}
-          onFocus={[Function]}
-          placeholder="Tap to write"
+        <View
           style={
             Array [
               Object {
-                "color": "#86939e",
-                "fontSize": 17.5,
-                "minHeight": 36,
-                "width": 750,
+                "borderBottomColor": "#bdc6cf",
+                "borderBottomWidth": 1,
+                "marginLeft": 20,
+                "marginRight": 20,
               },
               undefined,
             ]
           }
-          testID="timelog_form_duration"
-          underlineColorAndroid="transparent"
-          value=""
-        />
+        >
+          <TextInput
+            editable={true}
+            keyboardType="numeric"
+            onBlur={[Function]}
+            onChangeText={[Function]}
+            onFocus={[Function]}
+            placeholder="Tap to write"
+            style={
+              Array [
+                Object {
+                  "color": "#86939e",
+                  "fontSize": 17.5,
+                  "minHeight": 36,
+                  "width": 750,
+                },
+                undefined,
+              ]
+            }
+            testID="timelog_form_latitude"
+            underlineColorAndroid="transparent"
+            value=""
+          />
+        </View>
+      </View>
+    </View>
+    <View>
+      <View
+        style={
+          Array [
+            Object {},
+            undefined,
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {},
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              Array [
+                Object {
+                  "color": "#86939e",
+                  "fontSize": 15,
+                  "fontWeight": "bold",
+                  "marginBottom": 1,
+                  "marginLeft": 20,
+                  "marginRight": 20,
+                  "marginTop": 15,
+                },
+                undefined,
+                undefined,
+              ],
+            ]
+          }
+        >
+          Longitude
+          :
+           
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+          }
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "borderBottomColor": "#bdc6cf",
+                "borderBottomWidth": 1,
+                "marginLeft": 20,
+                "marginRight": 20,
+              },
+              undefined,
+            ]
+          }
+        >
+          <TextInput
+            editable={true}
+            keyboardType="numeric"
+            onBlur={[Function]}
+            onChangeText={[Function]}
+            onFocus={[Function]}
+            placeholder="Tap to write"
+            style={
+              Array [
+                Object {
+                  "color": "#86939e",
+                  "fontSize": 17.5,
+                  "minHeight": 36,
+                  "width": 750,
+                },
+                undefined,
+              ]
+            }
+            testID="timelog_form_longitude"
+            underlineColorAndroid="transparent"
+            value=""
+          />
+        </View>
+      </View>
+    </View>
+    <View
+      accessibilityComponentType="button"
+      accessibilityLabel={undefined}
+      accessibilityTraits={
+        Array [
+          "button",
+        ]
+      }
+      accessible={true}
+      collapsable={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID={undefined}
+      tvParallaxProperties={undefined}
+    >
+      <View
+        style={
+          Array [
+            Object {},
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#0C42FD",
+                "fontSize": 18,
+                "padding": 8,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          Submit
+        </Text>
+      </View>
+    </View>
+    <View
+      accessibilityComponentType="button"
+      accessibilityLabel={undefined}
+      accessibilityTraits={
+        Array [
+          "button",
+        ]
+      }
+      accessible={true}
+      collapsable={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID={undefined}
+      tvParallaxProperties={undefined}
+    >
+      <View
+        style={
+          Array [
+            Object {},
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#0C42FD",
+                "fontSize": 18,
+                "padding": 8,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          Cancel
+        </Text>
       </View>
     </View>
   </View>
-  <View
-    accessibilityComponentType="button"
-    accessibilityLabel={undefined}
-    accessibilityTraits={
-      Array [
-        "button",
-      ]
-    }
-    accessible={true}
-    collapsable={undefined}
-    hitSlop={undefined}
-    isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "opacity": 1,
-      }
-    }
-    testID={undefined}
-    tvParallaxProperties={undefined}
-  >
-    <View
-      style={
-        Array [
-          Object {},
-        ]
-      }
-    >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
-        style={
-          Array [
-            Object {
-              "color": "#0C42FD",
-              "fontSize": 18,
-              "padding": 8,
-              "textAlign": "center",
-            },
-          ]
-        }
-      >
-        Submit
-      </Text>
-    </View>
-  </View>
-  <View
-    accessibilityComponentType="button"
-    accessibilityLabel={undefined}
-    accessibilityTraits={
-      Array [
-        "button",
-      ]
-    }
-    accessible={true}
-    collapsable={undefined}
-    hitSlop={undefined}
-    isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "opacity": 1,
-      }
-    }
-    testID={undefined}
-    tvParallaxProperties={undefined}
-  >
-    <View
-      style={
-        Array [
-          Object {},
-        ]
-      }
-    >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
-        style={
-          Array [
-            Object {
-              "color": "#0C42FD",
-              "fontSize": 18,
-              "padding": 8,
-              "textAlign": "center",
-            },
-          ]
-        }
-      >
-        Cancel
-      </Text>
-    </View>
-  </View>
-</View>
+</RCTScrollView>
 `;
 
 exports[`renders invalid 1`] = `
-<View
-  style={
+<RCTScrollView
+  contentContainerStyle={
     Object {
       "backgroundColor": "#F5FCFF",
-      "flex": 1,
-      "marginTop": 60,
+      "paddingTop": 60,
     }
   }
 >
   <View>
-    <View
-      style={
-        Array [
-          Object {},
-          undefined,
-        ]
-      }
-    >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
+    <View>
+      <View
         style={
           Array [
             Object {},
             undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            Array [
-              Object {
-                "color": "#86939e",
-                "fontSize": 15,
-                "fontWeight": "bold",
-                "marginBottom": 1,
-                "marginLeft": 20,
-                "marginRight": 20,
-                "marginTop": 15,
-              },
-              undefined,
-              undefined,
-            ],
           ]
         }
       >
-        Date
-        :
-      </Text>
-    </View>
-    <View
-      style={
-        Array [
-          Object {
-            "marginLeft": 15,
-            "marginRight": 15,
-          },
-          undefined,
-          undefined,
-        ]
-      }
-    >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {},
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              Array [
+                Object {
+                  "color": "#86939e",
+                  "fontSize": 15,
+                  "fontWeight": "bold",
+                  "marginBottom": 1,
+                  "marginLeft": 20,
+                  "marginRight": 20,
+                  "marginTop": 15,
+                },
+                undefined,
+                undefined,
+              ],
+            ]
+          }
+        >
+          Date
+          :
+        </Text>
+      </View>
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
-        accessible={true}
-        hasTVPreferredFocus={undefined}
-        hitSlop={undefined}
-        isTVSelectable={true}
-        nativeID={undefined}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
         style={
           Array [
             Object {
-              "backgroundColor": "transparent",
+              "marginLeft": 15,
+              "marginRight": 15,
             },
+            undefined,
             undefined,
           ]
         }
-        testID="timelog_form_date"
-        tvParallaxProperties={undefined}
+      >
+        <View
+          accessibilityComponentType={undefined}
+          accessibilityLabel={undefined}
+          accessibilityTraits={undefined}
+          accessible={true}
+          hasTVPreferredFocus={undefined}
+          hitSlop={undefined}
+          isTVSelectable={true}
+          nativeID={undefined}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              undefined,
+            ]
+          }
+          testID="timelog_form_date"
+          tvParallaxProperties={undefined}
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#9E9E9E",
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                  "padding": 19,
+                },
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                Object {
+                  "backgroundColor": "#ffffff",
+                },
+                undefined,
+                Object {
+                  "padding": 12,
+                },
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                false,
+                false,
+              ]
+            }
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              disabled={false}
+              ellipsizeMode="tail"
+              style={
+                Array [
+                  Object {},
+                  undefined,
+                  undefined,
+                  undefined,
+                  undefined,
+                  undefined,
+                  undefined,
+                  undefined,
+                  undefined,
+                  undefined,
+                  Array [
+                    Object {
+                      "color": "white",
+                      "fontSize": 20,
+                    },
+                    undefined,
+                    Object {
+                      "fontSize": 17.5,
+                    },
+                    undefined,
+                    Object {
+                      "color": "grey",
+                    },
+                    undefined,
+                    undefined,
+                  ],
+                ]
+              }
+            >
+              Invalid date
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View>
+      <View
+        style={
+          Array [
+            Object {},
+            undefined,
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {},
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              Array [
+                Object {
+                  "color": "#86939e",
+                  "fontSize": 15,
+                  "fontWeight": "bold",
+                  "marginBottom": 1,
+                  "marginLeft": 20,
+                  "marginRight": 20,
+                  "marginTop": 15,
+                },
+                undefined,
+                undefined,
+              ],
+            ]
+          }
+        >
+          Distance
+          :
+           
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+          }
+        }
       >
         <View
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "#9E9E9E",
-                "flexDirection": "row",
-                "justifyContent": "center",
-                "padding": 19,
+                "borderBottomColor": "#bdc6cf",
+                "borderBottomWidth": 1,
+                "marginLeft": 20,
+                "marginRight": 20,
               },
               undefined,
-              undefined,
-              undefined,
-              undefined,
-              undefined,
-              Object {
-                "backgroundColor": "#ffffff",
-              },
-              undefined,
-              Object {
-                "padding": 12,
-              },
-              undefined,
-              undefined,
-              undefined,
-              undefined,
-              false,
-              false,
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
+          <TextInput
+            editable={true}
+            keyboardType="numeric"
+            onBlur={[Function]}
+            onChangeText={[Function]}
+            onFocus={[Function]}
+            placeholder="Tap to write"
             style={
               Array [
-                Object {},
+                Object {
+                  "color": "#86939e",
+                  "fontSize": 17.5,
+                  "minHeight": 36,
+                  "width": 750,
+                },
                 undefined,
-                undefined,
-                undefined,
-                undefined,
-                undefined,
-                undefined,
-                undefined,
-                undefined,
-                undefined,
-                Array [
-                  Object {
-                    "color": "white",
-                    "fontSize": 20,
-                  },
-                  undefined,
-                  Object {
-                    "fontSize": 17.5,
-                  },
-                  undefined,
-                  Object {
-                    "color": "grey",
-                  },
-                  undefined,
-                  undefined,
-                ],
               ]
             }
-          >
-            Invalid date
-          </Text>
+            testID="timelog_form_distance"
+            underlineColorAndroid="transparent"
+            value=""
+          />
         </View>
       </View>
     </View>
-  </View>
-  <View>
-    <View
-      style={
-        Array [
-          Object {},
-          undefined,
-        ]
-      }
-    >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
+    <View>
+      <View
         style={
           Array [
             Object {},
             undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            Array [
-              Object {
-                "color": "#86939e",
-                "fontSize": 15,
-                "fontWeight": "bold",
-                "marginBottom": 1,
-                "marginLeft": 20,
-                "marginRight": 20,
-                "marginTop": 15,
-              },
-              undefined,
-              undefined,
-            ],
           ]
         }
       >
-        Distance
-        :
-         
-      </Text>
-    </View>
-    <View
-      style={
-        Object {
-          "flexDirection": "row",
-        }
-      }
-    >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {},
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              Array [
+                Object {
+                  "color": "#86939e",
+                  "fontSize": 15,
+                  "fontWeight": "bold",
+                  "marginBottom": 1,
+                  "marginLeft": 20,
+                  "marginRight": 20,
+                  "marginTop": 15,
+                },
+                undefined,
+                undefined,
+              ],
+            ]
+          }
+        >
+          Duration
+          :
+           
+        </Text>
+      </View>
       <View
         style={
-          Array [
-            Object {
-              "borderBottomColor": "#bdc6cf",
-              "borderBottomWidth": 1,
-              "marginLeft": 20,
-              "marginRight": 20,
-            },
-            undefined,
-          ]
+          Object {
+            "flexDirection": "row",
+          }
         }
       >
-        <TextInput
-          editable={true}
-          keyboardType="numeric"
-          onBlur={[Function]}
-          onChangeText={[Function]}
-          onFocus={[Function]}
-          placeholder="Tap to write"
+        <View
           style={
             Array [
               Object {
-                "color": "#86939e",
-                "fontSize": 17.5,
-                "minHeight": 36,
-                "width": 750,
+                "borderBottomColor": "#bdc6cf",
+                "borderBottomWidth": 1,
+                "marginLeft": 20,
+                "marginRight": 20,
               },
               undefined,
             ]
           }
-          testID="timelog_form_distance"
-          underlineColorAndroid="transparent"
-          value=""
-        />
+        >
+          <TextInput
+            editable={true}
+            keyboardType="numeric"
+            onBlur={[Function]}
+            onChangeText={[Function]}
+            onFocus={[Function]}
+            placeholder="Tap to write"
+            style={
+              Array [
+                Object {
+                  "color": "#86939e",
+                  "fontSize": 17.5,
+                  "minHeight": 36,
+                  "width": 750,
+                },
+                undefined,
+              ]
+            }
+            testID="timelog_form_duration"
+            underlineColorAndroid="transparent"
+            value=""
+          />
+        </View>
       </View>
     </View>
-  </View>
-  <View>
-    <View
-      style={
-        Array [
-          Object {},
-          undefined,
-        ]
-      }
-    >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
+    <View>
+      <View
         style={
           Array [
             Object {},
             undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            Array [
-              Object {
-                "color": "#86939e",
-                "fontSize": 15,
-                "fontWeight": "bold",
-                "marginBottom": 1,
-                "marginLeft": 20,
-                "marginRight": 20,
-                "marginTop": 15,
-              },
-              undefined,
-              undefined,
-            ],
           ]
         }
       >
-        Duration
-        :
-         
-      </Text>
-    </View>
-    <View
-      style={
-        Object {
-          "flexDirection": "row",
-        }
-      }
-    >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {},
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              Array [
+                Object {
+                  "color": "#86939e",
+                  "fontSize": 15,
+                  "fontWeight": "bold",
+                  "marginBottom": 1,
+                  "marginLeft": 20,
+                  "marginRight": 20,
+                  "marginTop": 15,
+                },
+                undefined,
+                undefined,
+              ],
+            ]
+          }
+        >
+          latitude
+          :
+           
+        </Text>
+      </View>
       <View
         style={
-          Array [
-            Object {
-              "borderBottomColor": "#bdc6cf",
-              "borderBottomWidth": 1,
-              "marginLeft": 20,
-              "marginRight": 20,
-            },
-            undefined,
-          ]
+          Object {
+            "flexDirection": "row",
+          }
         }
       >
-        <TextInput
-          editable={true}
-          keyboardType="numeric"
-          onBlur={[Function]}
-          onChangeText={[Function]}
-          onFocus={[Function]}
-          placeholder="Tap to write"
+        <View
           style={
             Array [
               Object {
-                "color": "#86939e",
-                "fontSize": 17.5,
-                "minHeight": 36,
-                "width": 750,
+                "borderBottomColor": "#bdc6cf",
+                "borderBottomWidth": 1,
+                "marginLeft": 20,
+                "marginRight": 20,
               },
               undefined,
             ]
           }
-          testID="timelog_form_duration"
-          underlineColorAndroid="transparent"
-          value=""
-        />
+        >
+          <TextInput
+            editable={true}
+            keyboardType="numeric"
+            onBlur={[Function]}
+            onChangeText={[Function]}
+            onFocus={[Function]}
+            placeholder="Tap to write"
+            style={
+              Array [
+                Object {
+                  "color": "#86939e",
+                  "fontSize": 17.5,
+                  "minHeight": 36,
+                  "width": 750,
+                },
+                undefined,
+              ]
+            }
+            testID="timelog_form_latitude"
+            underlineColorAndroid="transparent"
+            value=""
+          />
+        </View>
+      </View>
+    </View>
+    <View>
+      <View
+        style={
+          Array [
+            Object {},
+            undefined,
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {},
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              Array [
+                Object {
+                  "color": "#86939e",
+                  "fontSize": 15,
+                  "fontWeight": "bold",
+                  "marginBottom": 1,
+                  "marginLeft": 20,
+                  "marginRight": 20,
+                  "marginTop": 15,
+                },
+                undefined,
+                undefined,
+              ],
+            ]
+          }
+        >
+          Longitude
+          :
+           
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+          }
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "borderBottomColor": "#bdc6cf",
+                "borderBottomWidth": 1,
+                "marginLeft": 20,
+                "marginRight": 20,
+              },
+              undefined,
+            ]
+          }
+        >
+          <TextInput
+            editable={true}
+            keyboardType="numeric"
+            onBlur={[Function]}
+            onChangeText={[Function]}
+            onFocus={[Function]}
+            placeholder="Tap to write"
+            style={
+              Array [
+                Object {
+                  "color": "#86939e",
+                  "fontSize": 17.5,
+                  "minHeight": 36,
+                  "width": 750,
+                },
+                undefined,
+              ]
+            }
+            testID="timelog_form_longitude"
+            underlineColorAndroid="transparent"
+            value=""
+          />
+        </View>
+      </View>
+    </View>
+    <View
+      accessibilityComponentType="button"
+      accessibilityLabel={undefined}
+      accessibilityTraits={
+        Array [
+          "button",
+        ]
+      }
+      accessible={true}
+      collapsable={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID={undefined}
+      tvParallaxProperties={undefined}
+    >
+      <View
+        style={
+          Array [
+            Object {},
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#0C42FD",
+                "fontSize": 18,
+                "padding": 8,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          Submit
+        </Text>
+      </View>
+    </View>
+    <View
+      accessibilityComponentType="button"
+      accessibilityLabel={undefined}
+      accessibilityTraits={
+        Array [
+          "button",
+        ]
+      }
+      accessible={true}
+      collapsable={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID={undefined}
+      tvParallaxProperties={undefined}
+    >
+      <View
+        style={
+          Array [
+            Object {},
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#0C42FD",
+                "fontSize": 18,
+                "padding": 8,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          Cancel
+        </Text>
       </View>
     </View>
   </View>
-  <View
-    accessibilityComponentType="button"
-    accessibilityLabel={undefined}
-    accessibilityTraits={
-      Array [
-        "button",
-      ]
-    }
-    accessible={true}
-    collapsable={undefined}
-    hitSlop={undefined}
-    isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "opacity": 1,
-      }
-    }
-    testID={undefined}
-    tvParallaxProperties={undefined}
-  >
-    <View
-      style={
-        Array [
-          Object {},
-        ]
-      }
-    >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
-        style={
-          Array [
-            Object {
-              "color": "#0C42FD",
-              "fontSize": 18,
-              "padding": 8,
-              "textAlign": "center",
-            },
-          ]
-        }
-      >
-        Submit
-      </Text>
-    </View>
-  </View>
-  <View
-    accessibilityComponentType="button"
-    accessibilityLabel={undefined}
-    accessibilityTraits={
-      Array [
-        "button",
-      ]
-    }
-    accessible={true}
-    collapsable={undefined}
-    hitSlop={undefined}
-    isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "opacity": 1,
-      }
-    }
-    testID={undefined}
-    tvParallaxProperties={undefined}
-  >
-    <View
-      style={
-        Array [
-          Object {},
-        ]
-      }
-    >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
-        style={
-          Array [
-            Object {
-              "color": "#0C42FD",
-              "fontSize": 18,
-              "padding": 8,
-              "textAlign": "center",
-            },
-          ]
-        }
-      >
-        Cancel
-      </Text>
-    </View>
-  </View>
-</View>
+</RCTScrollView>
 `;
 
 exports[`renders not editing 1`] = `
-<View
-  style={
+<RCTScrollView
+  contentContainerStyle={
     Object {
       "backgroundColor": "#F5FCFF",
-      "flex": 1,
-      "marginTop": 60,
+      "paddingTop": 60,
     }
   }
 >
   <View>
-    <View
-      style={
-        Array [
-          Object {},
-          undefined,
-        ]
-      }
-    >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
+    <View>
+      <View
         style={
           Array [
             Object {},
             undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            Array [
-              Object {
-                "color": "#86939e",
-                "fontSize": 15,
-                "fontWeight": "bold",
-                "marginBottom": 1,
-                "marginLeft": 20,
-                "marginRight": 20,
-                "marginTop": 15,
-              },
-              undefined,
-              undefined,
-            ],
           ]
         }
       >
-        Date
-        :
-      </Text>
-    </View>
-    <View
-      style={
-        Array [
-          Object {
-            "marginLeft": 15,
-            "marginRight": 15,
-          },
-          undefined,
-          undefined,
-        ]
-      }
-    >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {},
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              Array [
+                Object {
+                  "color": "#86939e",
+                  "fontSize": 15,
+                  "fontWeight": "bold",
+                  "marginBottom": 1,
+                  "marginLeft": 20,
+                  "marginRight": 20,
+                  "marginTop": 15,
+                },
+                undefined,
+                undefined,
+              ],
+            ]
+          }
+        >
+          Date
+          :
+        </Text>
+      </View>
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
-        accessible={true}
-        hasTVPreferredFocus={undefined}
-        hitSlop={undefined}
-        isTVSelectable={true}
-        nativeID={undefined}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
         style={
           Array [
             Object {
-              "backgroundColor": "transparent",
+              "marginLeft": 15,
+              "marginRight": 15,
             },
+            undefined,
             undefined,
           ]
         }
-        testID="timelog_form_date"
-        tvParallaxProperties={undefined}
+      >
+        <View
+          accessibilityComponentType={undefined}
+          accessibilityLabel={undefined}
+          accessibilityTraits={undefined}
+          accessible={true}
+          hasTVPreferredFocus={undefined}
+          hitSlop={undefined}
+          isTVSelectable={true}
+          nativeID={undefined}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              undefined,
+            ]
+          }
+          testID="timelog_form_date"
+          tvParallaxProperties={undefined}
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#9E9E9E",
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                  "padding": 19,
+                },
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                Object {
+                  "backgroundColor": "#ffffff",
+                },
+                undefined,
+                Object {
+                  "padding": 12,
+                },
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                Object {
+                  "backgroundColor": "#dadee0",
+                },
+                undefined,
+              ]
+            }
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              disabled={false}
+              ellipsizeMode="tail"
+              style={
+                Array [
+                  Object {},
+                  undefined,
+                  undefined,
+                  undefined,
+                  undefined,
+                  undefined,
+                  undefined,
+                  undefined,
+                  undefined,
+                  undefined,
+                  Array [
+                    Object {
+                      "color": "white",
+                      "fontSize": 20,
+                    },
+                    undefined,
+                    Object {
+                      "fontSize": 17.5,
+                    },
+                    undefined,
+                    Object {
+                      "color": "grey",
+                    },
+                    undefined,
+                    undefined,
+                  ],
+                ]
+              }
+            >
+              Invalid date
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View>
+      <View
+        style={
+          Array [
+            Object {},
+            undefined,
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {},
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              Array [
+                Object {
+                  "color": "#86939e",
+                  "fontSize": 15,
+                  "fontWeight": "bold",
+                  "marginBottom": 1,
+                  "marginLeft": 20,
+                  "marginRight": 20,
+                  "marginTop": 15,
+                },
+                undefined,
+                undefined,
+              ],
+            ]
+          }
+        >
+          Distance
+          :
+           
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+          }
+        }
       >
         <View
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "#9E9E9E",
-                "flexDirection": "row",
-                "justifyContent": "center",
-                "padding": 19,
-              },
-              undefined,
-              undefined,
-              undefined,
-              undefined,
-              undefined,
-              Object {
-                "backgroundColor": "#ffffff",
-              },
-              undefined,
-              Object {
-                "padding": 12,
-              },
-              undefined,
-              undefined,
-              undefined,
-              undefined,
-              Object {
-                "backgroundColor": "#dadee0",
+                "borderBottomColor": "#bdc6cf",
+                "borderBottomWidth": 1,
+                "marginLeft": 20,
+                "marginRight": 20,
               },
               undefined,
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
+          <TextInput
+            editable={false}
+            keyboardType="numeric"
+            onBlur={[Function]}
+            onChangeText={[Function]}
+            onFocus={[Function]}
+            placeholder="Tap to write"
             style={
               Array [
-                Object {},
+                Object {
+                  "color": "#86939e",
+                  "fontSize": 17.5,
+                  "minHeight": 36,
+                  "width": 750,
+                },
                 undefined,
-                undefined,
-                undefined,
-                undefined,
-                undefined,
-                undefined,
-                undefined,
-                undefined,
-                undefined,
-                Array [
-                  Object {
-                    "color": "white",
-                    "fontSize": 20,
-                  },
-                  undefined,
-                  Object {
-                    "fontSize": 17.5,
-                  },
-                  undefined,
-                  Object {
-                    "color": "grey",
-                  },
-                  undefined,
-                  undefined,
-                ],
               ]
             }
-          >
-            Invalid date
-          </Text>
+            testID="timelog_form_distance"
+            underlineColorAndroid="transparent"
+            value=""
+          />
         </View>
       </View>
     </View>
-  </View>
-  <View>
-    <View
-      style={
-        Array [
-          Object {},
-          undefined,
-        ]
-      }
-    >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
+    <View>
+      <View
         style={
           Array [
             Object {},
             undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            Array [
-              Object {
-                "color": "#86939e",
-                "fontSize": 15,
-                "fontWeight": "bold",
-                "marginBottom": 1,
-                "marginLeft": 20,
-                "marginRight": 20,
-                "marginTop": 15,
-              },
-              undefined,
-              undefined,
-            ],
           ]
         }
       >
-        Distance
-        :
-         
-      </Text>
-    </View>
-    <View
-      style={
-        Object {
-          "flexDirection": "row",
-        }
-      }
-    >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {},
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              Array [
+                Object {
+                  "color": "#86939e",
+                  "fontSize": 15,
+                  "fontWeight": "bold",
+                  "marginBottom": 1,
+                  "marginLeft": 20,
+                  "marginRight": 20,
+                  "marginTop": 15,
+                },
+                undefined,
+                undefined,
+              ],
+            ]
+          }
+        >
+          Duration
+          :
+           
+        </Text>
+      </View>
       <View
         style={
-          Array [
-            Object {
-              "borderBottomColor": "#bdc6cf",
-              "borderBottomWidth": 1,
-              "marginLeft": 20,
-              "marginRight": 20,
-            },
-            undefined,
-          ]
+          Object {
+            "flexDirection": "row",
+          }
         }
       >
-        <TextInput
-          editable={false}
-          keyboardType="numeric"
-          onBlur={[Function]}
-          onChangeText={[Function]}
-          onFocus={[Function]}
-          placeholder="Tap to write"
+        <View
           style={
             Array [
               Object {
-                "color": "#86939e",
-                "fontSize": 17.5,
-                "minHeight": 36,
-                "width": 750,
+                "borderBottomColor": "#bdc6cf",
+                "borderBottomWidth": 1,
+                "marginLeft": 20,
+                "marginRight": 20,
               },
               undefined,
             ]
           }
-          testID="timelog_form_distance"
-          underlineColorAndroid="transparent"
-          value=""
-        />
+        >
+          <TextInput
+            editable={false}
+            keyboardType="numeric"
+            onBlur={[Function]}
+            onChangeText={[Function]}
+            onFocus={[Function]}
+            placeholder="Tap to write"
+            style={
+              Array [
+                Object {
+                  "color": "#86939e",
+                  "fontSize": 17.5,
+                  "minHeight": 36,
+                  "width": 750,
+                },
+                undefined,
+              ]
+            }
+            testID="timelog_form_duration"
+            underlineColorAndroid="transparent"
+            value=""
+          />
+        </View>
       </View>
     </View>
-  </View>
-  <View>
-    <View
-      style={
-        Array [
-          Object {},
-          undefined,
-        ]
-      }
-    >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
+    <View>
+      <View
         style={
           Array [
             Object {},
             undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            Array [
-              Object {
-                "color": "#86939e",
-                "fontSize": 15,
-                "fontWeight": "bold",
-                "marginBottom": 1,
-                "marginLeft": 20,
-                "marginRight": 20,
-                "marginTop": 15,
-              },
-              undefined,
-              undefined,
-            ],
           ]
         }
       >
-        Duration
-        :
-         
-      </Text>
-    </View>
-    <View
-      style={
-        Object {
-          "flexDirection": "row",
-        }
-      }
-    >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {},
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              Array [
+                Object {
+                  "color": "#86939e",
+                  "fontSize": 15,
+                  "fontWeight": "bold",
+                  "marginBottom": 1,
+                  "marginLeft": 20,
+                  "marginRight": 20,
+                  "marginTop": 15,
+                },
+                undefined,
+                undefined,
+              ],
+            ]
+          }
+        >
+          latitude
+          :
+           
+        </Text>
+      </View>
       <View
         style={
-          Array [
-            Object {
-              "borderBottomColor": "#bdc6cf",
-              "borderBottomWidth": 1,
-              "marginLeft": 20,
-              "marginRight": 20,
-            },
-            undefined,
-          ]
+          Object {
+            "flexDirection": "row",
+          }
         }
       >
-        <TextInput
-          editable={false}
-          keyboardType="numeric"
-          onBlur={[Function]}
-          onChangeText={[Function]}
-          onFocus={[Function]}
-          placeholder="Tap to write"
+        <View
           style={
             Array [
               Object {
-                "color": "#86939e",
-                "fontSize": 17.5,
-                "minHeight": 36,
-                "width": 750,
+                "borderBottomColor": "#bdc6cf",
+                "borderBottomWidth": 1,
+                "marginLeft": 20,
+                "marginRight": 20,
               },
               undefined,
             ]
           }
-          testID="timelog_form_duration"
-          underlineColorAndroid="transparent"
-          value=""
-        />
+        >
+          <TextInput
+            editable={false}
+            keyboardType="numeric"
+            onBlur={[Function]}
+            onChangeText={[Function]}
+            onFocus={[Function]}
+            placeholder="Tap to write"
+            style={
+              Array [
+                Object {
+                  "color": "#86939e",
+                  "fontSize": 17.5,
+                  "minHeight": 36,
+                  "width": 750,
+                },
+                undefined,
+              ]
+            }
+            testID="timelog_form_latitude"
+            underlineColorAndroid="transparent"
+            value=""
+          />
+        </View>
       </View>
     </View>
-  </View>
-  <View
-    accessibilityComponentType="button"
-    accessibilityLabel={undefined}
-    accessibilityTraits={
-      Array [
-        "button",
-      ]
-    }
-    accessible={true}
-    collapsable={undefined}
-    hitSlop={undefined}
-    isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "opacity": 1,
-      }
-    }
-    testID={undefined}
-    tvParallaxProperties={undefined}
-  >
-    <View
-      style={
-        Array [
-          Object {},
-        ]
-      }
-    >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
+    <View>
+      <View
         style={
           Array [
-            Object {
-              "color": "#0C42FD",
-              "fontSize": 18,
-              "padding": 8,
-              "textAlign": "center",
-            },
+            Object {},
+            undefined,
           ]
         }
       >
-        Submit
-      </Text>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {},
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              Array [
+                Object {
+                  "color": "#86939e",
+                  "fontSize": 15,
+                  "fontWeight": "bold",
+                  "marginBottom": 1,
+                  "marginLeft": 20,
+                  "marginRight": 20,
+                  "marginTop": 15,
+                },
+                undefined,
+                undefined,
+              ],
+            ]
+          }
+        >
+          Longitude
+          :
+           
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+          }
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "borderBottomColor": "#bdc6cf",
+                "borderBottomWidth": 1,
+                "marginLeft": 20,
+                "marginRight": 20,
+              },
+              undefined,
+            ]
+          }
+        >
+          <TextInput
+            editable={false}
+            keyboardType="numeric"
+            onBlur={[Function]}
+            onChangeText={[Function]}
+            onFocus={[Function]}
+            placeholder="Tap to write"
+            style={
+              Array [
+                Object {
+                  "color": "#86939e",
+                  "fontSize": 17.5,
+                  "minHeight": 36,
+                  "width": 750,
+                },
+                undefined,
+              ]
+            }
+            testID="timelog_form_longitude"
+            underlineColorAndroid="transparent"
+            value=""
+          />
+        </View>
+      </View>
+    </View>
+    <View
+      accessibilityComponentType="button"
+      accessibilityLabel={undefined}
+      accessibilityTraits={
+        Array [
+          "button",
+        ]
+      }
+      accessible={true}
+      collapsable={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID={undefined}
+      tvParallaxProperties={undefined}
+    >
+      <View
+        style={
+          Array [
+            Object {},
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#0C42FD",
+                "fontSize": 18,
+                "padding": 8,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          Submit
+        </Text>
+      </View>
     </View>
   </View>
-</View>
+</RCTScrollView>
 `;
