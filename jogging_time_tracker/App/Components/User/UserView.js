@@ -8,6 +8,7 @@ import {
   ProgressViewIOS,
 } from 'react-native'
 import { Field } from 'redux-form'
+import Spinner from 'react-native-loading-spinner-overlay'
 
 import {
   required,
@@ -85,7 +86,7 @@ const UserView = (props: Props) => {
     selectRole = null
   }
 
-  let imageComp
+  let imageComp = null
   if (imageURL === '') {
     imageComp = <Image style={styles.image} source={placeHolder} />
   } else {
@@ -94,7 +95,7 @@ const UserView = (props: Props) => {
 
   let progress = null
   if (uploading) {
-    progress = <ProgressViewIOS />
+    progress = <Spinner visible textContent="Uploading ..." />
   }
 
   return (

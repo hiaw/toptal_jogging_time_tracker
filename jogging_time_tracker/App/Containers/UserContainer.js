@@ -19,7 +19,6 @@ const UserEditor = compose(
       const { email, roles, imageURL } = props.user
       return {
         ...props,
-        imageURL: imageURL ? imageURL : '',
         initialValues: {
           email,
           role: roles[0],

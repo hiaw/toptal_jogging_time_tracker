@@ -17,7 +17,7 @@ const UserImageHOC = compose(
   withState('imageURL', 'setImageURL', ''),
   withHandlers({
     uploadImage: props => source => {
-      const { setUploading, setImageURL, user: { _id } } = props
+      const { setUploading, user: { _id } } = props
 
       const file = {
         uri: source,
@@ -37,7 +37,6 @@ const UserImageHOC = compose(
       RNS3.put(file, options).then(response => {
         if (response.status !== 201)
           throw new Error('Failed to upload image to S3')
-        setImageURL(response.body.postResponse.location)
         setUploading(false)
       })
     },
@@ -61,7 +60,7 @@ const UserImageHOC = compose(
   }),
   withHandlers({
     pickImage: props => () => {
-      const { setUploading, resizeImage } = props
+      const { setUploading, setImageURL, resizeImage } = props
       ImagePicker.showImagePicker(imagePickerOptions, response => {
         if (response.didCancel) {
           console.log('User cancelled image picker')
@@ -70,9 +69,10 @@ const UserImageHOC = compose(
         } else if (response.customButton) {
           console.log('User tapped custom button: ', response.customButton)
         } else {
+          setUploading(true)
           const path = Platform.OS === 'ios' ? 'file://' : ''
           const source = response.uri.replace(path, '')
-          setUploading(true)
+          setImageURL(source)
           resizeImage(source)
         }
       })
