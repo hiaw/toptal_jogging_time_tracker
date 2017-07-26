@@ -99,3 +99,72 @@ it('renders admin', () => {
     .toJSON()
   expect(tree).toMatchSnapshot()
 })
+
+it('renders user', () => {
+  const tree = renderer
+    .create(
+      <Provider store={store}>
+        <Decorated
+          buttonText="Submit"
+          role="user"
+          valid={false}
+          newEntry={false}
+          editing={false}
+          alterEditing={noop}
+          handleSubmit={noop}
+          onSubmit={noop}
+          deleteTimeLog={noop}
+          cancelEditing={noop}
+        />
+      </Provider>,
+    )
+    .toJSON()
+  expect(tree).toMatchSnapshot()
+})
+
+it('renders empty image', () => {
+  const tree = renderer
+    .create(
+      <Provider store={store}>
+        <Decorated
+          buttonText="Submit"
+          role="user"
+          valid={false}
+          newEntry={false}
+          editing={false}
+          alterEditing={noop}
+          handleSubmit={noop}
+          onSubmit={noop}
+          deleteTimeLog={noop}
+          cancelEditing={noop}
+          imageURL=""
+          uploading={true}
+        />
+      </Provider>,
+    )
+    .toJSON()
+  expect(tree).toMatchSnapshot()
+})
+
+it('renders some image', () => {
+  const tree = renderer
+    .create(
+      <Provider store={store}>
+        <Decorated
+          buttonText="Submit"
+          role="user"
+          valid={false}
+          newEntry={false}
+          editing={false}
+          alterEditing={noop}
+          handleSubmit={noop}
+          onSubmit={noop}
+          deleteTimeLog={noop}
+          cancelEditing={noop}
+          imageURL="someimage"
+        />
+      </Provider>,
+    )
+    .toJSON()
+  expect(tree).toMatchSnapshot()
+})
