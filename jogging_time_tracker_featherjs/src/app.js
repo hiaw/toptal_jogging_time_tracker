@@ -1,53 +1,37 @@
-const path = require('path');
-const favicon = require('serve-favicon');
-const compress = require('compression');
-const cors = require('cors');
-const helmet = require('helmet');
-const bodyParser = require('body-parser');
+'use strict'
 
-const feathers = require('feathers');
-const configuration = require('feathers-configuration');
-const hooks = require('feathers-hooks');
-const rest = require('feathers-rest');
+const path = require('path')
+const serveStatic = require('feathers').static
+const favicon = require('serve-favicon')
+const compress = require('compression')
+const cors = require('cors')
+const feathers = require('feathers')
+const configuration = require('feathers-configuration')
+const hooks = require('feathers-hooks')
+const rest = require('feathers-rest')
+const bodyParser = require('body-parser')
+const socketio = require('feathers-socketio')
+const middleware = require('./middleware')
+const services = require('./services')
+const seed = require('./seeder.js')
 
+const app = feathers()
 
-const handler = require('feathers-errors/handler');
-const notFound = require('feathers-errors/not-found');
+app.configure(configuration(path.join(__dirname, '..')))
 
-const middleware = require('./middleware');
-const services = require('./services');
-const appHooks = require('./app.hooks');
+app.use(compress())
+  .options('*', cors())
+  .use(cors())
+  .use(favicon(path.join(app.get('public'), 'favicon.ico')))
+  .use('/', serveStatic(app.get('public')))
+  .use(bodyParser.json())
+  .use(bodyParser.urlencoded({ extended: true }))
+  .configure(hooks())
+  .configure(rest())
+  .configure(socketio())
+  .configure(services)
+  .configure(middleware)
 
-const authentication = require('./authentication');
+seed(app)
 
-const app = feathers();
-
-// Load app configuration
-app.configure(configuration());
-// Enable CORS, security, compression, favicon and body parsing
-app.use(cors());
-app.use(helmet());
-app.use(compress());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(favicon(path.join(app.get('public'), 'favicon.ico')));
-// Host the public folder
-app.use('/', feathers.static(app.get('public')));
-
-// Set up Plugins and providers
-app.configure(hooks());
-app.configure(rest());
-
-
-// Configure other middleware (see `middleware/index.js`)
-app.configure(middleware);
-app.configure(authentication);
-// Set up our services (see `services/index.js`)
-app.configure(services);
-// Configure a middleware for 404s and the error handler
-app.use(notFound());
-app.use(handler());
-
-app.hooks(appHooks);
-
-module.exports = app;
+module.exports = app

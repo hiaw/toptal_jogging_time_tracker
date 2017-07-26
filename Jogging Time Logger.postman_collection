@@ -1,0 +1,327 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Jogging Time Logger",
+		"_postman_id": "431b4d9a-c5b7-6fbb-e23c-0b22019c425b",
+		"description": "A collection of API calls for the FeathersJS chat guide at https://docs.feathersjs.com/guides/chat/readme.html",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Admin User",
+			"description": "",
+			"item": [
+				{
+					"name": "2. Creating a token copy",
+					"request": {
+						"url": "http://localhost:3030/auth/local",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"type\": \"local\",\n\t\"email\": \"admin@test.com\",\n\t\"password\": \"123456\"\n}"
+						},
+						"description": "For https://docs.feathersjs.com/guides/chat/authentication.html"
+					},
+					"response": []
+				},
+				{
+					"name": "8. Update a user",
+					"request": {
+						"url": "http://localhost:3030/users/2i4oBvCiZUwe0tJk",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfaWQiOiJFaURuZXZ5STB5QmNBOWQ2IiwiaWF0IjoxNTAwOTcxNzE3LCJleHAiOjE1MDEwNTgxMTcsImlzcyI6ImZlYXRoZXJzIn0.aLbBTawj9_o8hHOD-EYTr3CUX3fsJd1gCjqpiIygiEY",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"newUser@test.com\"\n}"
+						},
+						"description": "For https://docs.feathersjs.com/guides/chat/service.html"
+					},
+					"response": []
+				},
+				{
+					"name": "9. Delete a user",
+					"request": {
+						"url": "http://localhost:3030/users/2i4oBvCiZUwe0tJk",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfaWQiOiJFaURuZXZ5STB5QmNBOWQ2IiwiaWF0IjoxNTAwOTcxNzE3LCJleHAiOjE1MDEwNTgxMTcsImlzcyI6ImZlYXRoZXJzIn0.aLbBTawj9_o8hHOD-EYTr3CUX3fsJd1gCjqpiIygiEY",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"distance\": 500,\n\t\"duration\": 40\n}"
+						},
+						"description": "For https://docs.feathersjs.com/guides/chat/service.html"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "All Users",
+			"description": "",
+			"item": [
+				{
+					"name": "2. Creating a token",
+					"request": {
+						"url": "http://localhost:3030/auth/local",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"type\": \"local\",\n\t\"email\": \"user1@test.com\",\n\t\"password\": \"123456\"\n}"
+						},
+						"description": "For https://docs.feathersjs.com/guides/chat/authentication.html"
+					},
+					"response": []
+				},
+				{
+					"name": "3. Create a new timelog",
+					"request": {
+						"url": "http://localhost:3030/timelogs",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfaWQiOiIyaTRvQnZDaVpVd2UwdEprIiwiaWF0IjoxNTAwOTcwNTE0LCJleHAiOjE1MDEwNTY5MTQsImlzcyI6ImZlYXRoZXJzIn0.zCmVD1H4wHJVcoNvHGUcOQQbzxViQAypMv3ln-tBLdw",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"distance\": 500,\n\t\"duration\": 40,\n\t\"owner\": \"f85Gx7Jh0ypHpoqH\"\n}"
+						},
+						"description": "For https://docs.feathersjs.com/guides/chat/service.html"
+					},
+					"response": []
+				},
+				{
+					"name": "4. List all timelogs",
+					"request": {
+						"url": "http://localhost:3030/timelogs",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfaWQiOiIyaTRvQnZDaVpVd2UwdEprIiwiaWF0IjoxNTAwOTcwNTE0LCJleHAiOjE1MDEwNTY5MTQsImlzcyI6ImZlYXRoZXJzIn0.zCmVD1H4wHJVcoNvHGUcOQQbzxViQAypMv3ln-tBLdw",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Postman\",\n\t\"text\": \"Hello from Postman\"\n}"
+						},
+						"description": "For https://docs.feathersjs.com/guides/chat/service.html"
+					},
+					"response": []
+				},
+				{
+					"name": "5. List all timelogs using date filter",
+					"request": {
+						"url": {
+							"raw": "http://localhost:3030/timelogs?distance[$lt]=1200",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"timelogs"
+							],
+							"query": [
+								{
+									"key": "distance[$lt]",
+									"value": "1200",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfaWQiOiIyaTRvQnZDaVpVd2UwdEprIiwiaWF0IjoxNTAwOTcwNTE0LCJleHAiOjE1MDEwNTY5MTQsImlzcyI6ImZlYXRoZXJzIn0.zCmVD1H4wHJVcoNvHGUcOQQbzxViQAypMv3ln-tBLdw",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Postman\",\n\t\"text\": \"Hello from Postman\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "6. Update a timelog",
+					"request": {
+						"url": "http://localhost:3030/timelogs/CfoFLR0TN0tHyube",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfaWQiOiIyaTRvQnZDaVpVd2UwdEprIiwiaWF0IjoxNTAwOTcwNTE0LCJleHAiOjE1MDEwNTY5MTQsImlzcyI6ImZlYXRoZXJzIn0.zCmVD1H4wHJVcoNvHGUcOQQbzxViQAypMv3ln-tBLdw",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"distance\": 500,\n\t\"duration\": 40\n}"
+						},
+						"description": "For https://docs.feathersjs.com/guides/chat/service.html"
+					},
+					"response": []
+				},
+				{
+					"name": "7. Delete a timelog",
+					"request": {
+						"url": "http://localhost:3030/timelogs/IQiVazoimyVHxL1o",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfaWQiOiIyaTRvQnZDaVpVd2UwdEprIiwiaWF0IjoxNTAwOTcwNTE0LCJleHAiOjE1MDEwNTY5MTQsImlzcyI6ImZlYXRoZXJzIn0.zCmVD1H4wHJVcoNvHGUcOQQbzxViQAypMv3ln-tBLdw",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"distance\": 500,\n\t\"duration\": 40\n}"
+						},
+						"description": "For https://docs.feathersjs.com/guides/chat/service.html"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "1. Create a user",
+			"request": {
+				"url": "http://localhost:3030/users",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"user3@test.com\",\n  \"password\": \"123456\"\n}"
+				},
+				"description": "For https://docs.feathersjs.com/guides/chat/authentication.html"
+			},
+			"response": []
+		}
+	]
+}
