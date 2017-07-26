@@ -5,6 +5,7 @@ import { reduxForm } from 'redux-form'
 import { Actions } from 'react-native-router-flux'
 
 import UserView from '../Components/User/UserView.js'
+import UserImageHOC from './UserImageHOC.js'
 
 const catchError = err => {
   console.log(err.message)
@@ -12,9 +13,10 @@ const catchError = err => {
 }
 
 const UserEditor = compose(
+  UserImageHOC,
   mapProps(props => {
     if (!props.newEntry) {
-      const { email, roles } = props.user
+      const { email, roles, imageURL } = props.user
       return {
         ...props,
         initialValues: {
@@ -62,14 +64,19 @@ const UserEditor = compose(
       ])
     },
     onSubmit: props => values => {
-      const { newEntry, user, app } = props
+      const { newEntry, user, app, imageURL } = props
       const { email, password, role } = values
       const newValues = {
         email: email.toLowerCase(),
-        roles: [role.toLowerCase()],
       }
-      if (password != '') {
+      if (role && role !== '') {
+        newValues.roles = [role.toLowerCase()]
+      }
+      if (password && password !== '') {
         newValues.password = password
+      }
+      if (imageURL && imageURL !== '') {
+        newValues.imageURL = imageURL
       }
 
       if (newEntry) {

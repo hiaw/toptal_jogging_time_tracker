@@ -1,7 +1,14 @@
 /* @flow*/
 import React from 'react'
-import { View, Button } from 'react-native'
+import {
+  Image,
+  View,
+  TouchableHighlight,
+  Button,
+  ProgressViewIOS,
+} from 'react-native'
 import { Field } from 'redux-form'
+import Spinner from 'react-native-loading-spinner-overlay'
 
 import {
   required,
@@ -10,13 +17,22 @@ import {
   maxLength,
 } from '../../Helper/Validators.js'
 
+import BottomButtons from './BottomButtons.js'
 import FormFieldText from '../Common/FormFieldText.js'
 import FormFieldSelect from '../Common/FormFieldSelect.js'
 import type { Props } from '../TimeRow/TimeLogView.js'
 
+const placeHolder = require('../../Images/no_image_placeholder.png')
+
 const styles = {
   container: {
     marginTop: 65,
+  },
+  image: {
+    alignSelf: 'center',
+    width: 100,
+    height: 100,
+    resizeMode: 'contain',
   },
 }
 
@@ -37,43 +53,49 @@ const options = [
 
 const UserView = (props: Props) => {
   const {
+    uploading,
+    imageURL,
     role,
-    buttonText,
     valid,
     newEntry,
     editing,
-    alterEditing,
     handleSubmit,
     onSubmit,
-    deleteUser,
-    cancelEditing,
+    pickImage,
     showTimelogs,
   } = props
-
-  let submitButton = null
-  if (editing || newEntry) {
-    submitButton = (
-      <Button
-        disabled={!valid}
-        onPress={handleSubmit(onSubmit)}
-        title="Submit"
-      />
-    )
-  }
-
-  let editButton = <Button onPress={alterEditing} title={buttonText} />
-  let deleteButton = null
-  if (editing) {
-    deleteButton = <Button onPress={deleteUser} title="Delete" />
-  }
-  if (newEntry) {
-    deleteButton = <Button onPress={cancelEditing} title="Cancel" />
-    editButton = null
-  }
 
   let showTimelogsButton = null
   if (role === 'admin') {
     showTimelogsButton = <Button onPress={showTimelogs} title="Show Timelogs" />
+  }
+
+  const enableInput = editing || newEntry
+  const disableInput = !enableInput
+
+  let selectRole = (
+    <Field
+      component={FormFieldSelect}
+      name="role"
+      title="ROLE"
+      editable={enableInput}
+      options={options}
+    />
+  )
+  if (role === 'user') {
+    selectRole = null
+  }
+
+  let imageComp = null
+  if (imageURL === '') {
+    imageComp = <Image style={styles.image} source={placeHolder} />
+  } else {
+    imageComp = <Image style={styles.image} source={{ uri: imageURL }} />
+  }
+
+  let progress = null
+  if (uploading) {
+    progress = <Spinner visible textContent="Uploading ..." />
   }
 
   return (
@@ -84,7 +106,7 @@ const UserView = (props: Props) => {
         component={FormFieldText}
         name="email"
         title="EMAIL"
-        editable={editing || newEntry}
+        editable={enableInput}
         validate={[required, email, minLength(2), maxLength(30)]}
       />
       <Field
@@ -92,19 +114,15 @@ const UserView = (props: Props) => {
         name="password"
         title="PASSWORD"
         secureTextEntry
-        editable={editing || newEntry}
+        editable={enableInput}
         validate={[minLength(2), maxLength(30)]}
       />
-      <Field
-        component={FormFieldSelect}
-        name="role"
-        title="ROLE"
-        editable={editing || newEntry}
-        options={options}
-      />
-      {editButton}
-      {submitButton}
-      {deleteButton}
+      {progress}
+      <TouchableHighlight disabled={disableInput} onPress={pickImage}>
+        {imageComp}
+      </TouchableHighlight>
+      {selectRole}
+      <BottomButtons {...props} />
     </View>
   )
 }

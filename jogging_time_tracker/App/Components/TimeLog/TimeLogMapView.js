@@ -15,7 +15,7 @@ const TimeLogMapView = (props: NewProps) => {
   const latitudeDelta = 0.1
   const longitudeDelta = 0.1
 
-  if (coordinate.latitude && coordinate.longitude) {
+  if (coordinate && coordinate.latitude && coordinate.longitude) {
     const { latitude, longitude } = coordinate
     return (
       <MapView
