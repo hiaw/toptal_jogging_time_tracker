@@ -22,6 +22,12 @@
 
 ## Mobile app
 
+### *Important* AWS access key
+
+Please change the aws access key in `jogging_time_tracker/App/Containers/UserImageHOC.js`
+
+### Run App
+
 Install `react-native`. To launch in iOS or Android,
 
 ```

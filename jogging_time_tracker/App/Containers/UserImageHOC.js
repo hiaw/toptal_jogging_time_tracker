@@ -33,8 +33,8 @@ const UserImageHOC = compose(
         keyPrefix: 'uploads/',
         bucket: 'toptal-jogging-timelogger',
         region: 'ap-southeast-2',
-        accessKey: 'AKIAIDQZRFHOIUE7SL5A',
-        secretKey: '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',
+        accessKey: '',
+        secretKey: '',
         successActionStatus: 201,
       }
 
