@@ -71,6 +71,8 @@ const UserEditor = compose(
       }
       if (role && role !== '') {
         newValues.roles = [role.toLowerCase()]
+      } else {
+        newValues.roles = []
       }
       if (password && password !== '') {
         newValues.password = password
